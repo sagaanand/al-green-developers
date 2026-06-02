@@ -105,7 +105,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
               className="w-14 h-14 object-contain group-hover:scale-105 transition-transform duration-300"
             />
             <div className="text-center">
-              <span className="block font-serif text-lg tracking-[0.25em] font-black text-white group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'Bodoni MT', serif" }}>
+              <span className="block font-serif text-lg tracking-[0.25em] font-normal text-white group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'Bodoni MT', serif" }}>
                 ACCENTURE
               </span>
               <span className="block font-serif text-lg tracking-[0.25em] font-black text-[#BAA360] group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'Bodoni MT', serif" }}>
@@ -252,7 +252,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   className="w-10 h-10 object-contain"
                 />
                 <div className="text-center">
-                  <span className="block font-serif text-sm tracking-[0.2em] font-bold text-white" style={{ fontFamily: "'Bodoni MT', serif" }}>
+                  <span className="block font-serif text-sm tracking-[0.2em] font-normal text-white" style={{ fontFamily: "'Bodoni MT', serif" }}>
                     ACCENTURE
                   </span>
                   <span className="block font-serif text-sm tracking-[0.2em] font-bold text-[#BAA360]" style={{ fontFamily: "'Bodoni MT', serif" }}>

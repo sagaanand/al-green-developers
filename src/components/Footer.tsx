@@ -28,7 +28,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
                 className="w-14 h-14 object-contain group-hover:scale-105 transition-transform duration-300"
               />
               <div className="text-center">
-                <span className="block font-serif text-lg tracking-[0.15em] font-extrabold text-white group-hover:text-gold transition-colors" style={{ fontFamily: "'Bodoni MT', serif" }}>
+                <span className="block font-serif text-lg tracking-[0.15em] font-normal text-white group-hover:text-gold transition-colors" style={{ fontFamily: "'Bodoni MT', serif" }}>
                   ACCENTURE
                 </span>
                 <span className="block font-serif text-lg tracking-[0.15em] font-extrabold text-[#BAA360] group-hover:text-gold transition-colors" style={{ fontFamily: "'Bodoni MT', serif" }}>
