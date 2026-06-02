@@ -1,4 +1,5 @@
 import { Mail, Landmark, Compass, FolderKanban, Shield, KeyRound, ArrowUpRight } from "lucide-react";
+import logoIcon from "../assets/logo-icon.png";
 
 interface FooterProps {
   onScrollToSection: (id: string) => void;
@@ -21,15 +22,17 @@ export default function Footer({ onScrollToSection }: FooterProps) {
               onClick={() => onScrollToSection("hero")}
               className="flex items-center gap-3 cursor-pointer text-left group"
             >
-              <div className="w-10 h-10 flex items-center justify-center border border-gold rounded-full transform group-hover:rotate-45 transition-transform duration-700">
-                <span className="font-mono text-gold font-bold text-sm">AI</span>
-              </div>
-              <div>
-                <span className="block font-display text-lg tracking-[0.15em] font-extrabold text-white group-hover:text-gold transition-colors">
-                  ACCENTURE INFRA
+              <img 
+                src={logoIcon} 
+                alt="Logo Icon" 
+                className="w-14 h-14 object-contain group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="text-center">
+                <span className="block font-serif text-lg tracking-[0.15em] font-extrabold text-white group-hover:text-gold transition-colors" style={{ fontFamily: "'Bodoni MT', serif" }}>
+                  ACCENTURE
                 </span>
-                <span className="block text-[8px] font-mono tracking-[0.3em] text-neutral-400 font-mono">
-                  ECOSYSTEM DEVELOPER
+                <span className="block font-serif text-lg tracking-[0.15em] font-extrabold text-[#BAA360] group-hover:text-gold transition-colors" style={{ fontFamily: "'Bodoni MT', serif" }}>
+                  INFRA
                 </span>
               </div>
             </button>
@@ -53,7 +56,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
               {[
                 { id: "philosophy", label: "ABOUT MANIFESTO", icon: Compass },
                 { id: "developments", label: "BUSINESS DEVELOPMENTS", icon: FolderKanban },
-                { id: "intelligence", label: "CORRIDOR INTELLIGENCE", icon: Shield },
+                { id: "timeline", label: "TRANSPARENCY TIMELINE", icon: Shield },
                 { id: "investors", label: "INVESTOR CENTRE", icon: Landmark },
                 { id: "visit", label: "SCHEDULE EXPERIENCES", icon: KeyRound },
               ].map((item) => {

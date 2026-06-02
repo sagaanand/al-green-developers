@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Shield, Sparkles, FolderKanban, FileText, CalendarCheck, User, X, Menu, ChevronDown, Landmark, Waves, Warehouse, Volume2 } from "lucide-react";
+import { Shield, Sparkles, FolderKanban, FileText, CalendarCheck, User, X, Menu, ChevronDown, Waves, Warehouse } from "lucide-react";
+import logoIcon from "../assets/logo-icon.png";
 
 interface HeaderProps {
   onScrollToSection: (id: string) => void;
@@ -13,14 +14,26 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 50);
+      
+      // Hide header when scrolling up, show when scrolling down
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const navDropdowns = {
     developments: {
@@ -52,8 +65,6 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
 
   const simpleNavItems = [
     { id: "philosophy", label: "About", icon: Sparkles },
-    { id: "investors", label: "Investors", icon: Landmark },
-    { id: "timeline", label: "Media Centre", icon: Volume2 },
     { id: "visit", label: "Contact", icon: CalendarCheck }
   ];
 
@@ -71,6 +82,8 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
       <header
         id="main-nav-header"
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+          isVisible ? "translate-y-0" : "-translate-y-full"
+        } ${
           isScrolled
             ? "bg-[#24421E]/95 backdrop-blur-md border-b border-white/10 py-4 shadow-sm"
             : "bg-transparent py-6"
@@ -86,16 +99,17 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
             }}
             className="flex items-center gap-3 group text-left cursor-pointer"
           >
-            <div className="relative w-10 h-10 flex items-center justify-center">
-              <div className="absolute inset-0 border border-white/20 group-hover:border-gold rounded-full transform group-hover:rotate-45 transition-transform duration-700" />
-              <span className="font-mono text-white group-hover:text-gold font-bold text-sm">AI</span>
-            </div>
-            <div>
-              <span className="block font-display text-base tracking-[0.25em] font-black text-white group-hover:text-gold transition-colors duration-300">
-                ACCENTURE INFRA
+            <img 
+              src={logoIcon} 
+              alt="Logo Icon" 
+              className="w-14 h-14 object-contain group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="text-center">
+              <span className="block font-serif text-lg tracking-[0.25em] font-black text-white group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'Bodoni MT', serif" }}>
+                ACCENTURE
               </span>
-              <span className="block text-[8px] font-mono tracking-[0.3em] text-[#BAA360] font-bold">
-                ECOSYSTEM DEVELOPER
+              <span className="block font-serif text-lg tracking-[0.25em] font-black text-[#BAA360] group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'Bodoni MT', serif" }}>
+                INFRA
               </span>
             </div>
           </button>
@@ -111,7 +125,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
               }}
               className="group py-2 flex items-center gap-1 cursor-pointer"
             >
-              <span className={`text-[11px] font-mono tracking-wider uppercase transition-colors ${activeSection === "hero" ? "text-gold font-bold" : "text-white/80 group-hover:text-white"}`}>
+              <span className={`text-sm font-mono tracking-wider uppercase transition-colors ${activeSection === "hero" ? "text-gold font-bold" : "text-white/80 group-hover:text-white"}`}>
                 Home
               </span>
             </button>
@@ -128,7 +142,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                 >
                   <button
                     id={`nav-dropdown-trigger-${key}`}
-                    className="flex items-center gap-1 text-[11px] font-mono tracking-wider uppercase text-white/80 hover:text-white transition-colors cursor-pointer"
+                    className="flex items-center gap-1 text-sm font-mono tracking-wider uppercase text-white/80 hover:text-white transition-colors cursor-pointer"
                   >
                     <span>{value.label}</span>
                     <ChevronDown className="w-3 h-3 text-white/50 transition-transform group-hover:rotate-180" />
@@ -151,10 +165,10 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                             onClick={() => handleDropdownItemClick(item)}
                             className="w-full text-left p-2 hover:bg-[#24421E]/60 rounded border border-transparent hover:border-gold/30 transition-all cursor-pointer group"
                           >
-                            <span className="block text-xs font-mono uppercase tracking-wider text-white group-hover:text-gold transition-colors">
+                            <span className="block text-sm font-mono uppercase tracking-wider text-white group-hover:text-gold transition-colors">
                               {item.label}
                             </span>
-                            <span className="block text-[9px] text-white/60 font-sans mt-0.5">
+                            <span className="block text-xs text-white/60 font-sans mt-0.5">
                               {item.desc}
                             </span>
                           </button>
@@ -180,7 +194,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   className="relative group py-2 flex items-center gap-1 cursor-pointer"
                 >
                   <span
-                    className={`text-[11px] font-mono tracking-wider uppercase transition-colors ${
+                    className={`text-sm font-mono tracking-wider uppercase transition-colors ${
                       isActive ? "text-gold font-bold" : "text-white/80 group-hover:text-white"
                     }`}
                   >
@@ -201,7 +215,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
             <button
               id="header-hero-cta"
               onClick={() => onScrollToSection("visit")}
-              className="hidden sm:flex px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-gold to-[#A0814C] hover:from-gold-light hover:to-gold text-xs font-mono tracking-widest uppercase text-black font-semibold shadow-lg shadow-gold/10 transition-all active:scale-[0.98] cursor-pointer"
+              className="hidden sm:flex px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-gold to-[#A0814C] hover:from-gold-light hover:to-gold text-sm font-mono tracking-widest uppercase text-black font-semibold shadow-lg shadow-gold/10 transition-all active:scale-[0.98] cursor-pointer"
             >
               Private Tour
             </button>
@@ -232,12 +246,19 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
             {/* Top Bar inside Drawer */}
             <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 flex items-center justify-center border border-white/30 rounded-full">
-                  <span className="font-mono text-white font-bold text-sm">AI</span>
+                <img 
+                  src={logoIcon} 
+                  alt="Logo Icon" 
+                  className="w-10 h-10 object-contain"
+                />
+                <div className="text-center">
+                  <span className="block font-serif text-sm tracking-[0.2em] font-bold text-white" style={{ fontFamily: "'Bodoni MT', serif" }}>
+                    ACCENTURE
+                  </span>
+                  <span className="block font-serif text-sm tracking-[0.2em] font-bold text-[#BAA360]" style={{ fontFamily: "'Bodoni MT', serif" }}>
+                    INFRA
+                  </span>
                 </div>
-                <span className="font-display text-base tracking-[0.2em] font-bold text-white">
-                  ACCENTURE INFRA
-                </span>
               </div>
               <button
                 id="mobile-menu-close"
@@ -253,7 +274,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
             <div className="px-8 py-6 flex flex-col gap-5 overflow-y-auto grow">
               {/* Core Verticals */}
               <div className="space-y-4">
-                <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-[#FAFBF9]/60 block mb-2 font-bold">
+                <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#FAFBF9]/60 block mb-2 font-bold">
                   Business Verticals
                 </span>
                 
@@ -267,8 +288,8 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   className="w-full text-left flex justify-between items-center py-2 border-b border-white/10 group"
                 >
                   <div>
-                    <span className="block text-md font-display uppercase tracking-wider text-white group-hover:text-gold transition-colors">Legacy Township</span>
-                    <span className="block text-[10px] text-neutral-300">105-Acre Flagship Integrated City</span>
+                    <span className="block text-lg font-display uppercase tracking-wider text-white group-hover:text-gold transition-colors">Legacy Township</span>
+                    <span className="block text-xs text-neutral-300">105-Acre Flagship Integrated City</span>
                   </div>
                 </button>
 
@@ -282,8 +303,8 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   className="w-full text-left flex justify-between items-center py-2 border-b border-white/10 group"
                 >
                   <div>
-                    <span className="block text-md font-display uppercase tracking-wider text-white group-hover:text-gold transition-colors">Velora Greens</span>
-                    <span className="block text-[10px] text-neutral-300">Boutique Residential Enclave</span>
+                    <span className="block text-lg font-display uppercase tracking-wider text-white group-hover:text-gold transition-colors">Velora Greens</span>
+                    <span className="block text-xs text-neutral-300">Boutique Residential Enclave</span>
                   </div>
                 </button>
 
@@ -297,8 +318,8 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   className="w-full text-left flex justify-between items-center py-2 border-b border-white/10 group"
                 >
                   <div>
-                    <span className="block text-md font-display uppercase tracking-wider text-white group-hover:text-gold transition-colors">Hayat Greenz Resort</span>
-                    <span className="block text-[10px] text-neutral-300">Immersive Nature and Wellness Retreat</span>
+                    <span className="block text-lg font-display uppercase tracking-wider text-white group-hover:text-gold transition-colors">Hayat Greenz Resort</span>
+                    <span className="block text-xs text-neutral-300">Immersive Nature and Wellness Retreat</span>
                   </div>
                 </button>
 
@@ -312,15 +333,15 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   className="w-full text-left flex justify-between items-center py-2 border-b border-white/10 group"
                 >
                   <div>
-                    <span className="block text-md font-display uppercase tracking-wider text-white group-hover:text-gold transition-colors">Warehousing division</span>
-                    <span className="block text-[10px] text-neutral-300">Industrial Logistics Land Nodes</span>
+                    <span className="block text-lg font-display uppercase tracking-wider text-white group-hover:text-gold transition-colors">Warehousing division</span>
+                    <span className="block text-xs text-neutral-300">Industrial Logistics Land Nodes</span>
                   </div>
                 </button>
               </div>
 
               {/* General Links */}
               <div className="space-y-3 pt-4 border-t border-white/10">
-                <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-[#FAFBF9]/60 block mb-1 font-bold">
+                <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#FAFBF9]/60 block mb-1 font-bold">
                   Information & Capital links
                 </span>
                 {simpleNavItems.map((item) => (
@@ -331,7 +352,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                       onScrollToSection(item.id);
                       setIsMobileMenuOpen(false);
                     }}
-                    className="w-full text-left py-1 text-md font-display uppercase tracking-wide text-white/90 hover:text-gold"
+                    className="w-full text-left py-1 text-lg font-display uppercase tracking-wide text-white/90 hover:text-gold"
                   >
                     {item.label}
                   </button>

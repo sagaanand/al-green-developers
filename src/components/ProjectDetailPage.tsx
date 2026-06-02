@@ -4,6 +4,7 @@ import {
   X, MapPin, Sparkles, Layout, Compass, Shield, ArrowRight,
   TrendingUp, Check, Users, Leaf, Home, Award, Calendar, HelpCircle
 } from "lucide-react";
+import logoIcon from "../assets/logo-icon.png";
 
 interface ProjectDetailPageProps {
   projectId: string;
@@ -176,9 +177,11 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
       {/* Absolute top control header */}
       <div className="sticky top-0 bg-[#0A0A0A]/90 backdrop-blur-xl border-b border-white/[0.05] z-50 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full border border-gold flex items-center justify-center font-mono text-[10px] text-gold font-bold">
-            AI
-          </div>
+          <img 
+            src={logoIcon} 
+            alt="Logo Icon" 
+            className="w-8 h-8 object-contain"
+          />
           <div>
             <span className="block text-xs font-mono uppercase tracking-widest text-neutral-400">ACCENTURE INFRA PORTFOLIO</span>
             <span className="block text-xs font-bold uppercase tracking-wider text-white">{projectName}</span>

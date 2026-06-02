@@ -62,7 +62,7 @@ export default function App() {
         "hero",
         "philosophy",
         "developments",
-        "intelligence",
+        "timeline",
         "investors",
         "visit"
       ];
