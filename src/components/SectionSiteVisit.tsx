@@ -82,28 +82,25 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
   };
 
   return (
-    <section id="visit" className="relative w-full gradient-bg-deep py-24 sm:py-36 border-t border-white/10 overflow-hidden font-sans section-light-overlay">
+    <section id="visit" className="relative w-full bg-[#0d1f0c] py-32 sm:py-40 border-t border-white/10 overflow-hidden font-mono">
       <div className="absolute top-0 bottom-0 left-[8%] w-[0.5px] bg-white/5 z-0 hidden md:block" />
       <div className="absolute top-0 bottom-0 right-[8%] w-[0.5px] bg-white/5 z-0 hidden md:block" />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div id="booking-intro" className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-[#BAA360] block mb-2 font-bold font-mono">
-            09 / ON-GROUND VERIFICATION
-          </span>
-          <h2 className="font-display font-light text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
+          <h2 className="font-mono font-bold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
             SITE VISIT <span className="text-gold font-bold">CONCIERGE</span>
           </h2>
-          <p className="mt-4 text-neutral-300 font-sans font-light text-xs sm:text-sm tracking-wide leading-relaxed">
+          <p className="mt-4 text-neutral-300 font-mono font-normal text-xs sm:text-sm tracking-wide leading-relaxed">
             Experience land intelligence in person. We provide full gated access, title binder review, and luxury site transport coordination.
           </p>
         </div>
 
         {/* Step-by-Step State Deck Container */}
-        <div className="bg-[#111111]/40 border border-white/[0.06] rounded-2xl shadow-lg shadow-black/15 overflow-hidden card-glow">
+        <div className="bg-white/10 border border-white/20 rounded-2xl shadow-lg shadow-black/15 overflow-hidden">
           {/* Progress Indicator Bar */}
-          <div className="bg-black/25 border-b border-white/[0.06] px-6 py-4 flex items-center justify-between text-xs font-mono text-neutral-300 font-mono">
+          <div className="bg-white/5 border-b border-white/20 px-6 py-4 flex items-center justify-between text-xs font-mono text-neutral-300 font-mono">
             <span className="text-[10px] tracking-widest text-[#BAA360] font-bold font-mono">STEP {currentStep} OF 4</span>
             <div className="flex gap-1">
               {[1, 2, 3, 4].map((stepNo) => (
@@ -131,7 +128,7 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
                   className="space-y-6"
                 >
                   <div>
-                    <h3 className="font-display text-lg font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                    <h3 className="font-mono text-lg font-bold text-white uppercase tracking-wider flex items-center gap-2">
                       <User className="w-5 h-5 text-gold" />
                       Client Categorization & Intent
                     </h3>
@@ -151,14 +148,14 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
                           onClick={() => setVisitorType(vt.value)}
                           className={`p-4 rounded-xl border text-left transition-all cursor-pointer block ${
                             isSelected
-                              ? "bg-gold/10 border-gold"
-                              : "bg-black/35 border border-white/10 hover:bg-black/45 text-neutral-400 hover:border-gold/50"
+                              ? "bg-gold/20 border-gold/50"
+                              : "bg-white/5 border-white/20 hover:bg-white/10 text-neutral-400 hover:border-gold/30"
                           }`}
                         >
-                          <span className={`block font-display text-xs font-bold uppercase tracking-wider ${isSelected ? "text-gold" : "text-white"}`}>
+                          <span className={`block font-mono text-xs font-bold uppercase tracking-wider ${isSelected ? "text-gold" : "text-white"}`}>
                             {vt.label}
                           </span>
-                          <span className="block text-[11px] text-neutral-400 mt-1.5 font-sans font-light leading-snug">
+                          <span className="block text-[11px] text-neutral-400 mt-1.5 font-mono font-normal leading-snug">
                             {vt.desc}
                           </span>
                         </button>
@@ -179,7 +176,7 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
                   className="space-y-6"
                 >
                   <div>
-                    <h3 className="font-display text-lg font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                    <h3 className="font-mono text-lg font-bold text-white uppercase tracking-wider flex items-center gap-2">
                       <Compass className="w-5 h-5 text-gold" />
                       Map Project & Select Ideal Date
                     </h3>
@@ -271,7 +268,7 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
                   className="space-y-6"
                 >
                   <div>
-                    <h3 className="font-display text-lg font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                    <h3 className="font-mono text-lg font-bold text-white uppercase tracking-wider flex items-center gap-2">
                       <Compass className="w-5 h-5 text-gold" />
                       Contact & Concierge Coordinates
                     </h3>
@@ -298,7 +295,7 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
                         placeholder="e.g. Dr. Anand Krishnan"
                         value={visitorName}
                         onChange={(e) => setVisitorName(e.target.value)}
-                        className="w-full px-4 py-3 bg-black/45 border border-white/10 focus:border-gold rounded font-sans text-xs text-white focus:outline-none placeholder-neutral-500"
+                        className="w-full px-4 py-3 bg-black/45 border border-white/10 focus:border-gold rounded font-mono text-xs text-white focus:outline-none placeholder-neutral-500"
                       />
                     </div>
 
@@ -313,7 +310,7 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
                         placeholder="e.g. +91 99999 99999"
                         value={visitorPhone}
                         onChange={(e) => setVisitorPhone(e.target.value)}
-                        className="w-full px-4 py-3 bg-black/45 border border-white/10 focus:border-gold rounded font-sans text-xs text-white focus:outline-none placeholder-neutral-500"
+                        className="w-full px-4 py-3 bg-black/45 border border-white/10 focus:border-gold rounded font-mono text-xs text-white focus:outline-none placeholder-neutral-500"
                       />
                     </div>
 
@@ -327,7 +324,7 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
                         placeholder="e.g. anand@hospital.com"
                         value={visitorEmail}
                         onChange={(e) => setVisitorEmail(e.target.value)}
-                        className="w-full px-4 py-3 bg-black/45 border border-white/10 focus:border-gold rounded font-sans text-xs text-white focus:outline-none placeholder-neutral-500"
+                        className="w-full px-4 py-3 bg-black/45 border border-white/10 focus:border-gold rounded font-mono text-xs text-white focus:outline-none placeholder-neutral-500"
                       />
                     </div>
 
@@ -373,7 +370,7 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
                   </div>
 
                   <div>
-                    <h3 className="font-display text-xl font-bold uppercase tracking-wider text-white">
+                    <h3 className="font-mono text-xl font-bold uppercase tracking-wider text-white">
                       Appointment Registered
                     </h3>
                     <p className="text-[10px] font-mono text-gold uppercase tracking-[0.15em] mt-1 font-bold font-mono">
@@ -381,7 +378,7 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
                     </p>
                   </div>
 
-                  <p className="text-xs text-neutral-300 leading-relaxed font-sans font-light max-w-md mx-auto">
+                  <p className="text-xs text-neutral-300 leading-relaxed font-mono font-normal max-w-md mx-auto">
                     Welcome, <span className="text-gold font-bold">{visitorName}</span>. A private concierge pass for <span className="text-gold font-bold">"{projectSelected}"</span> was generated for <span className="text-gold font-bold">{visitDate} @ {visitTime}</span>. Security has mapped this token into your local ledger panel. We will coordinate details via <span className="text-gold font-bold">{contactMethod}</span> shortly.
                   </p>
 
@@ -432,7 +429,7 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
                 <button
                   id="booking-next-btn"
                   onClick={handleNextStep}
-                  className="px-8 py-3.5 rounded-full bg-gradient-to-r from-gold to-[#A0814C] hover:from-gold-light hover:to-gold text-xs font-mono tracking-widest uppercase text-black font-extrabold flex items-center gap-1.5 cursor-pointer shadow-sm"
+                  className="px-8 py-3.5 rounded-full bg-gradient-to-r from-gold to-[#A0814C] hover:from-gold-light hover:to-gold text-xs font-mono tracking-widest uppercase text-black font-bold flex items-center gap-1.5 cursor-pointer shadow-sm"
                 >
                   <span>{currentStep === 3 ? "Generate Pass & Book" : "Secure Next Step"}</span>
                 </button>

@@ -3,16 +3,27 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import RequestTracker from "./components/RequestTracker";
 import SectionHero from "./components/SectionHero";
+import SectionCredibilityMetrics from "./components/SectionCredibilityMetrics";
+import SectionTrustSignals from "./components/SectionTrustSignals";
+import SectionTrustArchitecture from "./components/SectionTrustArchitecture";
+import SectionSocialProof from "./components/SectionSocialProof";
 import SectionLandProduct from "./components/SectionLandProduct";
 import SectionDevelopments from "./components/SectionDevelopments";
 import ProjectDetailPage from "./components/ProjectDetailPage";
 import SectionPhilosophy from "./components/SectionPhilosophy";
 import SectionTimeline from "./components/SectionTimeline";
-import SectionInvestorCenter from "./components/SectionInvestorCenter";
 import SectionSiteVisit from "./components/SectionSiteVisit";
-import SectionTestimonials from "./components/SectionTestimonials";
+import SectionCallbackCTA from "./components/SectionCallbackCTA";
 import Footer from "./components/Footer";
+import FloatingCTA from "./components/FloatingCTA";
+import StickyMobileFooter from "./components/StickyMobileFooter";
 import VeloraGreensLanding from "./pages/VeloraGreensLanding";
+import AboutUs from "./pages/AboutUs";
+import Projects from "./pages/Projects";
+import LegacyTownship from "./pages/LegacyTownship";
+import VeloraGreens from "./pages/VeloraGreens";
+import HayatGreenzResort from "./pages/HayatGreenzResort";
+import AccentureGreenzWarehousing from "./pages/AccentureGreenzWarehousing";
 import { LeadSubmission, SiteVisitSchedule } from "./types";
 import { Compass } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -26,6 +37,7 @@ export default function App() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [showFloatingCta, setShowFloatingCta] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const heroImage = "/src/assets/images/al_green_hero_1780310125091.png";
 
@@ -38,6 +50,12 @@ export default function App() {
         setShowFloatingCta(false);
       }
       setLastScrollY(currentScrollY);
+
+      // Calculate scroll progress
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight - windowHeight;
+      const progress = (currentScrollY / documentHeight) * 100;
+      setScrollProgress(Math.min(progress, 100));
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -139,9 +157,30 @@ export default function App() {
       {/* Landing Page Route */}
       <Route path="/velora-greens" element={<VeloraGreensLanding />} />
       
+      {/* About Us Page */}
+      <Route path="/about" element={<AboutUs />} />
+      
+      {/* Projects Page */}
+      <Route path="/projects" element={<Projects />} />
+      
+      {/* Project Detail Pages */}
+      <Route path="/project/legacy" element={<LegacyTownship />} />
+      <Route path="/project/velora" element={<VeloraGreens />} />
+      <Route path="/project/hayat" element={<HayatGreenzResort />} />
+      <Route path="/project/logistics" element={<AccentureGreenzWarehousing />} />
+      
       {/* Main Website Route */}
       <Route path="*" element={
         <div id="root-viewport-shell" className="relative min-h-screen gradient-bg-mesh text-[#FAFBF9] select-none">
+          {/* Scroll Progress Indicator */}
+          <motion.div
+            className="fixed top-0 left-0 h-1 bg-gradient-to-r from-gold to-[#A0814C] z-[60]"
+            style={{ width: `${scrollProgress}%` }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: scrollProgress > 0 ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+          />
+
           {/* Sticky header navigation */}
           <Header
             onScrollToSection={handleScrollToSection}
@@ -155,36 +194,51 @@ export default function App() {
         {/* Section 01: Hero */}
         <SectionHero onScrollToSection={handleScrollToSection} heroImage={heroImage} />
 
-        {/* Section 02: Manifesto */}
+        {/* Section 02: Credibility Metrics */}
+        <SectionCredibilityMetrics />
+
+        {/* Section 03: Manifesto */}
         <SectionLandProduct />
 
-        {/* Section 03: Active Premium Developments */}
-        <SectionDevelopments 
+        {/* Section 04: Trust Signals */}
+        <SectionTrustSignals />
+
+        {/* Section 05: Trust Architecture */}
+        <SectionTrustArchitecture />
+
+        {/* Section 06: Social Proof */}
+        <SectionSocialProof />
+
+        {/* Section 06: Active Premium Developments */}
+        <SectionDevelopments
           onOpenProjectDetail={setSelectedProjectId}
-          onOpenSiteVisit={handleTriggerDevelopmentBooking} 
+          onOpenSiteVisit={handleTriggerDevelopmentBooking}
         />
 
-        {/* Section 06: Development Philosophy */}
+        {/* Section 07: Callback CTA */}
+        <SectionCallbackCTA />
+
+        {/* Section 08: Development Philosophy */}
         <SectionPhilosophy />
 
-        {/* Section 07: Development Steps / Transparency Vertical Timeline */}
+        {/* Section 05: Development Steps / Transparency Vertical Timeline */}
         <SectionTimeline />
 
-        {/* Section 08: Lead Delivery Core */}
-        <SectionInvestorCenter onAddLead={handleAddLead} />
-
-        {/* Section 09: Guided Concierge Site Visit */}
+        {/* Section 06: Guided Concierge Site Visit */}
         <SectionSiteVisit
           onScheduleVisit={handleScheduleVisit}
           overrideSelectedProject={overrideSelectedProject}
         />
-
-        {/* Section 10: Cinematic Testimonies */}
-        <SectionTestimonials />
       </main>
 
       {/* Section 11: Premium Footer */}
       <Footer onScrollToSection={handleScrollToSection} />
+
+      {/* Floating CTA */}
+      <FloatingCTA />
+
+      {/* Sticky Mobile Footer */}
+      <StickyMobileFooter />
 
       {/* Interactive Right-Sided Client Ledger Drawer */}
       <RequestTracker

@@ -49,7 +49,7 @@ export default function RequestTracker({ isOpen, onClose, leads, visits, onCance
   };
 
   return (
-    <div id="request-tracker" className="fixed inset-0 z-50 overflow-hidden font-sans">
+    <div id="request-tracker" className="fixed inset-0 z-50 overflow-hidden font-mono">
       {/* Background Dim */}
       <div className="absolute inset-0 bg-black/65 backdrop-blur-xs" onClick={onClose} />
 
@@ -69,7 +69,7 @@ export default function RequestTracker({ isOpen, onClose, leads, visits, onCance
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5 text-gold" />
                 <div>
-                  <h3 className="font-display font-bold text-white tracking-widest uppercase text-xs">
+                  <h3 className="font-mono font-bold text-white tracking-widest uppercase text-xs">
                     Client Ledger & Dossier
                   </h3>
                   <span className="block text-[9px] font-mono text-neutral-400 font-mono">
@@ -132,7 +132,7 @@ export default function RequestTracker({ isOpen, onClose, leads, visits, onCance
                             <span className="text-[10px] font-mono tracking-widest text-gold bg-gold/10 px-2 py-0.5 rounded border border-gold/20 font-bold font-mono">
                               VISIT TOKEN: {itm.id.slice(0, 8).toUpperCase()}
                             </span>
-                            <h4 className="font-display font-bold text-white text-sm mt-2">
+                            <h4 className="font-mono font-bold text-white text-sm mt-2">
                               {itm.projectSelected}
                             </h4>
                             <p className="text-xs text-neutral-400 mt-1 flex items-center gap-1.5 font-mono">
@@ -154,7 +154,7 @@ export default function RequestTracker({ isOpen, onClose, leads, visits, onCance
                           </div>
                           <div>
                             <span className="block text-[9px] text-[#BAA360] font-bold font-mono">INVITATION CLASS:</span>
-                            <span className="text-gold font-extrabold uppercase tracking-wider font-mono">{itm.visitorType}</span>
+                            <span className="text-gold font-bold uppercase tracking-wider font-mono">{itm.visitorType}</span>
                           </div>
                         </div>
 
@@ -219,7 +219,7 @@ export default function RequestTracker({ isOpen, onClose, leads, visits, onCance
                         <span className="text-[9px] font-mono tracking-widest text-[#BAA360] uppercase block mb-1 font-bold font-mono">
                           {rep.type}
                         </span>
-                        <h5 className="font-display text-xs text-white group-hover:text-gold font-bold line-clamp-1">
+                        <h5 className="font-mono text-xs text-white group-hover:text-gold font-bold line-clamp-1">
                           {rep.title}
                         </h5>
                         <span className="text-[10px] font-mono text-neutral-400 font-mono">{rep.size} • Verified secure</span>
@@ -249,7 +249,7 @@ export default function RequestTracker({ isOpen, onClose, leads, visits, onCance
               <button
                 id="tracker-panel-direct-advisor-btn"
                 onClick={() => handleDownloadStub("ACCENTURE_INFRA_TRUST_LEDGER.txt")}
-                className="w-full mt-4 py-3 bg-gold hover:bg-[#BAA360] text-black font-extrabold font-mono text-xs tracking-widest uppercase rounded flex items-center justify-center gap-2 transition-all cursor-pointer font-mono"
+                className="w-full mt-4 py-3 bg-gold hover:bg-[#BAA360] text-black font-bold font-mono text-xs tracking-widest uppercase rounded flex items-center justify-center gap-2 transition-all cursor-pointer font-mono"
               >
                 Export Complete Title Ledger
                 <ExternalLink className="w-3.5 h-3.5 text-black" />

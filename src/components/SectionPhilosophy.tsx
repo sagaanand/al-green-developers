@@ -10,7 +10,7 @@ export default function SectionPhilosophy() {
   ];
 
   return (
-    <section className="relative w-full gradient-bg-forest py-28 sm:py-40 overflow-hidden font-sans border-t border-white/10 section-light-overlay">
+    <section className="relative w-full bg-[#0d1f0c] py-32 sm:py-48 overflow-hidden font-mono border-t border-white/10">
       {/* Absolute high-tech alignment grid */}
       <div className="absolute top-0 bottom-0 left-[8%] w-[0.5px] bg-white/5 z-0 hidden md:block" />
       <div className="absolute top-0 bottom-0 right-[8%] w-[0.5px] bg-white/5 z-0 hidden md:block" />
@@ -26,17 +26,14 @@ export default function SectionPhilosophy() {
             className="lg:col-span-4 flex flex-col justify-between min-h-[150px] lg:min-h-[300px]"
           >
             <div>
-              <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-[#BAA360] block mb-2 font-bold font-mono">
-                06 / ECOLOGICAL INTEGRITY
-              </span>
-              <h3 className="font-display font-light text-2xl sm:text-3xl uppercase tracking-tight text-white leading-tight">
+              <h3 className="font-mono font-bold text-2xl sm:text-3xl uppercase tracking-tight text-white leading-tight">
                 DEVELOPMENT <br />
-                <span className="text-gold font-extrabold">PHILOSOPHY</span>
+                <span className="text-gold font-bold">PHILOSOPHY</span>
               </h3>
             </div>
-            <div className="p-4 bg-white/5 border-l-2 border-gold max-w-xs mt-6 lg:mt-0">
+            <div className="p-4 bg-white/10 backdrop-blur-md border-l-2 border-gold max-w-xs mt-6 lg:mt-0 shadow-lg">
               <span className="text-[9px] font-mono text-neutral-400 uppercase block font-bold font-mono">CHARTER AUDIT: APPROVED</span>
-              <p className="text-[11px] text-neutral-300 mt-1 leading-normal font-sans font-light">
+              <p className="text-[11px] text-neutral-300 mt-1 leading-normal font-mono font-normal">
                 Our designs reject standardized urban clutter. We protect terrain elevation, natural waterways, and soil vitality to lock in inherent asset health.
               </p>
             </div>
@@ -49,28 +46,48 @@ export default function SectionPhilosophy() {
                 <motion.div
                   id={`principle-group-${index}`}
                   key={index}
-                  initial={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  transition={{ duration: 0.8, delay: index * 0.2, type: "spring" }}
                   className="space-y-4 group"
                 >
-                  <div className="flex items-center gap-3 text-xs font-mono text-neutral-400 font-bold font-mono">
+                  <motion.div 
+                    className="flex items-center gap-3 text-xs font-mono text-neutral-400 font-bold font-mono"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "auto" }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.2 + 0.3, duration: 0.5 }}
+                  >
                     <span>[0{index + 1}]</span>
-                    <div className="h-[0.5px] w-8 bg-white/10 group-hover:w-16 group-hover:bg-gold transition-all duration-500" />
+                    <motion.div 
+                      className="h-[0.5px] bg-white/10 group-hover:bg-gold transition-all duration-500"
+                      initial={{ width: 32 }}
+                      whileHover={{ width: 64 }}
+                    />
                     <Sparkles className="w-3 h-3 text-gold/45 group-hover:text-gold transition-colors" />
-                  </div>
+                  </motion.div>
 
-                  <h4
+                  <motion.h4
                     id={`principle-title-${index}`}
-                    className="font-display font-extrabold text-white uppercase tracking-tight leading-none text-3xl sm:text-4xl md:text-5xl group-hover:text-gold transition-colors duration-300"
+                    className="font-mono font-bold text-white uppercase tracking-tight leading-none text-3xl sm:text-4xl md:text-5xl group-hover:text-gold transition-colors duration-300"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.2 + 0.4, duration: 0.6 }}
                   >
                     {pr.text}
-                  </h4>
+                  </motion.h4>
 
-                  <p className="text-sm text-neutral-300 font-sans font-light max-w-xl leading-relaxed">
+                  <motion.p 
+                    className="text-sm text-neutral-300 font-mono font-normal max-w-xl leading-relaxed"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.2 + 0.6, duration: 0.6 }}
+                  >
                     {pr.desc}
-                  </p>
+                  </motion.p>
                 </motion.div>
               );
             })}

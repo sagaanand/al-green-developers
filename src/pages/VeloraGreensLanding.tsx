@@ -20,7 +20,7 @@ export default function VeloraGreensLanding() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0d1f0c] text-white font-sans">
+    <div className="min-h-screen bg-[#0d1f0c] text-white font-mono">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
@@ -42,10 +42,10 @@ export default function VeloraGreensLanding() {
               <div className="flex items-center gap-3">
                 <img src={logoIcon} alt="Logo" className="w-12 h-12 object-contain" />
                 <div className="text-center">
-                  <span className="block font-serif text-lg tracking-[0.25em] font-normal text-white" style={{ fontFamily: "'Bodoni MT', serif" }}>
+                  <span className="block font-mono text-lg tracking-[0.25em] font-normal text-white">
                     ACCENTURE
                   </span>
-                  <span className="block font-serif text-lg tracking-[0.25em] font-black text-[#BAA360]" style={{ fontFamily: "'Bodoni MT', serif" }}>
+                  <span className="block font-mono text-lg tracking-[0.25em] font-black text-[#BAA360]">
                     INFRA
                   </span>
                 </div>
@@ -57,7 +57,7 @@ export default function VeloraGreensLanding() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-4">
+                <h1 className="font-mono text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-4">
                   VELORA GREENS
                 </h1>
                 <p className="text-xl md:text-2xl text-[#BAA360] font-semibold mb-6">

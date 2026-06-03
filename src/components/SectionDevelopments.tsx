@@ -43,7 +43,7 @@ interface SectionDevelopmentsProps {
 
 export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVisit }: SectionDevelopmentsProps) {
   return (
-    <section id="developments" className="relative w-full gradient-bg-deep py-24 sm:py-36 border-t border-white/10 overflow-hidden section-light-overlay">
+    <section id="developments" className="relative w-full gradient-bg-deep py-32 sm:py-40 border-t border-white/10 overflow-hidden section-light-overlay">
       {/* Structural visual guidelines */}
       <div className="absolute top-0 bottom-0 left-[8%] w-[0.5px] bg-white/[0.04] z-0 hidden md:block" />
       <div className="absolute top-0 bottom-0 right-[8%] w-[0.5px] bg-white/[0.04] z-0 hidden md:block" />
@@ -58,13 +58,10 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-3xl mb-16 sm:mb-24"
         >
-          <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-[#BAA360] block mb-2 font-bold select-none">
-            04 / ACTIVE PORTFOLIO DECK
-          </span>
-          <h2 className="font-display font-light text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
+          <h2 className="font-mono font-bold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
             ACTIVE <span className="text-gold font-bold">DEVELOPMENTS</span>
           </h2>
-          <p className="mt-4 text-neutral-300 font-sans font-light text-xs sm:text-sm tracking-wide max-w-xl leading-relaxed">
+          <p className="mt-4 text-neutral-300 font-mono font-normal text-xs sm:text-sm tracking-wide max-w-xl leading-relaxed">
             Accenture Infra is not selling simple apartments or speculative assets. We formulate fully realized community frameworks: flagship integrated townships, boutique eco-developments, luxury hospitality divisions, and high-connectivity commercial logistics networks.
           </p>
         </motion.div>
@@ -73,19 +70,27 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
         <div className="space-y-32 md:space-y-40">
           {PROJECTS.map((project: Project, index) => {
             const isEven = index % 2 === 0;
+            const isFlagship = project.id === "legacy";
 
             return (
-              <div key={project.id}>
-                <ScrollReveal delay={index * 200}>
-                  <div
-                    id={`portfolio-project-${project.id}`}
-                    className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch pt-8 border-t border-white/10 first:border-none first:pt-0"
-                  >
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: index * 0.15 }}
+              >
+                <div
+                  id={`portfolio-project-${project.id}`}
+                  className={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch pt-8 border-t border-white/10 first:border-none first:pt-0 ${
+                    isFlagship ? "lg:gap-16" : ""
+                  }`}
+                >
                   {/* Visual Column - Alternating order on desktop */}
-                  <div className={`lg:col-span-7 flex flex-col justify-between space-y-6 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+                  <div className={`flex flex-col justify-between space-y-6 ${isEven ? "lg:order-1" : "lg:order-2"} ${isFlagship ? "lg:col-span-8" : "lg:col-span-7"}`}>
                     <div
                       onClick={() => onOpenProjectDetail(project.id)}
-                      className="relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-white/10 group bg-neutral-900 cursor-pointer shadow-sm transition-shadow hover:shadow-md"
+                      className="relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-white/20 group bg-neutral-900 cursor-pointer shadow-lg transition-shadow hover:shadow-xl"
                     >
                       <img
                         id={`project-showcase-img-${project.id}`}
@@ -97,31 +102,35 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent opacity-70" />
 
                       {/* Left vertical location sticker */}
-                      <div className="absolute bottom-6 left-6 flex items-center gap-2 px-3 py-1.5 rounded bg-black/90 backdrop-blur border border-white/10 z-15">
+                      <div className="absolute bottom-6 left-6 flex items-center gap-2 px-3 py-1.5 rounded bg-black/90 border border-white/20 z-15">
                         <MapPin className="w-3.5 h-3.5 text-gold" />
                         <span className="text-[9px] font-mono tracking-wider text-white uppercase">{project.location}</span>
                       </div>
 
-                      <div className="absolute top-6 right-6 flex items-center gap-1.5 px-3 py-1 bg-[#24421E]/95 border border-gold/30 rounded text-[9px] font-mono tracking-widest text-[#D6C392] uppercase font-bold">
-                        <Sparkles className="w-3 h-3 text-gold" />
-                        <span>{project.id === "legacy" ? "Flagship Layout" : "Pre-Audited Zone"}</span>
+                      <div className={`absolute top-6 right-6 flex items-center gap-1.5 px-3 py-1 border rounded text-[9px] font-mono tracking-widest uppercase font-bold shadow-lg ${
+                        project.id === "legacy"
+                          ? "bg-gold text-black border-gold"
+                          : "bg-white/10 border-gold/40 text-[#D6C392]"
+                      }`}>
+                        {project.id === "legacy" && <Sparkles className="w-3 h-3 text-black" />}
+                        <span>{project.id === "legacy" ? "FLAGSHIP DEVELOPMENT" : "Pre-Audited Zone"}</span>
                       </div>
                     </div>
 
                     {/* Certified parameters block */}
-                    <div className="bg-[#111111]/40 border border-white/[0.06] rounded-xl p-6 sm:p-8 space-y-6 card-glow">
+                    <div className="bg-white/10 border border-white/20 rounded-xl p-6 sm:p-8 space-y-6 shadow-lg">
                       <div>
                         <span className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-neutral-400 font-bold">
                           <FolderGit2 className="w-3.5 h-3.5 text-gold" />
                           CERTIFIED PARAMETERS & SPATIAL PLANS
                         </span>
-                        <h4 className="text-white text-sm font-display font-bold uppercase mt-2">Physical Layout Design Elements</h4>
+                        <h4 className="text-white text-sm font-mono font-bold uppercase mt-2">Physical Layout Design Elements</h4>
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {project.masterplan.map((item, idx) => (
-                          <div key={idx} className="p-4 bg-black/40 rounded border border-white/[0.04] transition-colors hover:border-white/10">
+                          <div key={idx} className="p-4 bg-white/5 rounded border border-white/10 transition-colors hover:border-white/20 hover:bg-white/10">
                             <span className="text-gold font-mono text-xs font-bold block mb-1">0{idx + 1}.</span>
-                            <p className="text-xs text-neutral-300 font-sans font-light leading-relaxed">{item}</p>
+                            <p className="text-xs text-neutral-300 font-mono font-normal leading-relaxed">{item}</p>
                           </div>
                         ))}
                       </div>
@@ -129,20 +138,20 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                   </div>
 
                   {/* Presentation Specs Column - Alternating order on desktop */}
-                  <div className={`lg:col-span-5 flex flex-col justify-between space-y-8 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
+                  <div className={`flex flex-col justify-between space-y-8 ${isEven ? "lg:order-2" : "lg:order-1"} ${isFlagship ? "lg:col-span-4" : "lg:col-span-5"}`}>
                     {/* Title & story */}
                     <div className="space-y-4">
                       <span className="text-[9px] font-mono text-gold uppercase tracking-[0.2em] bg-white/5 px-2.5 py-1 rounded border border-gold/25 w-fit block font-bold">
                         LAND MUTATION TRUST PRE-VERIFIED
                       </span>
-                      <h3 className="text-3xl sm:text-4xl font-display font-medium tracking-tight text-white uppercase leading-tight">
+                      <h3 className="text-3xl sm:text-4xl font-mono font-medium tracking-tight text-white uppercase leading-tight">
                         {project.title}
                       </h3>
                       <p className="text-xs font-mono text-neutral-400 tracking-wide uppercase italic">
                         {project.tagline}
                       </p>
                       <div className="h-[1.5px] w-24 bg-gradient-to-r from-gold to-[#A0814C]" />
-                      <p className="text-xs sm:text-sm text-neutral-300 font-sans font-light leading-relaxed">
+                      <p className="text-xs sm:text-sm text-neutral-300 font-mono font-normal leading-relaxed">
                         {project.story}
                       </p>
                     </div>
@@ -189,7 +198,7 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                       </span>
                       <ul className="space-y-2.5">
                         {project.growthDrivers.map((drv, idx) => (
-                          <li key={idx} className="text-xs text-neutral-300 font-sans font-light flex items-start gap-2 leading-relaxed">
+                          <li key={idx} className="text-xs text-neutral-300 font-mono font-normal flex items-start gap-2 leading-relaxed">
                             <ChevronRight className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
                             <span>{drv}</span>
                           </li>
@@ -199,28 +208,51 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
 
                     {/* Book & Details buttons */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                      <button
-                        id={`detail-ledg-cta-${project.id}`}
-                        onClick={() => onOpenProjectDetail(project.id)}
-                        className="py-4 rounded-xl bg-gradient-to-r from-gold to-[#A0814C] hover:from-gold-light hover:to-gold text-xs font-mono tracking-widest uppercase text-black font-extrabold flex items-center justify-center gap-2 group transition-all active:scale-[0.98] cursor-pointer shadow-sm"
-                      >
-                        <span>Interactive Ledger</span>
-                        <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                      </button>
+                      {(project.id === "hayat" || project.id === "logistics") ? (
+                        <>
+                          <button
+                            id={`read-more-cta-${project.id}`}
+                            onClick={() => onOpenProjectDetail(project.id)}
+                            className="py-4 rounded-xl bg-gradient-to-r from-gold to-[#A0814C] hover:from-gold-light hover:to-gold text-xs font-mono tracking-widest uppercase text-black font-bold flex items-center justify-center gap-2 group transition-all active:scale-[0.98] cursor-pointer shadow-sm"
+                          >
+                            <span>Read More</span>
+                            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                          </button>
 
-                      <button
-                        id={`fast-visit-cta-${project.id}`}
-                        onClick={() => onOpenSiteVisit(project.title)}
-                        className="py-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-xs font-mono tracking-widest uppercase text-white font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98] cursor-pointer shadow-sm"
-                      >
-                        <span>Book Private Tour</span>
-                        <Calendar className="w-3.5 h-3.5 text-gold" />
-                      </button>
+                          <button
+                            id={`fast-visit-cta-${project.id}`}
+                            onClick={() => onOpenSiteVisit(project.title)}
+                            className="py-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-xs font-mono tracking-widest uppercase text-white font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98] cursor-pointer shadow-sm"
+                          >
+                            <span>Book Private Tour</span>
+                            <Calendar className="w-3.5 h-3.5 text-gold" />
+                          </button>
+                        </>
+                      ) : (
+                        <>
+                          <button
+                            id={`detail-ledg-cta-${project.id}`}
+                            onClick={() => onOpenProjectDetail(project.id)}
+                            className="py-4 rounded-xl bg-gradient-to-r from-gold to-[#A0814C] hover:from-gold-light hover:to-gold text-xs font-mono tracking-widest uppercase text-black font-bold flex items-center justify-center gap-2 group transition-all active:scale-[0.98] cursor-pointer shadow-sm"
+                          >
+                            <span>Interactive Ledger</span>
+                            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                          </button>
+
+                          <button
+                            id={`fast-visit-cta-${project.id}`}
+                            onClick={() => onOpenSiteVisit(project.title)}
+                            className="py-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-xs font-mono tracking-widest uppercase text-white font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98] cursor-pointer shadow-sm"
+                          >
+                            <span>Book Private Tour</span>
+                            <Calendar className="w-3.5 h-3.5 text-gold" />
+                          </button>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
-              </ScrollReveal>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -231,10 +263,10 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
             <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-[#BAA360] block mb-2 font-bold select-none">
               STRATEGIC LAND BANKING CORRIDORS
             </span>
-            <h3 className="font-display font-light text-2xl sm:text-3xl uppercase tracking-tight text-white leading-tight">
+            <h3 className="font-mono font-bold text-2xl sm:text-3xl uppercase tracking-tight text-white leading-tight">
               FUTURE Raw Land <span className="text-gold font-bold">Acquisitions</span>
             </h3>
-            <p className="mt-2 text-xs sm:text-sm text-neutral-300 font-sans font-light max-w-xl">
+            <p className="mt-2 text-xs sm:text-sm text-neutral-300 font-mono font-normal max-w-xl">
               We proactively secure raw layouts directly on projected infra spurs, before public tenders go live. This guarantees maximum early-stage cost leverage.
             </p>
           </div>
@@ -259,7 +291,7 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                   </div>
 
                   <div className="space-y-2">
-                    <h4 className="font-display text-xl font-bold uppercase text-white tracking-wide">
+                    <h4 className="font-mono text-xl font-bold uppercase text-white tracking-wide">
                       {fd.title}
                     </h4>
                     <div className="flex items-center gap-1.5 text-xs font-mono text-neutral-300">
@@ -279,7 +311,7 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                       </span>
                     </div>
                     
-                    <p className="text-xs text-neutral-300 font-sans font-light leading-relaxed">
+                    <p className="text-xs text-neutral-300 font-mono font-normal leading-relaxed">
                       {fd.details}
                     </p>
                   </div>

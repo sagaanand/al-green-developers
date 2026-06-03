@@ -100,14 +100,11 @@ export default function SectionBangaloreEastMap() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-3xl mb-16 sm:mb-24"
         >
-          <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-[#BAA360] block mb-2 font-bold select-none text-[#BAA360]">
-            03 / FORWARD CORRIDOR TELEMETRY
-          </span>
-          <h2 className="font-display font-light text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
+          <h2 className="font-mono font-bold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
             GROWTH <span className="text-gold font-bold">CORRIDORS</span>
           </h2>
-          <p className="mt-4 text-neutral-300 font-sans font-light text-xs sm:text-sm tracking-wide max-w-xl">
-            We don’t pitch luxury wallpaper or high-gloss lobbies. We map the physical capital levers that drive direct long-term asset appreciation.
+          <p className="mt-4 text-neutral-300 font-mono font-normal text-xs sm:text-sm tracking-wide max-w-xl">
+            We don't pitch luxury wallpaper or high-gloss lobbies. We map the physical capital levers that drive direct long-term asset appreciation.
           </p>
         </motion.div>
 
@@ -190,12 +187,12 @@ export default function SectionBangaloreEastMap() {
                           <span className="text-xs font-mono text-gold block uppercase tracking-widest font-bold">
                             {p.metric} Target CapEx
                           </span>
-                          <h4 className="font-display font-semibold text-lg text-white uppercase tracking-wider mt-1">
+                          <h4 className="font-mono font-semibold text-lg text-white uppercase tracking-wider mt-1">
                             {p.name}
                           </h4>
                         </div>
                         
-                        <p className="text-xs text-neutral-300 font-sans font-light leading-relaxed">
+                        <p className="text-xs text-neutral-300 font-mono font-normal leading-relaxed">
                           {p.narrative}
                         </p>
 
@@ -205,7 +202,7 @@ export default function SectionBangaloreEastMap() {
                           </span>
                           <ul className="space-y-2">
                             {p.points.map((pt, idx) => (
-                              <li key={idx} className="text-xs text-neutral-300 font-sans font-light flex items-start gap-2">
+                              <li key={idx} className="text-xs text-neutral-300 font-mono font-normal flex items-start gap-2">
                                 <CheckCircle className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
                                 <span>{pt}</span>
                               </li>
@@ -251,12 +248,12 @@ export default function SectionBangaloreEastMap() {
                   <span className="text-xs font-mono text-gold block uppercase tracking-widest font-bold">
                     {activePillar.metric} Target CapEx
                   </span>
-                  <h3 className="font-display font-semibold text-2xl text-white uppercase tracking-wider mt-2">
+                  <h3 className="font-mono font-semibold text-2xl text-white uppercase tracking-wider mt-2">
                     {activePillar.name}
                   </h3>
                   <div className="h-[2px] w-16 bg-gold mt-3" />
                   
-                  <p className="mt-6 text-xs sm:text-sm text-neutral-300 font-sans font-light leading-relaxed">
+                  <p className="mt-6 text-xs sm:text-sm text-neutral-300 font-mono font-normal leading-relaxed">
                     {activePillar.narrative}
                   </p>
                 </div>
@@ -267,7 +264,7 @@ export default function SectionBangaloreEastMap() {
                   </span>
                   <ul className="space-y-2">
                     {activePillar.points.map((pt, idx) => (
-                      <li key={idx} className="text-xs text-neutral-300 font-sans font-light flex items-start gap-2">
+                      <li key={idx} className="text-xs text-neutral-300 font-mono font-normal flex items-start gap-2">
                         <CheckCircle className="w-4 h-4 text-gold shrink-0 mt-0.5" />
                         <span>{pt}</span>
                       </li>

@@ -19,10 +19,10 @@ export default function SectionTimeline() {
   const CurrentIcon = stageIcons[currentStage.id] || ShieldCheck;
 
   return (
-    <section className="relative w-full gradient-bg-alt py-24 sm:py-36 border-t border-white/10 overflow-hidden section-light-overlay">
+    <section className="relative w-full bg-[#24421E] py-32 sm:py-40 border-t border-white/10 overflow-hidden">
       <div className="absolute top-1/4 right-[5%] w-96 h-96 bg-[#FAFBF9]/5 rounded-full blur-3xl z-0 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 font-sans">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 font-mono">
         {/* Section Header */}
         <motion.div 
           id="timeline-intro" 
@@ -32,13 +32,10 @@ export default function SectionTimeline() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-3xl mb-16 sm:mb-24"
         >
-          <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-[#BAA360] block mb-2 font-bold">
-            07 / RISK MANAGEMENT & AUDIT
-          </span>
-          <h2 className="font-display font-light text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
+          <h2 className="font-mono font-bold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
             TRANSPARENCY <span className="text-gold font-bold">TIMELINE</span>
           </h2>
-          <p className="mt-4 text-neutral-300 font-sans font-light text-sm sm:text-base tracking-wide max-w-xl">
+          <p className="mt-4 text-neutral-300 font-mono font-normal text-sm sm:text-base tracking-wide max-w-xl">
             Uncompromising structural validation. Every acre we list undergoes our signature triple auditing process before developer pre-launch.
           </p>
         </motion.div>
@@ -53,14 +50,19 @@ export default function SectionTimeline() {
 
               return (
                 <div key={stage.id} className="space-y-2">
-                  <button
+                  <motion.button
                     id={`timeline-step-${stage.id}`}
                     onClick={() => setActiveStageId(stage.id)}
                     className={`w-full text-left p-4 sm:p-5 rounded-lg border text-xs font-mono transition-all duration-300 relative uppercase cursor-pointer flex items-center justify-between group ${
                       isSelected
-                        ? "bg-gold text-black border-gold font-bold shadow-lg shadow-gold/5"
-                        : "bg-transparent border-white/[0.08] text-neutral-400 hover:text-white hover:bg-white/[0.02]"
+                        ? "bg-gold/90 text-black border-gold font-bold shadow-lg shadow-gold/20"
+                        : "bg-white/5 border-white/20 text-neutral-400 hover:text-white hover:bg-white/10"
                     }`}
+                    whileHover={{ scale: 1.02, x: 5 }}
+                    whileTap={{ scale: 0.98 }}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.1, duration: 0.4 }}
                   >
                     {/* Glowing vertical node marker dot */}
                     <span
@@ -87,7 +89,7 @@ export default function SectionTimeline() {
                         {isSelected ? "▲" : "▼"}
                       </span>
                     </div>
-                  </button>
+                  </motion.button>
 
                   {/* Inline Mobile Stage Details Accordion */}
                   <AnimatePresence initial={false}>
@@ -106,19 +108,19 @@ export default function SectionTimeline() {
                             <span>Active Stage Schedule: {stage.duration}</span>
                           </div>
                           
-                          <p className="text-xs text-neutral-300 font-sans font-light leading-relaxed">
+                          <p className="text-xs text-neutral-300 font-mono font-normal leading-relaxed">
                             {stage.description}
                           </p>
 
                           {/* Protocols list */}
-                          <div className="p-4 rounded-lg bg-black/30 border border-white/[0.04] space-y-2">
+                          <div className="p-4 rounded-lg bg-white/5 border border-white/20 space-y-2">
                             <span className="block text-[8px] font-mono tracking-wider text-neutral-400 uppercase font-bold">
                               CERTIFIED ON-GROUND PROTOCOLS:
                             </span>
-                            <ul className="space-y-1.5 text-[11px] font-sans font-light text-neutral-300">
+                            <ul className="space-y-1.5 text-[11px] font-mono font-normal text-neutral-300">
                               {stage.actions.map((act, i) => (
                                 <li key={i} className="flex items-start gap-2">
-                                  <span className="text-gold font-mono font-bold font-sans">•</span>
+                                  <span className="text-gold font-mono font-bold font-mono">•</span>
                                   <span>{act}</span>
                                 </li>
                               ))}
@@ -126,7 +128,7 @@ export default function SectionTimeline() {
                           </div>
 
                           {/* Documentation abstract */}
-                          <div className="p-3 rounded bg-gradient-to-r from-black/40 to-black/20 border border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                          <div className="p-3 rounded bg-white/10 border border-white/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-lg">
                             <div className="space-y-1">
                               <span className="block text-[8px] font-mono text-gold uppercase tracking-widest font-bold">
                                 ISSUED CERTIFICATION RECORD:
@@ -135,7 +137,7 @@ export default function SectionTimeline() {
                                 {stage.documentation}
                               </span>
                             </div>
-                            <div className="flex items-center gap-1.5 font-mono text-[9px] text-[#BAA360] bg-[#BAA360]/5 border border-gold/25 px-2 py-1 rounded w-fit font-bold shrink-0 self-start sm:self-center">
+                            <div className="flex items-center gap-1.5 font-mono text-[9px] text-[#BAA360] bg-[#BAA360]/10 backdrop-blur-sm border border-gold/30 px-2 py-1 rounded w-fit font-bold shrink-0 self-start sm:self-center">
                               <Icon className="w-3.5 h-3.5" />
                               DTCP CLEAR
                             </div>
@@ -150,7 +152,7 @@ export default function SectionTimeline() {
           </div>
 
           {/* Expanded stage blueprint dossier (7 Columns) */}
-          <div className="hidden lg:flex lg:col-span-7 bg-[#111111]/40 border border-white/[0.06] p-6 sm:p-10 rounded-xl min-h-[480px] flex-col justify-between shadow-sm relative">
+          <div className="hidden lg:flex lg:col-span-7 bg-white/10 backdrop-blur-md border border-white/20 p-6 sm:p-10 rounded-xl min-h-[480px] flex-col justify-between shadow-lg relative">
             <div className="absolute right-6 top-6 font-mono text-[9px] text-neutral-500">DUE_DILIGENCE_CHARTER://REV3.0</div>
 
             <AnimatePresence mode="wait">
@@ -169,14 +171,14 @@ export default function SectionTimeline() {
                     <CalendarRange className="w-3 h-3 text-gold" />
                     <span>Active Stage Schedule: {currentStage.duration}</span>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-display font-bold text-white uppercase tracking-tight mt-4">
+                  <h3 className="text-2xl sm:text-3xl font-mono font-bold text-white uppercase tracking-tight mt-4">
                     {currentStage.stageName.split(".")[1]}
                   </h3>
                   <div className="h-[2px] w-16 bg-gold mt-3" />
                 </div>
 
                 {/* Subtitle / Description */}
-                <p className="text-sm text-neutral-300 font-sans font-light leading-relaxed">
+                <p className="text-sm text-neutral-300 font-mono font-normal leading-relaxed">
                   {currentStage.description}
                 </p>
 
@@ -185,7 +187,7 @@ export default function SectionTimeline() {
                   <span className="block text-[9px] font-mono tracking-wider text-neutral-400 uppercase font-bold">
                     CERTIFIED ON-GROUND PROTOCOLS:
                   </span>
-                  <ul className="space-y-2 text-xs font-sans font-light text-neutral-300">
+                  <ul className="space-y-2 text-xs font-mono font-normal text-neutral-300">
                     {currentStage.actions.map((act, i) => (
                       <li key={i} className="flex items-start gap-2.5">
                         <span className="text-gold font-mono font-bold mt-0.5">•</span>

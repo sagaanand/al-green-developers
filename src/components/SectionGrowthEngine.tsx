@@ -58,7 +58,7 @@ export default function SectionGrowthEngine() {
       {/* Background Decorative Tech Grid upgraded for dark theme */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)] opacity-80 z-0" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 font-sans">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 font-mono">
         {/* Section Header */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -67,13 +67,10 @@ export default function SectionGrowthEngine() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-3xl mb-16 sm:mb-24"
         >
-          <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-[#BAA360] block mb-2 font-bold font-sans">
-            02 / VALUE INCEPTION
-          </span>
-          <h2 className="font-display font-light text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
-            THE GROWTH <span className="text-gold font-bold font-sans">ENGINE</span>
+          <h2 className="font-mono font-bold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
+            THE GROWTH <span className="text-gold font-bold font-mono">ENGINE</span>
           </h2>
-          <p className="mt-4 text-neutral-300 font-sans font-light text-sm sm:text-base tracking-wide max-w-xl">
+          <p className="mt-4 text-neutral-300 font-mono font-normal text-sm sm:text-base tracking-wide max-w-xl">
             We do not engage in speculative buy-and-hold models. We acquire land mapped exclusively onto structural growth corridor triggers.
           </p>
         </motion.div>
@@ -115,7 +112,7 @@ export default function SectionGrowthEngine() {
                         </div>
                         <div>
                           <h4
-                            className={`text-sm font-display font-semibold transition-colors uppercase tracking-wider ${
+                            className={`text-sm font-mono font-semibold transition-colors uppercase tracking-wider ${
                               isActive ? "text-white font-bold" : "text-neutral-400"
                             }`}
                           >
@@ -147,7 +144,7 @@ export default function SectionGrowthEngine() {
                           <span className="text-[9px] uppercase font-mono tracking-widest text-[#BAA360] font-bold block">
                             INTELLIGENCE DOSSIER // PHASE 0{step.index + 1}
                           </span>
-                          <p className="text-xs text-neutral-300 leading-relaxed font-sans font-light">
+                          <p className="text-xs text-neutral-300 leading-relaxed font-mono font-normal">
                             {step.desc}
                           </p>
                           
@@ -164,7 +161,7 @@ export default function SectionGrowthEngine() {
                             <span className="block text-[8px] font-mono text-gold uppercase font-bold">
                               LAND INTELLIGENCE HIGHLIGHT:
                             </span>
-                            <p className="text-xs text-neutral-200 font-sans font-light leading-snug">
+                            <p className="text-xs text-neutral-200 font-mono font-normal leading-snug">
                               {step.fact}
                             </p>
                           </div>
@@ -197,14 +194,14 @@ export default function SectionGrowthEngine() {
                   <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-gold font-bold">
                     Interactive Deep Drive / Phase {activeStep + 1}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-display font-light text-white uppercase tracking-tight mt-3">
+                  <h3 className="text-2xl sm:text-3xl font-mono font-bold text-white uppercase tracking-tight mt-3">
                     {engineSteps[activeStep].title}
                   </h3>
                   <p className="text-[11px] font-mono text-[#BAA360] mt-1 font-semibold italic">
                     {engineSteps[activeStep].sub}
                   </p>
 
-                  <p className="mt-6 text-sm text-neutral-300 leading-relaxed font-sans font-light">
+                  <p className="mt-6 text-sm text-neutral-300 leading-relaxed font-mono font-normal">
                     {engineSteps[activeStep].desc}
                   </p>
                 </div>
@@ -224,7 +221,7 @@ export default function SectionGrowthEngine() {
                       <span className="block text-[8px] font-mono text-gold uppercase font-bold">
                         LAND INTELLIGENCE HIGHLIGHT:
                       </span>
-                      <span className="text-[11px] text-neutral-200 font-sans font-light leading-snug mt-1 block">
+                      <span className="text-[11px] text-neutral-200 font-mono font-normal leading-snug mt-1 block">
                         {engineSteps[activeStep].fact}
                       </span>
                     </div>

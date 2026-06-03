@@ -1,20 +1,73 @@
-import { motion } from "motion/react";
-import { ChevronDown, Sparkles, Compass } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { ChevronDown, Sparkles, Compass, ChevronLeft, ChevronRight } from "lucide-react";
 import { ScrollReveal, TextReveal } from "./ScrollReveal";
+import { useState, useEffect } from "react";
 
 interface SectionHeroProps {
   onScrollToSection: (id: string) => void;
   heroImage: string;
 }
 
+const banners = [
+  {
+    id: 3,
+    title: "LEGACY TOWNSHIP",
+    subtitle: "A Landmark of Luxury Living, Smart Infrastructure & Elevated Experiences",
+    description: "Premium Apartments • Luxury Villas • Resort • Commercial Spaces",
+    badge: "Flagship Development",
+    cta: "Enquire Now"
+  },
+  {
+    id: 2,
+    title: "VELORA GREENS",
+    subtitle: "Thoughtfully Crafted for Elevated Living",
+    description: "90 Elegant Apartments • Premium Row Housing • Exclusive Villa Plots • Lifestyle Clubhouse & Curated Amenities",
+    badge: "Premium Community",
+    cta: "Discover Your Future Home Today"
+  },
+  {
+    id: 1,
+    title: "ACCENTURE INFRA",
+    subtitle: "Redefining Modern Living",
+    description: "A premium real estate developer shaping future-ready communities through exceptional engineering, refined luxury, and thoughtfully planned urban infrastructure designed for elevated lifestyles",
+    badge: "Premium Developer",
+    cta: "Learn More"
+  }
+];
+
 export default function SectionHero({ onScrollToSection, heroImage }: SectionHeroProps) {
+  const [currentBanner, setCurrentBanner] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentBanner((prev) => (prev + 1) % banners.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextBanner = () => {
+    setCurrentBanner((prev) => (prev + 1) % banners.length);
+  };
+
+  const prevBanner = () => {
+    setCurrentBanner((prev) => (prev - 1 + banners.length) % banners.length);
+  };
+
+  const banner = banners[currentBanner];
+
   return (
     <section
       id="hero"
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden section-gradient-hero"
     >
       {/* Background Cinematic Drone Video falling back to High-Res Image */}
-      <div id="hero-media-wrapper" className="absolute inset-0 z-0">
+      <motion.div 
+        id="hero-media-wrapper" 
+        className="absolute inset-0 z-0"
+        initial={{ scale: 1.1 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 20, ease: "easeOut" }}
+      >
         <video
           id="hero-background-video"
           src="https://assets.mixkit.co/videos/preview/mixkit-flight-over-dense-green-forest-trees-under-fog-42295-large.mp4"
@@ -33,83 +86,116 @@ export default function SectionHero({ onScrollToSection, heroImage }: SectionHer
         {/* Abstract design: Subtle thin technical alignment line */}
         <div className="absolute left-[8%] top-0 bottom-0 w-[0.5px] bg-white/[0.05] z-10 hidden md:block" />
         <div className="absolute right-[8%] top-0 bottom-0 w-[0.5px] bg-white/[0.05] z-10 hidden md:block" />
+      </motion.div>
+
+      {/* Carousel Navigation */}
+      <div className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-2">
+        <button
+          onClick={prevBanner}
+          className="p-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-all hover:scale-110"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+      </div>
+      <div className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-2">
+        <button
+          onClick={nextBanner}
+          className="p-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-all hover:scale-110"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
+
+      {/* Carousel Indicators */}
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+        {banners.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentBanner(index)}
+            className={`w-2 h-2 rounded-full transition-all ${
+              index === currentBanner ? "bg-gold w-8" : "bg-white/30 hover:bg-white/50"
+            }`}
+          />
+        ))}
       </div>
 
       {/* Main Copy Elements */}
-      <div className="relative z-20 max-w-7xl mx-auto px-6 pt-24 pb-16 flex flex-col items-center text-center">
-        {/* Abstract Gold Pill */}
-        <ScrollReveal delay={200}>
-          <div
-            id="hero-badge"
-            className="inline-flex items-center gap-2 px-3 py-1 bg-white/[0.04] border border-gold/25 rounded-full mb-8 backdrop-blur"
+      <div className="relative z-20 max-w-7xl mx-auto px-6 pt-32 pb-24 flex flex-col items-center text-center">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentBanner}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col items-center"
           >
-            <Sparkles className="w-3 h-3 text-gold" />
-            <span className="text-[10px] font-mono tracking-[0.25em] text-white uppercase font-bold">
-              Pristine Botanical Land Reserve
-            </span>
-          </div>
-        </ScrollReveal>
-
-        {/* Massive Headline clamp */}
-        <ScrollReveal delay={400}>
-          <div
-            id="hero-header-group"
-            className="space-y-4"
-          >
-            <TextReveal delay={500}>
-              <h1
-                id="hero-main-title"
-                className="font-display font-extrabold text-white tracking-[0.03em] leading-[1.05] uppercase max-w-5xl mx-auto"
-                style={{ fontSize: "clamp(2rem, 5.5vw, 5.5rem)" }}
-              >
-                Eco-Luxury Sanctuaries In Bangalore East
-              </h1>
-            </TextReveal>
-            <TextReveal delay={600}>
-              <p
-                id="hero-subtitle"
-                className="font-serif italic text-[#BAA360] font-light tracking-wide block leading-tight text-lg sm:text-2xl max-w-3xl mx-auto pt-2"
-              >
-                Where pristine forestry meets secure institutional real estate.
-              </p>
-            </TextReveal>
-          </div>
-        </ScrollReveal>
-
-        {/* Sub-headline */}
-        <ScrollReveal delay={800}>
-          <p
-            id="hero-description"
-            className="mt-8 text-neutral-300 font-sans font-light tracking-wide text-xs sm:text-sm uppercase max-w-4xl mx-auto leading-relaxed"
-          >
-            Premium master-planned estates, low-density residences, and eco-sensitive resort living integrated seamlessly into raw, protected nature corridors.
-          </p>
-        </ScrollReveal>
-
-        {/* Action Triggers */}
-        <ScrollReveal delay={1000}>
-          <div
-            id="hero-cta-group"
-            className="mt-12 flex flex-col xs:flex-row items-center gap-4 justify-center"
-          >
-            <button
-              id="hero-cta-opportunities"
-              onClick={() => onScrollToSection("developments")}
-              className="w-full xs:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-gold to-[#A0814C] text-[11px] font-mono tracking-widest uppercase font-bold text-black hover:opacity-95 shadow-lg shadow-gold/20 transition-all active:scale-[0.98] cursor-pointer flex items-center justify-center gap-1.5 animate-pulse"
+            {/* Abstract Gold Pill */}
+            <div
+              id="hero-badge"
+              className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-gold/30 rounded-full mb-8"
             >
-              <span>Explore Developments</span>
-            </button>
+              <Sparkles className="w-3 h-3 text-gold" />
+              <span className="text-[10px] font-mono tracking-[0.25em] text-white uppercase font-bold">
+                {banner.badge}
+              </span>
+            </div>
 
-            <button
-              id="hero-cta-intelligence"
-              onClick={() => onScrollToSection("visit")}
-              className="w-full xs:w-auto px-8 py-4 rounded-full border border-white/20 hover:border-gold bg-[#0A0A0A]/85 text-[11px] font-mono tracking-widest uppercase text-white transition-all active:scale-[0.98] cursor-pointer flex items-center justify-center gap-2 hover:bg-gold/5"
+            {/* Massive Headline clamp */}
+            <h1
+              id="hero-headline"
+              className="font-mono font-bold text-4xl sm:text-6xl md:text-7xl lg:text-8xl uppercase tracking-tight text-white leading-[1.05] mb-6"
             >
-              <Compass className="w-4 h-4 text-gold" />
-              <span>Schedule Visit</span>
-            </button>
-          </div>
-        </ScrollReveal>
+              {banner.title}
+            </h1>
+
+            {/* Subheadline */}
+            <h2
+              id="hero-subheadline"
+              className="font-mono text-xl sm:text-2xl md:text-3xl font-semibold text-white/90 tracking-wide mb-8"
+            >
+              {banner.subtitle}
+            </h2>
+
+            {/* Description */}
+            <div
+              id="hero-description"
+              className="mt-8 text-neutral-300 font-mono font-normal tracking-wide text-sm sm:text-base max-w-4xl mx-auto leading-relaxed"
+            >
+              {banner.description}
+            </div>
+
+            {/* Action Triggers */}
+            <motion.div
+              id="hero-cta-group"
+              className="mt-12 flex flex-col xs:flex-row items-center gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <motion.button
+                id="hero-cta-opportunities"
+                onClick={() => onScrollToSection("developments")}
+                className="w-full xs:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-gold to-[#A0814C] text-[11px] font-mono tracking-widest uppercase font-bold text-black hover:opacity-95 shadow-lg shadow-gold/20 transition-all active:scale-[0.98] cursor-pointer flex items-center justify-center gap-1.5"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span>{banner.cta}</span>
+              </motion.button>
+
+              <motion.button
+                id="hero-cta-intelligence"
+                onClick={() => onScrollToSection("developments")}
+                className="w-full xs:w-auto px-8 py-4 rounded-full border border-white/30 hover:border-gold bg-white/5 text-[11px] font-mono tracking-widest uppercase text-white transition-all active:scale-[0.98] cursor-pointer flex items-center justify-center gap-2 hover:bg-white/10"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Compass className="w-4 h-4 text-gold" />
+                <span>Explore Projects</span>
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Down Chevron trigger */}

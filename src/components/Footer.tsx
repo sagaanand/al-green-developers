@@ -1,5 +1,6 @@
 import { Mail, Landmark, Compass, FolderKanban, Shield, KeyRound, ArrowUpRight } from "lucide-react";
 import logoIcon from "../assets/logo-icon.png";
+import { Link } from "react-router-dom";
 
 interface FooterProps {
   onScrollToSection: (id: string) => void;
@@ -12,32 +13,32 @@ export default function Footer({ onScrollToSection }: FooterProps) {
   };
 
   return (
-    <footer id="footer-section" className="relative w-full bg-[#24421E] text-[#FAFBF9] pt-20 pb-28 sm:pb-24 border-t border-white/10 overflow-hidden font-sans">
+    <footer id="footer-section" className="relative w-full bg-[#24421E] text-[#FAFBF9] pt-20 pb-28 sm:pb-24 border-t border-white/10 overflow-hidden font-mono">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 sm:gap-16">
-          {/* Logo Brand / Pitch Column (5 Columns) */}
-          <div className="md:col-span-5 space-y-6">
+          {/* Logo Brand / Pitch Column (4 Columns) */}
+          <div className="md:col-span-4 space-y-6">
             <button
               id="footer-brand-btn"
               onClick={() => onScrollToSection("hero")}
               className="flex items-center gap-3 cursor-pointer text-left group"
             >
-              <img 
-                src={logoIcon} 
-                alt="Logo Icon" 
+              <img
+                src={logoIcon}
+                alt="Logo Icon"
                 className="w-14 h-14 object-contain group-hover:scale-105 transition-transform duration-300"
               />
               <div className="text-center">
-                <span className="block font-serif text-lg tracking-[0.15em] font-normal text-white group-hover:text-gold transition-colors" style={{ fontFamily: "'Bodoni MT', serif" }}>
+                <span className="block font-mono text-lg tracking-[0.15em] font-normal text-white group-hover:text-gold transition-colors">
                   ACCENTURE
                 </span>
-                <span className="block font-serif text-lg tracking-[0.15em] font-extrabold text-[#BAA360] group-hover:text-gold transition-colors" style={{ fontFamily: "'Bodoni MT', serif" }}>
+                <span className="block font-mono text-lg tracking-[0.15em] font-bold text-[#BAA360] group-hover:text-gold transition-colors">
                   INFRA
                 </span>
               </div>
             </button>
 
-            <p className="text-sm text-neutral-300 font-sans font-light max-w-sm leading-relaxed">
+            <p className="text-sm text-neutral-300 font-mono font-normal max-w-sm leading-relaxed">
               Accenture Infra is a land intelligence and community development company that happens to build real estate projects. Built to safeguard capital, protect the environment, and establish sustainable multi-generational community grids.
             </p>
 
@@ -47,33 +48,28 @@ export default function Footer({ onScrollToSection }: FooterProps) {
             </div>
           </div>
 
-          {/* Quick jump menu (3 Columns) */}
-          <div className="md:col-span-3 space-y-4">
+          {/* Projects Menu (4 Columns) */}
+          <div className="md:col-span-4 space-y-4">
             <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-[#BAA360] block font-bold font-mono">
-              NAVIGATION
+              PROJECTS
             </span>
             <ul className="space-y-2.5 font-mono text-xs font-mono">
               {[
-                { id: "philosophy", label: "ABOUT MANIFESTO", icon: Compass },
-                { id: "developments", label: "BUSINESS DEVELOPMENTS", icon: FolderKanban },
-                { id: "timeline", label: "TRANSPARENCY TIMELINE", icon: Shield },
-                { id: "investors", label: "INVESTOR CENTRE", icon: Landmark },
-                { id: "visit", label: "SCHEDULE EXPERIENCES", icon: KeyRound },
-              ].map((item) => {
-                const Icon = item.icon;
-                return (
-                  <li key={item.id}>
-                    <button
-                      id={`footer-nav-link-${item.id}`}
-                      onClick={() => onScrollToSection(item.id)}
-                      className="text-neutral-400 hover:text-gold flex items-center gap-2 cursor-pointer transition-colors group"
-                    >
-                      <Icon className="w-3.5 h-3.5 text-gold/45 group-hover:text-gold transition-colors" />
-                      <span>{item.label}</span>
-                    </button>
-                  </li>
-                );
-              })}
+                { id: "legacy", label: "LEGACY TOWNSHIP", desc: "105-Acre Integrated City" },
+                { id: "velora", label: "VELORA GREENS", desc: "Boutique Residential Community" },
+                { id: "hayat", label: "HAYAT GREENZ RESORT", desc: "Wellness & Nature Retreat" },
+                { id: "logistics", label: "WAREHOUSING", desc: "Industrial Logistics Infrastructure" },
+              ].map((item) => (
+                <li key={item.id}>
+                  <Link
+                    to={`/project/${item.id}`}
+                    className="text-neutral-400 hover:text-gold flex flex-col cursor-pointer transition-colors group"
+                  >
+                    <span className="font-medium">{item.label}</span>
+                    <span className="text-[10px] text-neutral-500 group-hover:text-neutral-400">{item.desc}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -86,21 +82,21 @@ export default function Footer({ onScrollToSection }: FooterProps) {
             <div className="space-y-4 font-mono text-xs text-neutral-300 font-mono">
               <div>
                 <span className="block text-[9px] text-[#BAA360] uppercase tracking-wider mb-1 font-bold font-mono">HEADQUARTERS</span>
-                <span className="text-white block font-sans font-medium">
-                  Level 8, Aman Signature Tower, <span className="block font-sans font-medium">Whitefield East Road, Bangalore, Karnataka, 560066.</span>
+                <span className="text-white block font-mono font-medium">
+                  Level 8, Aman Signature Tower, <span className="block font-mono font-medium">Whitefield East Road, Bangalore, Karnataka, 560066.</span>
                 </span>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <span className="block text-[9px] text-[#BAA360] uppercase tracking-wider mb-1 font-bold font-mono">DIRECT CONTACT</span>
-                  <a href="tel:+919999999999" className="text-white hover:text-gold block font-sans font-medium">
+                  <a href="tel:+919999999999" className="text-white hover:text-gold block font-mono font-medium">
                     +91 99999 99999
                   </a>
                 </div>
                 <div>
                   <span className="block text-[9px] text-[#BAA360] uppercase tracking-wider mb-1 font-bold font-mono">SECURE DISPATCH</span>
-                  <a href="mailto:advisor@algreendevelopers.com" className="text-white hover:text-gold block font-sans font-medium flex items-center gap-1">
+                  <a href="mailto:advisor@algreendevelopers.com" className="text-white hover:text-gold block font-mono font-medium flex items-center gap-1">
                     <Mail className="w-3.5 h-3.5 text-gold" />
                     advisor@algreen
                   </a>

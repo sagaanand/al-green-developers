@@ -73,7 +73,7 @@ export default function SectionInvestorCenter({ onAddLead }: SectionInvestorCent
   };
 
   return (
-    <section id="investors" className="relative w-full gradient-bg-forest py-24 sm:py-36 border-t border-white/10 overflow-hidden font-sans section-light-overlay">
+    <section id="investors" className="relative w-full gradient-bg-forest py-24 sm:py-36 border-t border-white/10 overflow-hidden font-mono section-light-overlay">
       <div className="absolute top-1/3 left-10 w-96 h-96 bg-white/[0.04] rounded-full blur-3xl z-0 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -87,14 +87,11 @@ export default function SectionInvestorCenter({ onAddLead }: SectionInvestorCent
             className="lg:col-span-6 space-y-8"
           >
             <div>
-              <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-[#BAA360] block mb-2 font-bold font-mono">
-                08 / INFORMATION CENTER
-              </span>
-              <h2 className="font-display font-light text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
+              <h2 className="font-mono font-bold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
                 PROJECT <br />
                 <span className="text-gold font-bold">INFORMATION</span>
               </h2>
-              <p className="mt-4 text-neutral-300 font-sans font-light text-sm sm:text-base tracking-wide max-w-xl">
+              <p className="mt-4 text-neutral-300 font-mono font-normal text-sm sm:text-base tracking-wide max-w-xl">
                 Access detailed project brochures, layout plans, and development guides for our premium communities.
               </p>
             </div>
@@ -104,7 +101,7 @@ export default function SectionInvestorCenter({ onAddLead }: SectionInvestorCent
                 <span className="text-gold font-mono text-xs uppercase tracking-widest font-bold block mb-1">
                   Project Brochures
                 </span>
-                <p className="text-xs text-neutral-300 font-light font-sans leading-relaxed">
+                <p className="text-xs text-neutral-300 font-normal font-mono leading-relaxed">
                   Comprehensive brochures featuring master plans, amenities, and configuration details for each development.
                 </p>
               </div>
@@ -113,7 +110,7 @@ export default function SectionInvestorCenter({ onAddLead }: SectionInvestorCent
                 <span className="text-gold font-mono text-xs uppercase tracking-widest font-bold block mb-1">
                   Investment Guides
                 </span>
-                <p className="text-xs text-neutral-300 font-light font-sans leading-relaxed">
+                <p className="text-xs text-neutral-300 font-normal font-mono leading-relaxed">
                   Helpful guides on land ownership, legal documentation, and the home-buying process.
                 </p>
               </div>
@@ -142,7 +139,7 @@ export default function SectionInvestorCenter({ onAddLead }: SectionInvestorCent
                   className="space-y-5 relative z-10"
                 >
                   <div>
-                    <h3 className="font-display text-lg font-bold text-white uppercase tracking-wider">
+                    <h3 className="font-mono text-lg font-bold text-white uppercase tracking-wider">
                       Request Capital Intelligence
                     </h3>
                     <p className="text-[10px] font-mono text-gold mt-1 uppercase font-bold font-mono">
@@ -171,7 +168,7 @@ export default function SectionInvestorCenter({ onAddLead }: SectionInvestorCent
                         placeholder="e.g. Dr. Anand Krishnan"
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-black/45 border border-white/10 rounded text-white text-xs font-sans placeholder-neutral-500 focus:outline-none focus:border-gold transition-colors"
+                        className="w-full px-4 py-3 bg-black/45 border border-white/10 rounded text-white text-xs font-mono placeholder-neutral-500 focus:outline-none focus:border-gold transition-colors"
                       />
                     </div>
 
@@ -188,7 +185,7 @@ export default function SectionInvestorCenter({ onAddLead }: SectionInvestorCent
                           placeholder="e.g. +91 99999 99999"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 bg-black/45 border border-white/10 rounded text-white text-xs font-sans placeholder-neutral-500 focus:outline-none focus:border-gold transition-colors"
+                          className="w-full px-4 py-3 bg-black/45 border border-white/10 rounded text-white text-xs font-mono placeholder-neutral-500 focus:outline-none focus:border-gold transition-colors"
                         />
                       </div>
                       <div>
@@ -202,7 +199,7 @@ export default function SectionInvestorCenter({ onAddLead }: SectionInvestorCent
                           placeholder="e.g. anand@hospital.com"
                           value={formData.email}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 bg-black/45 border border-white/10 rounded text-white text-xs font-sans placeholder-neutral-500 focus:outline-none focus:border-gold transition-colors"
+                          className="w-full px-4 py-3 bg-black/45 border border-white/10 rounded text-white text-xs font-mono placeholder-neutral-500 focus:outline-none focus:border-gold transition-colors"
                         />
                       </div>
                     </div>
@@ -219,10 +216,10 @@ export default function SectionInvestorCenter({ onAddLead }: SectionInvestorCent
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 bg-black/45 border border-white/10 rounded text-white text-xs font-mono focus:outline-none focus:border-gold transition-colors font-mono"
                       >
-                        <option value="HNI / Corporate Investor" className="bg-[#24421E] text-white font-sans">HNI / Corporate Investor</option>
-                        <option value="NRI Capital Allocator" className="bg-[#24421E] text-white font-sans">NRI Capital Allocator</option>
-                        <option value="Multi-Generational Family Buyer" className="bg-[#24421E] text-white font-sans">Multi-Generational Family Buyer</option>
-                        <option value="Institutional Asset Manager" className="bg-[#24421E] text-white font-sans">Institutional Asset Manager</option>
+                        <option value="HNI / Corporate Investor" className="bg-[#24421E] text-white font-mono">HNI / Corporate Investor</option>
+                        <option value="NRI Capital Allocator" className="bg-[#24421E] text-white font-mono">NRI Capital Allocator</option>
+                        <option value="Multi-Generational Family Buyer" className="bg-[#24421E] text-white font-mono">Multi-Generational Family Buyer</option>
+                        <option value="Institutional Asset Manager" className="bg-[#24421E] text-white font-mono">Institutional Asset Manager</option>
                       </select>
                     </div>
 
@@ -239,7 +236,7 @@ export default function SectionInvestorCenter({ onAddLead }: SectionInvestorCent
                         className="w-full px-4 py-3 bg-black/45 border border-white/10 rounded text-white text-xs font-mono focus:outline-none focus:border-gold transition-colors font-mono"
                       >
                         {reports.map((rep, i) => (
-                          <option key={i} value={rep} className="bg-[#24421E] text-white font-sans">
+                          <option key={i} value={rep} className="bg-[#24421E] text-white font-mono">
                             {rep}
                           </option>
                         ))}
@@ -250,7 +247,7 @@ export default function SectionInvestorCenter({ onAddLead }: SectionInvestorCent
                   <button
                     id="investor-form-submit-btn"
                     type="submit"
-                    className="w-full py-4 mt-6 rounded-xl bg-gradient-to-r from-gold to-[#A0814C] hover:from-gold-light hover:to-gold text-xs font-mono tracking-widest uppercase text-black font-extrabold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm"
+                    className="w-full py-4 mt-6 rounded-xl bg-gradient-to-r from-gold to-[#A0814C] hover:from-gold-light hover:to-gold text-xs font-mono tracking-widest uppercase text-black font-bold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm"
                   >
                     <DownloadCloud className="w-4 h-4 text-black shrink-0 font-mono" />
                     <span>Request Information</span>
@@ -270,7 +267,7 @@ export default function SectionInvestorCenter({ onAddLead }: SectionInvestorCent
                   </div>
 
                   <div className="space-y-2">
-                    <h3 className="font-display text-xl font-bold uppercase tracking-wider text-white">
+                    <h3 className="font-mono text-xl font-bold uppercase tracking-wider text-white">
                       Request Received
                     </h3>
                     <p className="text-xs font-mono text-gold uppercase tracking-[0.1em] font-bold font-mono">
@@ -278,7 +275,7 @@ export default function SectionInvestorCenter({ onAddLead }: SectionInvestorCent
                     </p>
                   </div>
 
-                  <p className="text-xs text-neutral-300 leading-relaxed font-sans font-light max-w-sm mx-auto">
+                  <p className="text-xs text-neutral-300 leading-relaxed font-mono font-normal max-w-sm mx-auto">
                     Thank you for your interest. We have received your request for <span className="text-gold font-mono font-bold">"{formData.selectedReport}"</span>. Our team will send the materials to your email shortly.
                   </p>
 

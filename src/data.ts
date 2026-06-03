@@ -67,15 +67,21 @@ export const PROJECTS: Project[] = [
   {
     id: "legacy",
     title: "LEGACY TOWNSHIP",
-    tagline: "Flagship 105-Acre Integrated City Living",
+    tagline: "A Masterfully Planned Integrated Township",
     location: "Whitefield-Hoskote Corridor, Bangalore East",
-    story: "Spanning 105 total acres of high-elevation flat land with a 45-acre residential core, Legacy Township is the absolute pinnacle of master-planned integrated living. Designed as a self-sustaining city, it features 2,000 premium apartments, 750 ultra-luxury estate plots, a 1 Lakh Sq Ft landmark elite clubhouse, and over 80+ custom active lifestyle amenities supporting multi-generational value creation.",
+    story: "A masterfully planned integrated township designed to bring together luxury living, recreation, wellness, and modern infrastructure in one extraordinary destination. Spread across vast green landscapes, Legacy Township offers a harmonious blend of premium apartments, villa plots, lifestyle amenities, resort experiences, and commercial opportunities.",
     masterplan: [
-      "105 total master-planned Acres with 45-acre residential core",
-      "2,000 premium low-density energy-efficient apartments",
-      "750 ultra-luxury gated villa plots ready for immediate hand-over",
-      "1 Lakh Sq Ft landmark zero-waste structural clubhouse",
-      "80+ curated active amenities grouped across wellness, family, sports & entertainment"
+      "105 acres land under Legacy Township development",
+      "Finely crafted 2000 premium apartments spread across 45 acres",
+      "Elegantly designed 2, 2.5 & 3 BHK residences with B + G + 14 structure",
+      "Exclusive 1 Lakh sq.ft. luxury clubhouse with premium indoor amenities",
+      "Ultra-luxury 750 villa plots with private swimming pools",
+      "Interactive water features including splash pools and rain curtains",
+      "3 Lakhs sq.ft. of open green spaces with 4 grand podiums",
+      "Poolside lounge deck, outdoor movie screen & entertainment zones",
+      "80+ indoor & outdoor lifestyle amenities",
+      "Smart infrastructure with modern urban planning",
+      "Landscaped avenues and eco-conscious development"
     ],
     growthDrivers: [
       "Within 10 minutes of the crucial Kadugodi Metro Station and Hope Farm Junction on the Purple Line",
@@ -94,19 +100,22 @@ export const PROJECTS: Project[] = [
   {
     id: "velora",
     title: "VELORA GREENS",
-    tagline: "Boutique Residential Community — Thoughtfully Crafted For Elevated Living",
+    tagline: "A Premium Boutique Residential Community",
     location: "Sarjapur-Varthur Tech Belt, Bangalore East",
-    story: "A meticulously curated boutique sanctuary designed for elevated peace, lower spatial density, and high air exchange. Scaling only 90 elegant low-rise homes, custom row housing, and elite villa plots, Velora Greens focuses on select community living and lush private yards.",
+    story: "A premium boutique residential community offering elegant apartments, contemporary row housing, and premium villa plots within a green and lifestyle-oriented environment. Designed for modern families and discerning investors, the project combines urban comfort with open spaces, wellness amenities, and refined living experiences.",
     masterplan: [
-      "90 elegant boutique low-rise apartments with climate ventilation",
-      "Private custom row housing units with micro-sun decks",
-      "Exclusive ready-to-build gated estate villa plots",
-      "Intimate localized lifestyle clubhouse, community green, and heirloom forest"
+      "90 thoughtfully designed apartments across 6 residential blocks",
+      "15 apartments per block with spacious 2 & 3 BHK residences",
+      "Elegant row housing community with modern architecture",
+      "Premium villa plots within landscaped surroundings",
+      "Modern architecture with open green spaces",
+      "Lifestyle-focused community planning",
+      "Secure and family-friendly environment"
     ],
     growthDrivers: [
       "Immediate frontage on Bangalore Peripheral Ring Road expansion zone",
-      "Energy-recovery mechanical ventilation reducing utility costs by 45%",
-      "Exceptional spatial density — premium community living without crowding"
+      "2 BHK: Approx. 1200 Sq. Ft. | 3 BHK: Approx. 1600 Sq. Ft.",
+      "Premium gated community development with curated amenities"
     ],
     investmentScore: {
       total: 9.5,

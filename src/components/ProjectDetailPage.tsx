@@ -173,7 +173,7 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
         : "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop";
 
   return (
-    <div id={`project-detail-panel-${projectId}`} className="fixed inset-0 z-50 overflow-y-auto bg-[#0A0A0A] text-white font-sans antialiased">
+    <div id={`project-detail-panel-${projectId}`} className="fixed inset-0 z-50 overflow-y-auto bg-[#0A0A0A] text-white font-mono antialiased">
       {/* Absolute top control header */}
       <div className="sticky top-0 bg-[#0A0A0A]/90 backdrop-blur-xl border-b border-white/[0.05] z-50 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -215,11 +215,11 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
             <span className="text-gold font-mono text-xs uppercase tracking-[0.3em] font-semibold block">
               {isLegacy ? "INTEGRATED CITY" : isVelora ? "BOUTIQUE COMMUNITY" : isHayat ? "HOSPITALITY DIVISION" : "COMMERCIAL DIVISION"}
             </span>
-            <h1 className="font-display font-black text-4xl sm:text-6xl md:text-8xl tracking-tight uppercase leading-none text-white">
+            <h1 className="font-mono font-black text-4xl sm:text-6xl md:text-8xl tracking-tight uppercase leading-none text-white">
               {projectName.split(" ")[0]} <br />
               <span className="text-gold">{projectName.split(" ").slice(1).join(" ")}</span>
             </h1>
-            <p className="font-display font-light text-base sm:text-xl text-neutral-300 max-w-2xl leading-relaxed">
+            <p className="font-mono font-normal text-base sm:text-xl text-neutral-300 max-w-2xl leading-relaxed">
               {projectTagline}
             </p>
           </div>
@@ -244,18 +244,18 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
             <span className="text-[10px] font-mono tracking-[0.25em] text-[#BAA360] uppercase font-bold block">
               THE MUTUAL VALUE HYPOTHESIS
             </span>
-            <h2 className="font-display font-light text-2xl sm:text-4xl uppercase text-white leading-tight">
+            <h2 className="font-mono font-bold text-2xl sm:text-4xl uppercase text-white leading-tight">
               WHY SECURE AN ASSET WITH <span className="font-bold text-gold">ACCENTURE INFRA?</span>
             </h2>
             <div className="h-[2px] w-20 bg-gold" />
-            <p className="text-sm text-neutral-400 font-sans font-light leading-relaxed">
+            <p className="text-sm text-neutral-400 font-mono font-normal leading-relaxed">
               A real estate investment of ₹50 Lakhs to ₹2 Crore is not a purchase of brick and mortar; it is the physical allocation of your family's financial future. Speculative builders inflate prices with fake amenities. Accenture Infra establishes capital preservation nodes built strictly upon audited spatial demand, clear legal mutation history, and climate-adaptive physical master-planning.
             </p>
             <div className="p-4 bg-white/[0.02] border border-white/[0.05] rounded-xl flex items-start gap-3">
               <Shield className="w-5 h-5 text-gold mt-0.5 shrink-0" />
               <div>
                 <span className="block text-xs font-mono text-white uppercase font-bold">100% Legal Mutation Immunity</span>
-                <span className="block text-[11px] text-neutral-500 font-sans font-light mt-1">
+                <span className="block text-[11px] text-neutral-500 font-mono font-normal mt-1">
                   Every sq ft is backed by a 40-year parent deed trace and DTCP single-window RERA registry layout clearance order pre-secured.
                 </span>
               </div>
@@ -266,93 +266,93 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
             {isLegacy ? (
               <>
                 <div className="p-6 bg-[#111] border border-white/[0.08] rounded-xl space-y-3">
-                  <span className="text-3xl font-display font-light text-white block">45 <span className="text-xs text-gold font-mono uppercase font-bold">Acres</span></span>
+                  <span className="text-3xl font-mono font-normal text-white block">45 <span className="text-xs text-gold font-mono uppercase font-bold">Acres</span></span>
                   <span className="text-xs font-mono text-[#BAA360] tracking-wider uppercase block">Total Plotted City Spatial</span>
-                  <p className="text-xs text-neutral-400 font-sans font-light">An expansive, low-density zoning community ensuring maximum privacy buffers and continuous airflow across every villa boundary.</p>
+                  <p className="text-xs text-neutral-400 font-mono font-normal">An expansive, low-density zoning community ensuring maximum privacy buffers and continuous airflow across every villa boundary.</p>
                 </div>
                 <div className="p-6 bg-[#111] border border-white/[0.08] rounded-xl space-y-3">
-                  <span className="text-3xl font-display font-light text-white block">2,000 <span className="text-xs text-gold font-mono uppercase font-bold">Units</span></span>
+                  <span className="text-3xl font-mono font-normal text-white block">2,000 <span className="text-xs text-gold font-mono uppercase font-bold">Units</span></span>
                   <span className="text-xs font-mono text-[#BAA360] tracking-wider uppercase block">Premium Apartments</span>
-                  <p className="text-xs text-neutral-400 font-sans font-light">Elegantly spaced multi-aspect homes situated in high-elevation structural blocks utilizing energy recovery grids.</p>
+                  <p className="text-xs text-neutral-400 font-mono font-normal">Elegantly spaced multi-aspect homes situated in high-elevation structural blocks utilizing energy recovery grids.</p>
                 </div>
                 <div className="p-6 bg-[#111] border border-white/[0.08] rounded-xl space-y-3">
-                  <span className="text-3xl font-display font-light text-white block">1 Lakh <span className="text-xs text-gold font-mono uppercase font-bold">Sq Ft</span></span>
+                  <span className="text-3xl font-mono font-normal text-white block">1 Lakh <span className="text-xs text-gold font-mono uppercase font-bold">Sq Ft</span></span>
                   <span className="text-xs font-mono text-[#BAA360] tracking-wider uppercase block">Grand Lifestyle Clubhouse</span>
-                  <p className="text-xs text-neutral-400 font-sans font-light">Multi-layered clay-structure hub containing sports systems, virtual workspace lounges, and deep-care wellness zones.</p>
+                  <p className="text-xs text-neutral-400 font-mono font-normal">Multi-layered clay-structure hub containing sports systems, virtual workspace lounges, and deep-care wellness zones.</p>
                 </div>
                 <div className="p-6 bg-[#111] border border-white/[0.08] rounded-xl space-y-3">
-                  <span className="text-3xl font-display font-light text-white block">80+ <span className="text-xs text-gold font-mono uppercase font-bold">Experientials</span></span>
+                  <span className="text-3xl font-mono font-normal text-white block">80+ <span className="text-xs text-gold font-mono uppercase font-bold">Experientials</span></span>
                   <span className="text-xs font-mono text-[#BAA360] tracking-wider uppercase block">Lifestyle Amenities Active</span>
-                  <p className="text-xs text-neutral-400 font-sans font-light">From microclimate botanical pathways to automated high-voltage electric grid terminals.</p>
+                  <p className="text-xs text-neutral-400 font-mono font-normal">From microclimate botanical pathways to automated high-voltage electric grid terminals.</p>
                 </div>
               </>
             ) : isVelora ? (
                <>
                 <div className="p-6 bg-[#111] border border-white/[0.08] rounded-xl space-y-3">
-                  <span className="text-3xl font-display font-light text-white block">Boutique <span className="text-xs text-gold font-mono uppercase font-bold">Zoning</span></span>
+                  <span className="text-3xl font-mono font-normal text-white block">Boutique <span className="text-xs text-gold font-mono uppercase font-bold">Zoning</span></span>
                   <span className="text-xs font-mono text-[#BAA360] tracking-wider uppercase block">True Scale Intimacy</span>
-                  <p className="text-xs text-neutral-400 font-sans font-light">Designed for peace. Only 90 elegant residences allowing an absolute maximum privacy factor and minimum population densities.</p>
+                  <p className="text-xs text-neutral-400 font-mono font-normal">Designed for peace. Only 90 elegant residences allowing an absolute maximum privacy factor and minimum population densities.</p>
                 </div>
                 <div className="p-6 bg-[#111] border border-white/[0.08] rounded-xl space-y-3">
-                  <span className="text-3xl font-display font-light text-white block">Row <span className="text-xs text-gold font-mono uppercase font-bold">Housing</span></span>
+                  <span className="text-3xl font-mono font-normal text-white block">Row <span className="text-xs text-gold font-mono uppercase font-bold">Housing</span></span>
                   <span className="text-xs font-mono text-[#BAA360] tracking-wider uppercase block">Bespoke Architectural Forms</span>
-                  <p className="text-xs text-neutral-400 font-sans font-light">Carefully crafted multi-level block houses featuring private open skylights and intimate wooden sundecks.</p>
+                  <p className="text-xs text-neutral-400 font-mono font-normal">Carefully crafted multi-level block houses featuring private open skylights and intimate wooden sundecks.</p>
                 </div>
                 <div className="p-6 bg-[#111] border border-white/[0.08] rounded-xl space-y-3">
-                  <span className="text-3xl font-display font-light text-white block">Exclusive <span className="text-xs text-gold font-mono uppercase font-bold">Plots</span></span>
+                  <span className="text-3xl font-mono font-normal text-white block">Exclusive <span className="text-xs text-gold font-mono uppercase font-bold">Plots</span></span>
                   <span className="text-xs font-mono text-[#BAA360] tracking-wider uppercase block">Raw Premium Soil Blocks</span>
-                  <p className="text-xs text-neutral-400 font-sans font-light">Gravel-bedded, direct high-pressure water grid plots with a historic +21% annual local growth projection.</p>
+                  <p className="text-xs text-neutral-400 font-mono font-normal">Gravel-bedded, direct high-pressure water grid plots with a historic +21% annual local growth projection.</p>
                 </div>
                 <div className="p-6 bg-[#111] border border-white/[0.08] rounded-xl space-y-3">
-                  <span className="text-3xl font-display font-light text-white block">Green <span className="text-xs text-gold font-mono uppercase font-bold">Living</span></span>
+                  <span className="text-3xl font-mono font-normal text-white block">Green <span className="text-xs text-gold font-mono uppercase font-bold">Living</span></span>
                   <span className="text-xs font-mono text-[#BAA360] tracking-wider uppercase block">Carbon Sequestration Layout</span>
-                  <p className="text-xs text-neutral-400 font-sans font-light">Featuring a gorgeous common botanical garden containing 800+ indigenous trees to naturally lower local temperatures by 3°C.</p>
+                  <p className="text-xs text-neutral-400 font-mono font-normal">Featuring a gorgeous common botanical garden containing 800+ indigenous trees to naturally lower local temperatures by 3°C.</p>
                 </div>
               </>
             ) : isHayat ? (
                <>
                 <div className="p-6 bg-[#111] border border-white/[0.08] rounded-xl space-y-3">
-                  <span className="text-3xl font-display font-light text-white block">Luxury <span className="text-xs text-gold font-mono uppercase font-bold">Cabins</span></span>
+                  <span className="text-3xl font-mono font-normal text-white block">Luxury <span className="text-xs text-gold font-mono uppercase font-bold">Cabins</span></span>
                   <span className="text-xs font-mono text-[#BAA360] tracking-wider uppercase block">Hospitality Retreat Nodes</span>
-                  <p className="text-xs text-neutral-400 font-sans font-light">Immersive nature-inspired cabins mimicking traditional organic forms with modern temperature-control buffers.</p>
+                  <p className="text-xs text-neutral-400 font-mono font-normal">Immersive nature-inspired cabins mimicking traditional organic forms with modern temperature-control buffers.</p>
                 </div>
                 <div className="p-6 bg-[#111] border border-white/[0.08] rounded-xl space-y-3">
-                  <span className="text-3xl font-display font-light text-white block">Wellness <span className="text-xs text-gold font-mono uppercase font-bold">Spa</span></span>
+                  <span className="text-3xl font-mono font-normal text-white block">Wellness <span className="text-xs text-gold font-mono uppercase font-bold">Spa</span></span>
                   <span className="text-xs font-mono text-[#BAA360] tracking-wider uppercase block">Bio-Balance Retreat Center</span>
-                  <p className="text-xs text-neutral-400 font-sans font-light">Custom therapeutic facilities overlooking water catchments, integrating localized heat pools and botanical vapor baths.</p>
+                  <p className="text-xs text-neutral-400 font-mono font-normal">Custom therapeutic facilities overlooking water catchments, integrating localized heat pools and botanical vapor baths.</p>
                 </div>
                 <div className="p-6 bg-[#111] border border-white/[0.08] rounded-xl space-y-3">
-                  <span className="text-3xl font-display font-light text-white block">Nature <span className="text-xs text-gold font-mono uppercase font-bold">Conservation</span></span>
+                  <span className="text-3xl font-mono font-normal text-white block">Nature <span className="text-xs text-gold font-mono uppercase font-bold">Conservation</span></span>
                   <span className="text-xs font-mono text-[#BAA360] tracking-wider uppercase block">Permanent Ecological Buffer</span>
-                  <p className="text-xs text-neutral-400 font-sans font-light">Over 15 acres of native woods completely safeguarded against any urban development, retaining pristine stream water.</p>
+                  <p className="text-xs text-neutral-400 font-mono font-normal">Over 15 acres of native woods completely safeguarded against any urban development, retaining pristine stream water.</p>
                 </div>
                 <div className="p-6 bg-[#111] border border-white/[0.08] rounded-xl space-y-3">
-                  <span className="text-3xl font-display font-light text-white block">High <span className="text-xs text-gold font-mono uppercase font-bold">Yield</span></span>
+                  <span className="text-3xl font-mono font-normal text-white block">High <span className="text-xs text-gold font-mono uppercase font-bold">Yield</span></span>
                   <span className="text-xs font-mono text-[#BAA360] tracking-wider uppercase block">Fractional Adopter Pass-Through</span>
-                  <p className="text-xs text-neutral-400 font-sans font-light">Offering a verified +14.2% stable annual yield return pool pre-negotiated for qualified capital investors.</p>
+                  <p className="text-xs text-neutral-400 font-mono font-normal">Offering a verified +14.2% stable annual yield return pool pre-negotiated for qualified capital investors.</p>
                 </div>
               </>
             ) : (
               <>
                 <div className="p-6 bg-[#111] border border-white/[0.08] rounded-xl space-y-3">
-                  <span className="text-3xl font-display font-light text-white block">Strategic <span className="text-xs text-gold font-mono uppercase font-bold">Logistics</span></span>
+                  <span className="text-3xl font-mono font-normal text-white block">Strategic <span className="text-xs text-gold font-mono uppercase font-bold">Logistics</span></span>
                   <span className="text-xs font-mono text-[#BAA360] tracking-wider uppercase block">Connectivity Interlocking Nodes</span>
-                  <p className="text-xs text-neutral-400 font-sans font-light">Immediate direct frontage on crucial high-speed express corridors linking national industrial complexes.</p>
+                  <p className="text-xs text-neutral-400 font-mono font-normal">Immediate direct frontage on crucial high-speed express corridors linking national industrial complexes.</p>
                 </div>
                 <div className="p-6 bg-[#111] border border-white/[0.08] rounded-xl space-y-3">
-                  <span className="text-3xl font-display font-light text-white block">Future-Ready <span className="text-xs text-gold font-mono uppercase font-bold">CapEx</span></span>
+                  <span className="text-3xl font-mono font-normal text-white block">Future-Ready <span className="text-xs text-gold font-mono uppercase font-bold">CapEx</span></span>
                   <span className="text-xs font-mono text-[#BAA360] tracking-wider uppercase block">Heavy Pre-Cast Foundations</span>
-                  <p className="text-xs text-neutral-400 font-sans font-light">Reinforced load-bearing earth with integrated fiber trunks, solar substations, and wide-turn freight logistics routes.</p>
+                  <p className="text-xs text-neutral-400 font-mono font-normal">Reinforced load-bearing earth with integrated fiber trunks, solar substations, and wide-turn freight logistics routes.</p>
                 </div>
                 <div className="p-6 bg-[#111] border border-white/[0.08] rounded-xl space-y-3">
-                  <span className="text-3xl font-display font-light text-white block">Zero <span className="text-xs text-gold font-mono uppercase font-bold">Bottleneck</span></span>
+                  <span className="text-3xl font-mono font-normal text-white block">Zero <span className="text-xs text-gold font-mono uppercase font-bold">Bottleneck</span></span>
                   <span className="text-xs font-mono text-[#BAA360] tracking-wider uppercase block">Automated Customs Registry</span>
-                  <p className="text-xs text-neutral-400 font-sans font-light">Customized layout plans matching international container standards with fast-track single-window customs links.</p>
+                  <p className="text-xs text-neutral-400 font-mono font-normal">Customized layout plans matching international container standards with fast-track single-window customs links.</p>
                 </div>
                 <div className="p-6 bg-[#111] border border-white/[0.08] rounded-xl space-y-3">
-                  <span className="text-3xl font-display font-light text-white block">Institutional <span className="text-xs text-gold font-mono uppercase font-bold">liquidity</span></span>
+                  <span className="text-3xl font-mono font-normal text-white block">Institutional <span className="text-xs text-gold font-mono uppercase font-bold">liquidity</span></span>
                   <span className="text-xs font-mono text-[#BAA360] tracking-wider uppercase block">MNC Tenancies Pre-Cleared</span>
-                  <p className="text-xs text-neutral-400 font-sans font-light">Direct legal lease options lined up with top-tier international logistics and warehousing clients.</p>
+                  <p className="text-xs text-neutral-400 font-mono font-normal">Direct legal lease options lined up with top-tier international logistics and warehousing clients.</p>
                 </div>
               </>
             )}
@@ -369,10 +369,10 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
             <span className="text-[10px] font-mono text-gold tracking-[0.25em] uppercase font-bold block mb-2">
               ACTIVE LEDGER METRICS
             </span>
-            <h2 className="font-display font-light text-2xl sm:text-4xl uppercase text-white leading-tight">
+            <h2 className="font-mono font-bold text-2xl sm:text-4xl uppercase text-white leading-tight">
               SPATIAL CONFIGURATION EXPLORER
             </h2>
-            <p className="mt-3 text-xs sm:text-sm text-neutral-400 font-sans font-light">
+            <p className="mt-3 text-xs sm:text-sm text-neutral-400 font-mono font-normal">
               Toggle configurations below to review engineered floor plans, required investments, and structural features.
             </p>
           </div>
@@ -418,14 +418,14 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
                         >
                           <div className="p-5 bg-neutral-900 rounded-lg border border-gold/30 space-y-4">
                             <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-white/[0.04] pb-3">
-                              <h4 className="text-lg font-display font-medium text-white">{item.type}</h4>
+                              <h4 className="text-lg font-mono font-medium text-white">{item.type}</h4>
                               <div className="text-right">
                                 <span className="block text-[8px] font-mono text-neutral-500 uppercase">ACQUISITION CAPEX</span>
                                 <span className="text-sm font-mono font-bold text-gold">{item.invest}</span>
                               </div>
                             </div>
 
-                            <p className="text-xs text-neutral-300 font-sans font-light leading-relaxed">
+                            <p className="text-xs text-neutral-300 font-mono font-normal leading-relaxed">
                               {item.desc}
                             </p>
 
@@ -448,7 +448,7 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
 
                             <div className="p-3 bg-black/50 rounded border border-white/[0.04] space-y-1">
                               <span className="text-[8px] font-mono text-gold uppercase tracking-widest block font-bold">ACCENTURE INFRA COVENANTS:</span>
-                              <ul className="text-[10px] text-neutral-400 font-sans font-light space-y-1">
+                              <ul className="text-[10px] text-neutral-400 font-mono font-normal space-y-1">
                                 <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-gold shrink-0" /> Pre-tested soil bearing parameters</li>
                                 <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-gold shrink-0" /> Clear title mutation certificates included</li>
                               </ul>
@@ -470,14 +470,14 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
                   <div className="space-y-6">
                     <span className="text-[9px] font-mono text-neutral-500 uppercase tracking-widest block">SECURE SYSTEM PARADIGM // CODE_CONF_EXPLORER</span>
                     <div className="flex flex-wrap items-baseline justify-between gap-4 border-b border-white/[0.04] pb-5">
-                      <h4 className="text-2xl sm:text-3xl font-display font-medium text-white">{currentConfig.type}</h4>
+                      <h4 className="text-2xl sm:text-3xl font-mono font-medium text-white">{currentConfig.type}</h4>
                       <div className="text-right">
                         <span className="block text-[9px] font-mono text-neutral-500 uppercase">ACQUISITION CAPEX</span>
                         <span className="text-xl font-mono font-bold text-gold">{currentConfig.invest}</span>
                       </div>
                     </div>
 
-                    <p className="text-sm text-neutral-300 font-sans font-light leading-relaxed">
+                    <p className="text-sm text-neutral-300 font-mono font-normal leading-relaxed">
                       {currentConfig.desc}
                     </p>
 
@@ -500,7 +500,7 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
 
                     <div className="p-4 bg-[#111] rounded border border-white/[0.05] space-y-2 mt-6">
                       <span className="text-[8px] font-mono text-gold uppercase tracking-widest block">GUARANTEED STRUCTURAL INTEGRITY COVENANTS</span>
-                      <ul className="text-xs text-neutral-400 font-sans font-light space-y-1">
+                      <ul className="text-xs text-neutral-400 font-mono font-normal space-y-1">
                         <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-gold" /> Pre-tested soil bearing parameters</li>
                         <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-gold" /> Individual water pressure index and telemetry pre-secured</li>
                         <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-gold" /> Clear title MUTATION CERTIFICATE included</li>
@@ -521,10 +521,10 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
             <span className="text-[10px] font-mono text-gold tracking-[0.25em] uppercase font-bold block mb-2">
               03 / SPATIAL ENGINEERING
             </span>
-            <h2 className="font-display font-light text-2xl sm:text-4xl uppercase text-white leading-tight">
+            <h2 className="font-mono font-bold text-2xl sm:text-4xl uppercase text-white leading-tight">
               INTERACTIVE MASTERPLAN <span className="font-bold text-gold">EXPLORER</span>
             </h2>
-            <p className="mt-3 text-xs sm:text-sm text-neutral-400 font-sans font-light">
+            <p className="mt-3 text-xs sm:text-sm text-neutral-400 font-mono font-normal">
               Accenture Legacy Township spans 105 total master-planned acres with a 45-acre residential core. Select masterplan sectors below to analyze construction progress, soil surface metrics, and primary features.
             </p>
           </div>
@@ -577,10 +577,10 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
                         <div className="p-5 bg-black rounded-lg border border-gold/30 shadow-inner space-y-4">
                           <div>
                             <span className="text-gold font-mono text-[9px] uppercase tracking-wider block">MUTATION STATUS // {sec.status.toUpperCase()}</span>
-                            <h4 className="text-lg font-display font-medium text-white mt-1">{sec.name}</h4>
+                            <h4 className="text-lg font-mono font-medium text-white mt-1">{sec.name}</h4>
                           </div>
                           
-                          <p className="text-xs text-neutral-300 font-sans font-light leading-relaxed">
+                          <p className="text-xs text-neutral-300 font-mono font-normal leading-relaxed">
                             {sec.desc}
                           </p>
 
@@ -588,7 +588,7 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
                             <span className="text-[8px] font-mono text-neutral-500 uppercase tracking-widest block font-bold">PRIMARY ATTRIBUTED LAYER SPECS</span>
                             <ul className="grid grid-cols-1 gap-1.5">
                               {sec.features.map((feature, idx) => (
-                                <li key={idx} className="text-xs text-neutral-400 font-sans font-light flex items-center gap-2">
+                                <li key={idx} className="text-xs text-neutral-400 font-mono font-normal flex items-center gap-2">
                                   <Check className="w-3.5 h-3.5 text-gold shrink-0" />
                                   <span>{feature}</span>
                                 </li>
@@ -636,7 +636,7 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
                         <span className={`text-[10px] font-mono uppercase tracking-wider block ${isSelected ? "text-gold font-bold" : "text-neutral-500"}`}>
                           {sec.name.split(" ")[0]}
                         </span>
-                        <span className="text-[9px] text-neutral-400 font-sans block mt-3">
+                        <span className="text-[9px] text-neutral-400 font-mono block mt-3">
                           {sec.status}
                         </span>
                       </button>
@@ -658,9 +658,9 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
                 return (
                   <div className="space-y-4">
                     <span className="text-gold font-mono text-xs uppercase tracking-wider block">MUTATION STATUS // {section.status.toUpperCase()}</span>
-                    <h4 className="text-xl sm:text-2xl font-display font-medium text-white">{section.name}</h4>
+                    <h4 className="text-xl sm:text-2xl font-mono font-medium text-white">{section.name}</h4>
                     <div className="h-[2px] w-12 bg-gold" />
-                    <p className="text-xs text-neutral-300 font-sans font-light leading-relaxed">
+                    <p className="text-xs text-neutral-300 font-mono font-normal leading-relaxed">
                       {section.desc}
                     </p>
 
@@ -668,7 +668,7 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
                       <span className="text-[8px] font-mono text-neutral-500 uppercase tracking-widest block">PRIMARY ATTRIBUTED LAYER SPECS</span>
                       <ul className="grid grid-cols-1 gap-2">
                         {section.features.map((feature, idx) => (
-                          <li key={idx} className="text-xs text-neutral-400 font-sans font-light flex items-center gap-2">
+                          <li key={idx} className="text-xs text-neutral-400 font-mono font-normal flex items-center gap-2">
                             <Check className="w-3.5 h-3.5 text-gold shrink-0" />
                             <span>{feature}</span>
                           </li>
@@ -694,10 +694,10 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
           <span className="text-[10px] font-mono text-[#BAA360] tracking-[0.25em] uppercase font-bold block mb-2">
             EPICUREAN LAND ECOSYSTEMS
           </span>
-          <h2 className="font-display font-light text-2xl sm:text-5xl uppercase text-white leading-tight">
+          <h2 className="font-mono font-bold text-2xl sm:text-5xl uppercase text-white leading-tight">
             THE ART OF <span className="text-gold font-bold">ECO-LIVING</span>
           </h2>
-          <p className="mt-4 text-xs sm:text-sm text-neutral-400 font-sans font-light max-w-xl mx-auto">
+          <p className="mt-4 text-xs sm:text-sm text-neutral-400 font-mono font-normal max-w-xl mx-auto">
             Not a concrete jungle. Multi-acre forest pockets, deep bioswales, organic farms, and quiet microclimate lanes planned to enhance human focus and longevity.
           </p>
         </div>
@@ -714,8 +714,8 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
               <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60" />
               <div className="absolute bottom-4 left-4 right-4 text-xs font-mono tracking-wider">SEC_MUT_NURSERY</div>
             </div>
-            <h4 className="text-white font-display text-lg font-bold uppercase tracking-wider">Native Forest Commons</h4>
-            <p className="text-xs text-neutral-400 font-sans font-light leading-relaxed">
+            <h4 className="text-white font-mono text-lg font-bold uppercase tracking-wider">Native Forest Commons</h4>
+            <p className="text-xs text-neutral-400 font-mono font-normal leading-relaxed">
               Every Accenture Infra property features a state-of-the-art native botany nursery. Up to 2,500 mature, indigenous trees and shrubs are nurtured on-site to build high-end microclimate layers.
             </p>
           </div>
@@ -731,8 +731,8 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
               <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60" />
               <div className="absolute bottom-4 left-4 right-4 text-xs font-mono tracking-wider">SEC_CLUB_LOUNGE</div>
             </div>
-            <h4 className="text-white font-display text-lg font-bold uppercase tracking-wider font-semibold">The Grand Vault Lounges</h4>
-            <p className="text-xs text-neutral-400 font-sans font-light leading-relaxed">
+            <h4 className="text-white font-mono text-lg font-bold uppercase tracking-wider font-semibold">The Grand Vault Lounges</h4>
+            <p className="text-xs text-neutral-400 font-mono font-normal leading-relaxed">
               Quiet double-height wooden study libraries, meeting chambers, and organic juice bars crafted for remote tech executives, business operators, and multigenerational adopters.
             </p>
           </div>
@@ -748,8 +748,8 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
               <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60" />
               <div className="absolute bottom-4 left-4 right-4 text-xs font-mono tracking-wider">SEC_WELLNESS_POD</div>
             </div>
-            <h4 className="text-white font-display text-lg font-bold uppercase tracking-wider">Therapeutic Water Pools</h4>
-            <p className="text-xs text-neutral-400 font-sans font-light leading-relaxed">
+            <h4 className="text-white font-mono text-lg font-bold uppercase tracking-wider">Therapeutic Water Pools</h4>
+            <p className="text-xs text-neutral-400 font-mono font-normal leading-relaxed">
               State of the art mineral pools, biological water filtration lines, and sauna rooms designed strictly to aid physical restoration and premium wellness focus.
             </p>
           </div>
@@ -761,10 +761,10 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
         <span className="text-[10px] font-mono text-[#BAA360] tracking-[0.25em] uppercase font-bold block">
           PRIVATE RECRUITMENT ACTIVE
         </span>
-        <h3 className="font-display font-light text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
+        <h3 className="font-mono font-bold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
           SECURE AN ENGAGEMENT SESSION ON <span className="font-bold text-gold">THE PLOTTED GROUND</span>
         </h3>
-        <p className="text-sm text-neutral-400 font-sans font-light max-w-xl mx-auto leading-relaxed">
+        <p className="text-sm text-neutral-400 font-mono font-normal max-w-xl mx-auto leading-relaxed">
           Book a private consultant-led tour of the property boundaries. We will mutation-verify deeds, analyze local developmental infrastructure layers, and walk the physical soil layout.
         </p>
 

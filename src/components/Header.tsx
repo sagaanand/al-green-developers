@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Shield, Sparkles, FolderKanban, FileText, CalendarCheck, User, X, Menu, ChevronDown, Waves, Warehouse } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import logoIcon from "../assets/logo-icon.png";
 
 interface HeaderProps {
@@ -11,6 +12,7 @@ interface HeaderProps {
 }
 
 export default function Header({ onScrollToSection, onOpenTracker, activeSection, onOpenProjectDetail }: HeaderProps) {
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -64,14 +66,15 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
   };
 
   const simpleNavItems = [
-    { id: "philosophy", label: "About", icon: Sparkles },
+    { id: "about", label: "About", icon: Sparkles, link: "/about" },
     { id: "visit", label: "Contact", icon: CalendarCheck }
   ];
 
   const handleDropdownItemClick = (item: { label: string; desc: string; id?: string; scrollId?: string }) => {
     setActiveDropdown(null);
-    if (item.id && onOpenProjectDetail) {
-      onOpenProjectDetail(item.id);
+    if (item.id) {
+      // Navigate to project page
+      window.location.href = `/project/${item.id}`;
     } else if (item.scrollId) {
       onScrollToSection(item.scrollId);
     }
@@ -105,10 +108,10 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
               className="w-14 h-14 object-contain group-hover:scale-105 transition-transform duration-300"
             />
             <div className="text-center">
-              <span className="block font-serif text-lg tracking-[0.25em] font-normal text-white group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'Bodoni MT', serif" }}>
+              <span className="block font-mono text-lg tracking-[0.25em] font-normal text-white group-hover:text-gold transition-colors duration-300">
                 ACCENTURE
               </span>
-              <span className="block font-serif text-lg tracking-[0.25em] font-black text-[#BAA360] group-hover:text-gold transition-colors duration-300" style={{ fontFamily: "'Bodoni MT', serif" }}>
+              <span className="block font-mono text-lg tracking-[0.25em] font-black text-[#BAA360] group-hover:text-gold transition-colors duration-300">
                 INFRA
               </span>
             </div>
@@ -117,18 +120,16 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
           {/* Desktop Navigation */}
           <nav id="desktop-nav" className="hidden lg:flex items-center gap-6">
             {/* Home link */}
-            <button
-              id="nav-link-home"
-              onClick={() => {
-                onScrollToSection("hero");
-                setActiveDropdown(null);
-              }}
-              className="group py-2 flex items-center gap-1 cursor-pointer"
+            <Link
+              to="/"
+              className={`group py-2 flex items-center gap-1 cursor-pointer ${
+                location.pathname === "/" ? "text-gold font-bold" : "text-white/80 group-hover:text-white"
+              }`}
             >
-              <span className={`text-sm font-mono tracking-wider uppercase transition-colors ${activeSection === "hero" ? "text-gold font-bold" : "text-white/80 group-hover:text-white"}`}>
+              <span className="text-sm font-mono tracking-wider uppercase transition-colors">
                 Home
               </span>
-            </button>
+            </Link>
 
             {/* Dropdown triggers */}
             {Object.entries(navDropdowns).map(([key, value]) => {
@@ -168,7 +169,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                             <span className="block text-sm font-mono uppercase tracking-wider text-white group-hover:text-gold transition-colors">
                               {item.label}
                             </span>
-                            <span className="block text-xs text-white/60 font-sans mt-0.5">
+                            <span className="block text-xs text-white/60 font-mono mt-0.5">
                               {item.desc}
                             </span>
                           </button>
@@ -183,6 +184,21 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
             {/* Simple navigation links */}
             {simpleNavItems.map((item) => {
               const isActive = activeSection === item.id;
+              if (item.link) {
+                return (
+                  <Link
+                    to={item.link}
+                    key={item.id}
+                    className={`relative group py-2 flex items-center gap-1 cursor-pointer ${
+                      location.pathname === item.link ? "text-gold font-bold" : "text-white/80 group-hover:text-white"
+                    }`}
+                  >
+                    <span className="text-sm font-mono tracking-wider uppercase transition-colors">
+                      {item.label}
+                    </span>
+                  </Link>
+                );
+              }
               return (
                 <button
                   id={`nav-link-${item.id}`}
@@ -252,10 +268,10 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   className="w-10 h-10 object-contain"
                 />
                 <div className="text-center">
-                  <span className="block font-serif text-sm tracking-[0.2em] font-normal text-white" style={{ fontFamily: "'Bodoni MT', serif" }}>
+                  <span className="block font-mono text-sm tracking-[0.2em] font-normal text-white">
                     ACCENTURE
                   </span>
-                  <span className="block font-serif text-sm tracking-[0.2em] font-bold text-[#BAA360]" style={{ fontFamily: "'Bodoni MT', serif" }}>
+                  <span className="block font-mono text-sm tracking-[0.2em] font-bold text-[#BAA360]">
                     INFRA
                   </span>
                 </div>
@@ -288,7 +304,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   className="w-full text-left flex justify-between items-center py-2 border-b border-white/10 group"
                 >
                   <div>
-                    <span className="block text-lg font-display uppercase tracking-wider text-white group-hover:text-gold transition-colors">Legacy Township</span>
+                    <span className="block text-lg font-mono uppercase tracking-wider text-white group-hover:text-gold transition-colors">Legacy Township</span>
                     <span className="block text-xs text-neutral-300">105-Acre Flagship Integrated City</span>
                   </div>
                 </button>
@@ -303,7 +319,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   className="w-full text-left flex justify-between items-center py-2 border-b border-white/10 group"
                 >
                   <div>
-                    <span className="block text-lg font-display uppercase tracking-wider text-white group-hover:text-gold transition-colors">Velora Greens</span>
+                    <span className="block text-lg font-mono uppercase tracking-wider text-white group-hover:text-gold transition-colors">Velora Greens</span>
                     <span className="block text-xs text-neutral-300">Boutique Residential Enclave</span>
                   </div>
                 </button>
@@ -318,7 +334,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   className="w-full text-left flex justify-between items-center py-2 border-b border-white/10 group"
                 >
                   <div>
-                    <span className="block text-lg font-display uppercase tracking-wider text-white group-hover:text-gold transition-colors">Hayat Greenz Resort</span>
+                    <span className="block text-lg font-mono uppercase tracking-wider text-white group-hover:text-gold transition-colors">Hayat Greenz Resort</span>
                     <span className="block text-xs text-neutral-300">Immersive Nature and Wellness Retreat</span>
                   </div>
                 </button>
@@ -333,7 +349,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   className="w-full text-left flex justify-between items-center py-2 border-b border-white/10 group"
                 >
                   <div>
-                    <span className="block text-lg font-display uppercase tracking-wider text-white group-hover:text-gold transition-colors">Warehousing division</span>
+                    <span className="block text-lg font-mono uppercase tracking-wider text-white group-hover:text-gold transition-colors">Warehousing division</span>
                     <span className="block text-xs text-neutral-300">Industrial Logistics Land Nodes</span>
                   </div>
                 </button>
@@ -345,17 +361,28 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   Information & Capital links
                 </span>
                 {simpleNavItems.map((item) => (
-                  <button
-                    id={`mobile-simple-link-${item.id}`}
-                    key={item.id}
-                    onClick={() => {
-                      onScrollToSection(item.id);
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="w-full text-left py-1 text-lg font-display uppercase tracking-wide text-white/90 hover:text-gold"
-                  >
-                    {item.label}
-                  </button>
+                  item.link ? (
+                    <Link
+                      to={item.link}
+                      key={item.id}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="w-full text-left py-1 text-lg font-mono uppercase tracking-wide text-white/90 hover:text-gold block"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <button
+                      id={`mobile-simple-link-${item.id}`}
+                      key={item.id}
+                      onClick={() => {
+                        onScrollToSection(item.id);
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left py-1 text-lg font-mono uppercase tracking-wide text-white/90 hover:text-gold"
+                    >
+                      {item.label}
+                    </button>
+                  )
                 ))}
               </div>
             </div>
