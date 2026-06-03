@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import RequestTracker from "./components/RequestTracker";
 import SectionHero from "./components/SectionHero";
@@ -11,6 +12,7 @@ import SectionInvestorCenter from "./components/SectionInvestorCenter";
 import SectionSiteVisit from "./components/SectionSiteVisit";
 import SectionTestimonials from "./components/SectionTestimonials";
 import Footer from "./components/Footer";
+import VeloraGreensLanding from "./pages/VeloraGreensLanding";
 import { LeadSubmission, SiteVisitSchedule } from "./types";
 import { Compass } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -133,14 +135,20 @@ export default function App() {
   const hasActivity = leads.length > 0 || visits.length > 0;
 
   return (
-    <div id="root-viewport-shell" className="relative min-h-screen gradient-bg-mesh text-[#FAFBF9] select-none">
-      {/* Sticky header navigation */}
-      <Header
-        onScrollToSection={handleScrollToSection}
-        onOpenTracker={() => setIsTrackerOpen(true)}
-        activeSection={activeSection}
-        onOpenProjectDetail={setSelectedProjectId}
-      />
+    <Routes>
+      {/* Landing Page Route */}
+      <Route path="/velora-greens" element={<VeloraGreensLanding />} />
+      
+      {/* Main Website Route */}
+      <Route path="*" element={
+        <div id="root-viewport-shell" className="relative min-h-screen gradient-bg-mesh text-[#FAFBF9] select-none">
+          {/* Sticky header navigation */}
+          <Header
+            onScrollToSection={handleScrollToSection}
+            onOpenTracker={() => setIsTrackerOpen(true)}
+            activeSection={activeSection}
+            onOpenProjectDetail={setSelectedProjectId}
+          />
 
       {/* Main interactive section segments */}
       <main id="main-content-canvas" className="pb-24 lg:pb-0">
@@ -230,5 +238,7 @@ export default function App() {
         )}
       </AnimatePresence>
     </div>
+      } />
+    </Routes>
   );
 }
