@@ -1,11 +1,12 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { MapPin, Home, Check, Leaf, Building2, Shield, Trees, Users, Sparkles, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FloatingCTA from "../components/FloatingCTA";
 import SectionConfigurations from "../components/SectionConfigurations";
+import FloorPlanPanel from "../components/FloorPlanPanel";
 
 export default function VeloraGreens() {
   const heroRef = useRef(null);
@@ -17,6 +18,9 @@ export default function VeloraGreens() {
 
   const { scrollYProgress } = useScroll();
   const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  const [isFloorPlanOpen, setIsFloorPlanOpen] = useState(false);
+  const [selectedFloorPlanIndex, setSelectedFloorPlanIndex] = useState(0);
 
   const highlights = [
     { text: "Premium Gated Community", icon: Shield },
@@ -35,6 +39,37 @@ export default function VeloraGreens() {
     "3 BHK",
     "Row Housing",
     "Villa Plots"
+  ];
+
+  const floorPlans = [
+    {
+      id: "2bhk-1200",
+      title: "2 BHK Apartment",
+      subtitle: "Type A - Standard Configuration",
+      area: "1200 Sq. Ft.",
+      image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      id: "3bhk-1600",
+      title: "3 BHK Apartment",
+      subtitle: "Type B - Premium Configuration",
+      area: "1600 Sq. Ft.",
+      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      id: "row-house",
+      title: "Row Housing",
+      subtitle: "Type C - Duplex Configuration",
+      area: "1800 Sq. Ft.",
+      image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      id: "villa-plot",
+      title: "Villa Plot",
+      subtitle: "Type D - Premium Plot",
+      area: "2400 Sq. Ft.",
+      image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1200&auto=format&fit=crop"
+    }
   ];
 
   return (
@@ -158,6 +193,55 @@ export default function VeloraGreens() {
       {/* Configurations Section */}
       <SectionConfigurations />
 
+      {/* Floor Plans Section */}
+      <section className="py-24 bg-[#0d1f0c]">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-4">
+              Floor Plans
+            </h2>
+            <p className="text-lg text-neutral-300 font-normal">
+              Explore detailed floor plans with download options
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {floorPlans.map((plan, index) => (
+              <motion.div
+                key={plan.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white/5 border border-white/20 rounded-xl overflow-hidden hover:border-gold/30 transition-all group cursor-pointer"
+                onClick={() => {
+                  setSelectedFloorPlanIndex(index);
+                  setIsFloorPlanOpen(true);
+                }}
+              >
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={plan.image}
+                    alt={plan.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-mono text-lg font-bold text-white mb-1">{plan.title}</h3>
+                  <p className="text-sm text-neutral-400 mb-2">{plan.subtitle}</p>
+                  <p className="text-gold font-mono text-sm">{plan.area}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Growth Drivers */}
       <section className="py-24 bg-[#24421E]">
         <div className="max-w-7xl mx-auto px-6">
@@ -227,6 +311,13 @@ export default function VeloraGreens() {
 
       <Footer onScrollToSection={() => {}} />
       <FloatingCTA />
+      
+      <FloorPlanPanel
+        isOpen={isFloorPlanOpen}
+        onClose={() => setIsFloorPlanOpen(false)}
+        floorPlans={floorPlans}
+        initialIndex={selectedFloorPlanIndex}
+      />
     </div>
   );
 }
