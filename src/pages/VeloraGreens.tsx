@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FloatingCTA from "../components/FloatingCTA";
-import SectionConfigurations from "../components/SectionConfigurations";
+import LuxuryConfigAccordion from "../components/LuxuryConfigAccordion";
 import FloorPlanPanel from "../components/FloorPlanPanel";
 
 export default function VeloraGreens() {
@@ -23,15 +23,15 @@ export default function VeloraGreens() {
   const [selectedFloorPlanIndex, setSelectedFloorPlanIndex] = useState(0);
 
   const highlights = [
-    { text: "Premium Gated Community", icon: Shield },
-    { text: "90 Apartments Across 6 Blocks", icon: Building2 },
-    { text: "Elegant Row Housing", icon: Home },
-    { text: "Premium Villa Plots", icon: Trees },
-    { text: "Spacious 2 & 3 BHK Residences", icon: Building2 },
-    { text: "Modern Architecture", icon: Sparkles },
-    { text: "Open Green Spaces", icon: Trees },
-    { text: "Lifestyle-Focused Planning", icon: Users },
-    { text: "Secure & Family-Friendly", icon: Lock }
+    { text: "Premium Gated Community", image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=400&auto=format&fit=crop" },
+    { text: "90 Apartments Across 6 Blocks", image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=400&auto=format&fit=crop" },
+    { text: "Elegant Row Housing", image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=400&auto=format&fit=crop" },
+    { text: "Premium Villa Plots", image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=400&auto=format&fit=crop" },
+    { text: "Spacious 2 & 3 BHK Residences", image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=400&auto=format&fit=crop" },
+    { text: "Modern Architecture", image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=400&auto=format&fit=crop" },
+    { text: "Open Green Spaces", image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=400&auto=format&fit=crop" },
+    { text: "Lifestyle-Focused Planning", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=400&auto=format&fit=crop" },
+    { text: "Secure & Family-Friendly", image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=400&auto=format&fit=crop" }
   ];
 
   const configurations = [
@@ -170,51 +170,58 @@ export default function VeloraGreens() {
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {highlights.map((highlight, index) => {
-              const Icon = highlight.icon;
-              return (
+            {highlights.map((highlight, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-gold/30 transition-all duration-300 group relative"
+              >
+                <div className="aspect-square overflow-hidden">
+                  <motion.img
+                    src={highlight.image}
+                    alt={highlight.text}
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                    loading="lazy"
+                  />
+                </div>
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white/5 border border-white/10 p-8 rounded-xl text-center hover:border-gold/30 hover:bg-white/10 transition-all duration-300 group relative overflow-hidden"
+                  className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex items-center justify-center p-4"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <div className="relative z-10">
-                    <motion.div
-                      whileHover={{ scale: 1.2, rotate: 5 }}
-                      transition={{ duration: 0.3 }}
-                      className="mb-4"
-                    >
-                      <Icon className="w-12 h-12 text-gold mx-auto" />
-                    </motion.div>
-                    <motion.p 
-                      className="text-sm font-normal text-white"
-                      initial={{ opacity: 1 }}
-                      whileHover={{ opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {highlight.text}
-                    </motion.p>
-                  </div>
-                  <motion.div
-                    className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gold/20 to-[#A0814C]/20"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <p className="text-sm font-bold text-white px-2">{highlight.text}</p>
-                  </motion.div>
+                  <p className="text-sm font-bold text-white text-center">{highlight.text}</p>
                 </motion.div>
-              );
-            })}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Configurations Section */}
-      <SectionConfigurations />
+      <section className="py-24 bg-[#0d1f0c]">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-4">
+              Project Configurations
+            </h2>
+            <p className="text-lg text-neutral-300 font-normal">
+              Explore our premium residential options designed for luxurious living
+            </p>
+          </motion.div>
+          <LuxuryConfigAccordion />
+        </div>
+      </section>
 
       {/* Floor Plans Section */}
       <section className="py-24 bg-[#0d1f0c]">

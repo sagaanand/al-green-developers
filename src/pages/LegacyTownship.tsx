@@ -24,13 +24,13 @@ export default function LegacyTownship() {
   const [selectedFloorPlanIndex, setSelectedFloorPlanIndex] = useState(0);
 
   const highlights = [
-    { text: "105 Acres", icon: TreePine },
-    { text: "2000 Apartments", icon: Building2 },
-    { text: "750 Villa Plots", icon: Home },
-    { text: "1 Lakh Sq Ft Clubhouse", icon: Award },
-    { text: "80+ Amenities", icon: Zap },
-    { text: "Green Spaces", icon: TreePine },
-    { text: "Smart Infrastructure", icon: Shield }
+    { text: "105 Acres", image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=400&auto=format&fit=crop" },
+    { text: "2000 Apartments", image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=400&auto=format&fit=crop" },
+    { text: "750 Villa Plots", image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=400&auto=format&fit=crop" },
+    { text: "1 Lakh Sq Ft Clubhouse", image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=400&auto=format&fit=crop" },
+    { text: "80+ Amenities", image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=400&auto=format&fit=crop" },
+    { text: "Green Spaces", image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=400&auto=format&fit=crop" },
+    { text: "Smart Infrastructure", image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=400&auto=format&fit=crop" }
   ];
 
   const configurations = [
@@ -315,45 +315,35 @@ export default function LegacyTownship() {
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {highlights.map((highlight, index) => {
-              const Icon = highlight.icon;
-              return (
+            {highlights.map((highlight, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-gold/30 transition-all duration-300 group relative"
+              >
+                <div className="aspect-square overflow-hidden">
+                  <motion.img
+                    src={highlight.image}
+                    alt={highlight.text}
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                    loading="lazy"
+                  />
+                </div>
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white/5 border border-white/10 p-8 rounded-xl text-center hover:border-gold/30 hover:bg-white/10 transition-all duration-300 group relative overflow-hidden"
+                  className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex items-center justify-center p-4"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <div className="relative z-10">
-                    <motion.div
-                      whileHover={{ scale: 1.2, rotate: 5 }}
-                      transition={{ duration: 0.3 }}
-                      className="mb-4"
-                    >
-                      <Icon className="w-12 h-12 text-gold mx-auto" />
-                    </motion.div>
-                    <motion.p 
-                      className="text-sm font-normal text-white"
-                      initial={{ opacity: 1 }}
-                      whileHover={{ opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {highlight.text}
-                    </motion.p>
-                  </div>
-                  <motion.div
-                    className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gold/20 to-[#A0814C]/20"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <p className="text-sm font-bold text-white px-2">{highlight.text}</p>
-                  </motion.div>
+                  <p className="text-sm font-bold text-white text-center">{highlight.text}</p>
                 </motion.div>
-              );
-            })}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
