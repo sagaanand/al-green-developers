@@ -1,6 +1,7 @@
-import { motion } from "motion/react";
-import { MapPin, Home, Award, Shield, Check } from "lucide-react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { MapPin, Home, Award, Shield, Check, Building2, TreePine, Users, Zap, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FloatingCTA from "../components/FloatingCTA";
@@ -8,14 +9,24 @@ import SectionAmenities from "../components/SectionAmenities";
 import SectionConfigurations from "../components/SectionConfigurations";
 
 export default function LegacyTownship() {
+  const heroRef = useRef(null);
+  const { scrollYProgress: heroScrollProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  const y = useTransform(heroScrollProgress, [0, 1], [0, 300]);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   const highlights = [
-    "105 Acres",
-    "2000 Apartments",
-    "750 Villa Plots",
-    "1 Lakh Sq Ft Clubhouse",
-    "80+ Amenities",
-    "Green Spaces",
-    "Smart Infrastructure"
+    { text: "105 Acres", icon: TreePine },
+    { text: "2000 Apartments", icon: Building2 },
+    { text: "750 Villa Plots", icon: Home },
+    { text: "1 Lakh Sq Ft Clubhouse", icon: Award },
+    { text: "80+ Amenities", icon: Zap },
+    { text: "Green Spaces", icon: TreePine },
+    { text: "Smart Infrastructure", icon: Shield }
   ];
 
   const configurations = [
@@ -31,6 +42,13 @@ export default function LegacyTownship() {
 
   return (
     <div className="min-h-screen bg-[#0d1f0c] text-white font-mono">
+      {/* Scroll Progress Indicator */}
+      <motion.div
+        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-gold to-[#A0814C] z-[60]"
+        style={{ scaleX }}
+        initial={{ scaleX: 0 }}
+      />
+      
       <Header 
         onScrollToSection={() => {}}
         onOpenTracker={() => {}}
@@ -39,8 +57,11 @@ export default function LegacyTownship() {
       />
 
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
+      <section ref={heroRef} className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <motion.div 
+          style={{ y }}
+          className="absolute inset-0 z-0"
+        >
           <img
             src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop"
             alt="Legacy Township"
@@ -48,7 +69,7 @@ export default function LegacyTownship() {
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0d1f0c]" />
-        </div>
+        </motion.div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -95,7 +116,7 @@ export default function LegacyTownship() {
             <img
               src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
               alt="Legacy Township Overview"
-              className="w-full h-96 object-cover rounded-xl border border-white/20"
+              className="w-full h-96 object-cover rounded-xl border border-white/20 hover:scale-[1.02] transition-transform duration-500"
               loading="lazy"
             />
           </motion.div>
@@ -133,12 +154,14 @@ export default function LegacyTownship() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="aspect-video rounded-xl overflow-hidden border border-white/20"
+                className="aspect-video rounded-xl overflow-hidden border border-white/20 group"
               >
-                <img
+                <motion.img
                   src={img}
                   alt={`Gallery ${idx + 1}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.5 }}
                   loading="lazy"
                 />
               </motion.div>
@@ -208,19 +231,22 @@ export default function LegacyTownship() {
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {highlights.map((highlight, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white/5 border border-white/10 p-6 rounded-xl text-center"
-              >
-                <Home className="w-8 h-8 text-gold mx-auto mb-3" />
-                <p className="text-sm font-normal">{highlight}</p>
-              </motion.div>
-            ))}
+            {highlights.map((highlight, index) => {
+              const Icon = highlight.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white/5 border border-white/10 p-6 rounded-xl text-center hover:border-gold/30 hover:bg-white/10 transition-all group"
+                >
+                  <Icon className="w-8 h-8 text-gold mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                  <p className="text-sm font-normal">{highlight.text}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -245,15 +271,30 @@ export default function LegacyTownship() {
             </h2>
             <div className="space-y-6">
               {[
-                "Within 10 minutes of the crucial Kadugodi Metro Station and Hope Farm Junction on the Purple Line",
-                "Uncompromised legal title mutation deeds verified since 1980",
-                "RERA Approved // Certificate ID: PRM/KA/RERA/1251/Bangalore"
-              ].map((driver, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <Shield className="w-6 h-6 text-gold mt-1 shrink-0" />
-                  <p className="text-neutral-300 font-normal">{driver}</p>
-                </div>
-              ))}
+                { text: "Within 10 minutes of the crucial Kadugodi Metro Station and Hope Farm Junction on the Purple Line", icon: MapPin },
+                { text: "Uncompromised legal title mutation deeds verified since 1980", icon: Shield },
+                { text: "RERA Approved // Certificate ID: PRM/KA/RERA/1251/Bangalore", icon: Award }
+              ].map((driver, index) => {
+                const Icon = driver.icon;
+                return (
+                  <motion.div 
+                    key={index} 
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.2 }}
+                    className="flex items-start gap-4"
+                  >
+                    <motion.div
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <Icon className="w-6 h-6 text-gold mt-1 shrink-0" />
+                    </motion.div>
+                    <p className="text-neutral-300 font-normal">{driver.text}</p>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         </div>

@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Building2, Home, TreePine, Layers } from "lucide-react";
 
 export default function SectionConfigurations() {
   return (
@@ -27,16 +28,22 @@ export default function SectionConfigurations() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="bg-white/5 border border-white/20 rounded-xl p-8"
+            className="bg-white/5 border border-white/20 rounded-xl p-8 hover:border-gold/30 transition-all"
           >
             <h3 className="font-mono text-2xl font-bold text-gold mb-6">Apartment Configurations</h3>
             <div className="space-y-4">
               <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                <span className="text-white font-medium">2 BHK</span>
+                <div className="flex items-center gap-3">
+                  <Building2 className="w-5 h-5 text-gold" />
+                  <span className="text-white font-medium">2 BHK</span>
+                </div>
                 <span className="text-neutral-300">Approx. 1200 Sq. Ft.</span>
               </div>
               <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                <span className="text-white font-medium">3 BHK</span>
+                <div className="flex items-center gap-3">
+                  <Building2 className="w-5 h-5 text-gold" />
+                  <span className="text-white font-medium">3 BHK</span>
+                </div>
                 <span className="text-neutral-300">Approx. 1600 Sq. Ft.</span>
               </div>
             </div>
@@ -57,20 +64,29 @@ export default function SectionConfigurations() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white/5 border border-white/20 rounded-xl p-8"
+            className="bg-white/5 border border-white/20 rounded-xl p-8 hover:border-gold/30 transition-all"
           >
             <h3 className="font-mono text-2xl font-bold text-gold mb-6">Villa Layouts</h3>
             <div className="space-y-4">
               <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                <span className="text-white font-medium">Luxury Villas</span>
+                <div className="flex items-center gap-3">
+                  <Home className="w-5 h-5 text-gold" />
+                  <span className="text-white font-medium">Luxury Villas</span>
+                </div>
                 <span className="text-neutral-300">Private Swimming Pool</span>
               </div>
               <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                <span className="text-white font-medium">Premium Villas</span>
+                <div className="flex items-center gap-3">
+                  <TreePine className="w-5 h-5 text-gold" />
+                  <span className="text-white font-medium">Premium Villas</span>
+                </div>
                 <span className="text-neutral-300">Landscaped Outdoor Spaces</span>
               </div>
               <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                <span className="text-white font-medium">Signature Villas</span>
+                <div className="flex items-center gap-3">
+                  <Layers className="w-5 h-5 text-gold" />
+                  <span className="text-white font-medium">Signature Villas</span>
+                </div>
                 <span className="text-neutral-300">Resort-Inspired Design</span>
               </div>
             </div>

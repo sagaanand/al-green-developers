@@ -1,22 +1,33 @@
-import { motion } from "motion/react";
-import { MapPin, Home, Check, Leaf } from "lucide-react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { MapPin, Home, Check, Leaf, Building2, Shield, Trees, Users, Sparkles, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FloatingCTA from "../components/FloatingCTA";
 import SectionConfigurations from "../components/SectionConfigurations";
 
 export default function VeloraGreens() {
+  const heroRef = useRef(null);
+  const { scrollYProgress: heroScrollProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  const y = useTransform(heroScrollProgress, [0, 1], [0, 300]);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   const highlights = [
-    "Premium Gated Community",
-    "90 Apartments Across 6 Blocks",
-    "Elegant Row Housing",
-    "Premium Villa Plots",
-    "Spacious 2 & 3 BHK Residences",
-    "Modern Architecture",
-    "Open Green Spaces",
-    "Lifestyle-Focused Planning",
-    "Secure & Family-Friendly"
+    { text: "Premium Gated Community", icon: Shield },
+    { text: "90 Apartments Across 6 Blocks", icon: Building2 },
+    { text: "Elegant Row Housing", icon: Home },
+    { text: "Premium Villa Plots", icon: Trees },
+    { text: "Spacious 2 & 3 BHK Residences", icon: Building2 },
+    { text: "Modern Architecture", icon: Sparkles },
+    { text: "Open Green Spaces", icon: Trees },
+    { text: "Lifestyle-Focused Planning", icon: Users },
+    { text: "Secure & Family-Friendly", icon: Lock }
   ];
 
   const configurations = [
@@ -28,6 +39,13 @@ export default function VeloraGreens() {
 
   return (
     <div className="min-h-screen bg-[#0d1f0c] text-white font-mono">
+      {/* Scroll Progress Indicator */}
+      <motion.div
+        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-gold to-[#A0814C] z-[60]"
+        style={{ scaleX }}
+        initial={{ scaleX: 0 }}
+      />
+      
       <Header 
         onScrollToSection={() => {}}
         onOpenTracker={() => {}}
@@ -36,8 +54,11 @@ export default function VeloraGreens() {
       />
 
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
+      <section ref={heroRef} className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <motion.div 
+          style={{ y }}
+          className="absolute inset-0 z-0"
+        >
           <img
             src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1200&auto=format&fit=crop"
             alt="Velora Greens"
@@ -45,7 +66,7 @@ export default function VeloraGreens() {
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0d1f0c]" />
-        </div>
+        </motion.div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -92,7 +113,7 @@ export default function VeloraGreens() {
             <img
               src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop"
               alt="Velora Greens Overview"
-              className="w-full h-96 object-cover rounded-xl border border-white/20"
+              className="w-full h-96 object-cover rounded-xl border border-white/20 hover:scale-[1.02] transition-transform duration-500"
               loading="lazy"
             />
           </motion.div>
@@ -114,19 +135,22 @@ export default function VeloraGreens() {
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {highlights.map((highlight, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white/5 border border-white/10 p-6 rounded-xl text-center"
-              >
-                <Home className="w-8 h-8 text-gold mx-auto mb-3" />
-                <p className="text-sm font-normal">{highlight}</p>
-              </motion.div>
-            ))}
+            {highlights.map((highlight, index) => {
+              const Icon = highlight.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white/5 border border-white/10 p-6 rounded-xl text-center hover:border-gold/30 hover:bg-white/10 transition-all group"
+                >
+                  <Icon className="w-8 h-8 text-gold mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                  <p className="text-sm font-normal">{highlight.text}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -148,15 +172,30 @@ export default function VeloraGreens() {
             </h2>
             <div className="space-y-6">
               {[
-                "Immediate frontage on Bangalore Peripheral Ring Road expansion zone",
-                "Energy-recovery mechanical ventilation reducing utility costs by 45%",
-                "Exceptional spatial density — premium community living without crowding"
-              ].map((driver, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <Leaf className="w-6 h-6 text-gold mt-1 shrink-0" />
-                  <p className="text-neutral-300 font-normal">{driver}</p>
-                </div>
-              ))}
+                { text: "Immediate frontage on Bangalore Peripheral Ring Road expansion zone", icon: MapPin },
+                { text: "Energy-recovery mechanical ventilation reducing utility costs by 45%", icon: Leaf },
+                { text: "Exceptional spatial density — premium community living without crowding", icon: Users }
+              ].map((driver, index) => {
+                const Icon = driver.icon;
+                return (
+                  <motion.div 
+                    key={index} 
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.2 }}
+                    className="flex items-start gap-4"
+                  >
+                    <motion.div
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <Icon className="w-6 h-6 text-gold mt-1 shrink-0" />
+                    </motion.div>
+                    <p className="text-neutral-300 font-normal">{driver.text}</p>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         </div>
