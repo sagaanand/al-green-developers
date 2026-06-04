@@ -324,10 +324,33 @@ export default function LegacyTownship() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white/5 border border-white/10 p-6 rounded-xl text-center hover:border-gold/30 hover:bg-white/10 transition-all group"
+                  className="bg-white/5 border border-white/10 p-8 rounded-xl text-center hover:border-gold/30 hover:bg-white/10 transition-all duration-300 group relative overflow-hidden"
                 >
-                  <Icon className="w-8 h-8 text-gold mx-auto mb-3 group-hover:scale-110 transition-transform" />
-                  <p className="text-sm font-normal">{highlight.text}</p>
+                  <div className="relative z-10">
+                    <motion.div
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                      transition={{ duration: 0.3 }}
+                      className="mb-4"
+                    >
+                      <Icon className="w-12 h-12 text-gold mx-auto" />
+                    </motion.div>
+                    <motion.p 
+                      className="text-sm font-normal text-white"
+                      initial={{ opacity: 1 }}
+                      whileHover={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {highlight.text}
+                    </motion.p>
+                  </div>
+                  <motion.div
+                    className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gold/20 to-[#A0814C]/20"
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <p className="text-sm font-bold text-white px-2">{highlight.text}</p>
+                  </motion.div>
                 </motion.div>
               );
             })}

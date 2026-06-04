@@ -32,20 +32,50 @@ export default function SectionConfigurations() {
           >
             <h3 className="font-mono text-2xl font-bold text-gold mb-6">Apartment Configurations</h3>
             <div className="space-y-4">
-              <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                <div className="flex items-center gap-3">
-                  <Building2 className="w-5 h-5 text-gold" />
+              <motion.div
+                className="flex justify-between items-center border-b border-white/10 pb-4 p-4 rounded-lg hover:bg-white/5 transition-all duration-300 group relative overflow-hidden"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="flex items-center gap-3 relative z-10">
+                  <motion.div
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Building2 className="w-5 h-5 text-gold" />
+                  </motion.div>
                   <span className="text-white font-medium">2 BHK</span>
                 </div>
-                <span className="text-neutral-300">Approx. 1200 Sq. Ft.</span>
-              </div>
-              <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                <div className="flex items-center gap-3">
-                  <Building2 className="w-5 h-5 text-gold" />
+                <span className="text-neutral-300 relative z-10">Approx. 1200 Sq. Ft.</span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-gold/10 to-transparent"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.div>
+              <motion.div
+                className="flex justify-between items-center border-b border-white/10 pb-4 p-4 rounded-lg hover:bg-white/5 transition-all duration-300 group relative overflow-hidden"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="flex items-center gap-3 relative z-10">
+                  <motion.div
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Building2 className="w-5 h-5 text-gold" />
+                  </motion.div>
                   <span className="text-white font-medium">3 BHK</span>
                 </div>
-                <span className="text-neutral-300">Approx. 1600 Sq. Ft.</span>
-              </div>
+                <span className="text-neutral-300 relative z-10">Approx. 1600 Sq. Ft.</span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-gold/10 to-transparent"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.div>
             </div>
             
             <div className="mt-8 pt-6 border-t border-white/10">
@@ -68,27 +98,72 @@ export default function SectionConfigurations() {
           >
             <h3 className="font-mono text-2xl font-bold text-gold mb-6">Villa Layouts</h3>
             <div className="space-y-4">
-              <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                <div className="flex items-center gap-3">
-                  <Home className="w-5 h-5 text-gold" />
+              <motion.div
+                className="flex justify-between items-center border-b border-white/10 pb-4 p-4 rounded-lg hover:bg-white/5 transition-all duration-300 group relative overflow-hidden"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="flex items-center gap-3 relative z-10">
+                  <motion.div
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Home className="w-5 h-5 text-gold" />
+                  </motion.div>
                   <span className="text-white font-medium">Luxury Villas</span>
                 </div>
-                <span className="text-neutral-300">Private Swimming Pool</span>
-              </div>
-              <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                <div className="flex items-center gap-3">
-                  <TreePine className="w-5 h-5 text-gold" />
+                <span className="text-neutral-300 relative z-10">Private Swimming Pool</span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-gold/10 to-transparent"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.div>
+              <motion.div
+                className="flex justify-between items-center border-b border-white/10 pb-4 p-4 rounded-lg hover:bg-white/5 transition-all duration-300 group relative overflow-hidden"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="flex items-center gap-3 relative z-10">
+                  <motion.div
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <TreePine className="w-5 h-5 text-gold" />
+                  </motion.div>
                   <span className="text-white font-medium">Premium Villas</span>
                 </div>
-                <span className="text-neutral-300">Landscaped Outdoor Spaces</span>
-              </div>
-              <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                <div className="flex items-center gap-3">
-                  <Layers className="w-5 h-5 text-gold" />
+                <span className="text-neutral-300 relative z-10">Landscaped Outdoor Spaces</span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-gold/10 to-transparent"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.div>
+              <motion.div
+                className="flex justify-between items-center border-b border-white/10 pb-4 p-4 rounded-lg hover:bg-white/5 transition-all duration-300 group relative overflow-hidden"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="flex items-center gap-3 relative z-10">
+                  <motion.div
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Layers className="w-5 h-5 text-gold" />
+                  </motion.div>
                   <span className="text-white font-medium">Signature Villas</span>
                 </div>
-                <span className="text-neutral-300">Resort-Inspired Design</span>
-              </div>
+                <span className="text-neutral-300 relative z-10">Resort-Inspired Design</span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-gold/10 to-transparent"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.div>
             </div>
 
             <div className="mt-8 pt-6 border-t border-white/10">
