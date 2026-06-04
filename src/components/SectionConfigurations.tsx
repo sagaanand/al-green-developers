@@ -33,15 +33,11 @@ export default function SectionConfigurations() {
             <div className="space-y-4">
               <div className="flex justify-between items-center border-b border-white/10 pb-4">
                 <span className="text-white font-medium">2 BHK</span>
-                <span className="text-neutral-300">Premium Residences</span>
-              </div>
-              <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                <span className="text-white font-medium">2.5 BHK</span>
-                <span className="text-neutral-300">Luxury Apartments</span>
+                <span className="text-neutral-300">Approx. 1200 Sq. Ft.</span>
               </div>
               <div className="flex justify-between items-center border-b border-white/10 pb-4">
                 <span className="text-white font-medium">3 BHK</span>
-                <span className="text-neutral-300">Signature Homes</span>
+                <span className="text-neutral-300">Approx. 1600 Sq. Ft.</span>
               </div>
             </div>
             

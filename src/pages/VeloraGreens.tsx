@@ -8,12 +8,15 @@ import SectionConfigurations from "../components/SectionConfigurations";
 
 export default function VeloraGreens() {
   const highlights = [
-    "90 Apartments",
-    "6 Residential Blocks",
-    "Row Housing",
-    "Villa Plots",
-    "Lifestyle Clubhouse",
-    "Green Community"
+    "Premium Gated Community",
+    "90 Apartments Across 6 Blocks",
+    "Elegant Row Housing",
+    "Premium Villa Plots",
+    "Spacious 2 & 3 BHK Residences",
+    "Modern Architecture",
+    "Open Green Spaces",
+    "Lifestyle-Focused Planning",
+    "Secure & Family-Friendly"
   ];
 
   const configurations = [
@@ -84,7 +87,7 @@ export default function VeloraGreens() {
               Overview
             </h2>
             <p className="text-lg text-neutral-300 leading-relaxed mb-8 font-normal">
-              A meticulously curated boutique sanctuary designed for elevated peace, lower spatial density, and high air exchange. Scaling only 90 elegant low-rise homes, custom row housing, and elite villa plots, Velora Greens focuses on select community living and lush private yards.
+              A premium boutique residential community offering elegant apartments, contemporary row housing, and premium villa plots within a green and lifestyle-oriented environment. Designed for modern families and discerning investors, the project combines urban comfort with open spaces, wellness amenities, and refined living experiences.
             </p>
             <img
               src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop"
