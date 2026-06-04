@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import RequestTracker from "./components/RequestTracker";
 import SectionHero from "./components/SectionHero";
@@ -29,6 +29,7 @@ import { Compass } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function App() {
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState("hero");
   const [isTrackerOpen, setIsTrackerOpen] = useState(false);
   const [leads, setLeads] = useState<LeadSubmission[]>([]);
@@ -40,6 +41,15 @@ export default function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const heroImage = "/src/assets/images/al_green_hero_1780310125091.png";
+
+  // Handle GitHub Pages SPA routing
+  useEffect(() => {
+    const redirect = sessionStorage.getItem('redirect');
+    if (redirect) {
+      sessionStorage.removeItem('redirect');
+      navigate(redirect);
+    }
+  }, [navigate]);
 
   useEffect(() => {
     const handleScroll = () => {
