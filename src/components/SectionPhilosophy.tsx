@@ -10,7 +10,15 @@ export default function SectionPhilosophy() {
   ];
 
   return (
-    <section className="relative w-full bg-[#0d1f0c] py-32 sm:py-48 overflow-hidden font-mono border-t border-white/10">
+    <section className="relative w-full bg-[#0d1f0c] py-32 sm:py-48 overflow-hidden font-sans border-t border-white/10 ambient-bg-overlay">
+      {/* Background merged forest canopy */}
+      <img
+        src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop"
+        alt="Forest canopy ambient"
+        className="ambient-bg-image"
+        loading="lazy"
+      />
+
       {/* Absolute high-tech alignment grid */}
       <div className="absolute top-0 bottom-0 left-[8%] w-[0.5px] bg-white/5 z-0 hidden md:block" />
       <div className="absolute top-0 bottom-0 right-[8%] w-[0.5px] bg-white/5 z-0 hidden md:block" />
@@ -26,14 +34,14 @@ export default function SectionPhilosophy() {
             className="lg:col-span-4 flex flex-col justify-between min-h-[150px] lg:min-h-[300px]"
           >
             <div>
-              <h3 className="font-mono font-bold text-2xl sm:text-3xl uppercase tracking-tight text-white leading-tight">
+              <h3 className="font-display font-bold text-2xl sm:text-3xl uppercase tracking-tight text-white leading-tight">
                 DEVELOPMENT <br />
-                <span className="text-gold font-bold">PHILOSOPHY</span>
+                <span className="text-gold font-semibold italic">PHILOSOPHY</span>
               </h3>
             </div>
             <div className="p-4 bg-white/10 backdrop-blur-md border-l-2 border-gold max-w-xs mt-6 lg:mt-0 shadow-lg">
-              <span className="text-[9px] font-mono text-neutral-400 uppercase block font-bold font-mono">CHARTER AUDIT: APPROVED</span>
-              <p className="text-[11px] text-neutral-300 mt-1 leading-normal font-mono font-normal">
+              <span className="text-[9px] font-mono text-neutral-450 uppercase block font-bold">CHARTER AUDIT: APPROVED</span>
+              <p className="text-[11px] text-neutral-300 mt-1 leading-normal font-sans font-light">
                 Our designs reject standardized urban clutter. We protect terrain elevation, natural waterways, and soil vitality to lock in inherent asset health.
               </p>
             </div>
@@ -53,7 +61,7 @@ export default function SectionPhilosophy() {
                   className="space-y-4 group"
                 >
                   <motion.div 
-                    className="flex items-center gap-3 text-xs font-mono text-neutral-400 font-bold font-mono"
+                    className="flex items-center gap-3 text-xs font-mono text-neutral-450 font-bold"
                     initial={{ width: 0 }}
                     whileInView={{ width: "auto" }}
                     viewport={{ once: true }}
@@ -70,7 +78,7 @@ export default function SectionPhilosophy() {
 
                   <motion.h4
                     id={`principle-title-${index}`}
-                    className="font-mono font-bold text-white uppercase tracking-tight leading-none text-3xl sm:text-4xl md:text-5xl group-hover:text-gold transition-colors duration-300"
+                    className="font-display font-semibold text-white uppercase tracking-tight leading-none text-3xl sm:text-4xl md:text-5xl group-hover:text-gold transition-colors duration-300"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -80,7 +88,7 @@ export default function SectionPhilosophy() {
                   </motion.h4>
 
                   <motion.p 
-                    className="text-sm text-neutral-300 font-mono font-normal max-w-xl leading-relaxed"
+                    className="text-sm text-neutral-300 font-sans font-light max-w-xl leading-relaxed"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}

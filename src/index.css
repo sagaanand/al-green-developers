@@ -9,8 +9,8 @@
   --color-dark-bg: #0d1f0c;
   --color-surface-bg: #152914;
   --color-muted-text: #C5D4C3;
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-display: 'General Sans', sans-serif;
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-display: 'Cormorant Garamond', serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
@@ -22,7 +22,7 @@
   body {
     background: linear-gradient(135deg, var(--color-dark-bg) 0%, var(--color-forest-dark) 50%, var(--color-forest) 100%);
     color: #FAFBF9;
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
     overflow-x: hidden;
   }
 
@@ -324,21 +324,60 @@
   z-index: 1;
 }
 
-/* Enhanced glassmorphism with light */
-.glass-panel-light {
-  background: rgba(21, 41, 20, 0.6);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(250, 251, 249, 0.15);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+/* Ambient Background Image Utilities */
+.ambient-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: overlay;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.glass-panel-light::before {
+.ambient-bg-overlay {
+  position: relative;
+}
+
+.ambient-bg-overlay::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(13, 31, 12, 0.9) 0%,
+    rgba(15, 42, 14, 0.85) 50%,
+    rgba(26, 61, 24, 0.8) 100%
+  );
   pointer-events: none;
+  z-index: 1;
 }
+
+/* Luxury Typography Helper Classes */
+.font-luxury-heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.font-luxury-heading-italic {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.font-luxury-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.font-tech-mono {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+

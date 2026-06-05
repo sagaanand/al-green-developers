@@ -144,7 +144,7 @@ export default function SectionHero({ onScrollToSection, heroImage }: SectionHer
             {/* Massive Headline clamp */}
             <h1
               id="hero-headline"
-              className="font-mono font-bold text-4xl sm:text-6xl md:text-7xl lg:text-8xl uppercase tracking-tight text-white leading-[1.05] mb-6"
+              className="font-luxury-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl uppercase tracking-tight text-white leading-[1.05] mb-6"
             >
               {banner.title}
             </h1>
@@ -152,7 +152,7 @@ export default function SectionHero({ onScrollToSection, heroImage }: SectionHer
             {/* Subheadline */}
             <h2
               id="hero-subheadline"
-              className="font-mono text-xl sm:text-2xl md:text-3xl font-semibold text-white/90 tracking-wide mb-8"
+              className="font-luxury-heading-italic text-xl sm:text-2xl md:text-3xl text-[#BAA360] tracking-wide mb-8"
             >
               {banner.subtitle}
             </h2>
@@ -160,7 +160,7 @@ export default function SectionHero({ onScrollToSection, heroImage }: SectionHer
             {/* Description */}
             <div
               id="hero-description"
-              className="mt-8 text-neutral-300 font-mono font-normal tracking-wide text-sm sm:text-base max-w-4xl mx-auto leading-relaxed"
+              className="mt-8 text-neutral-300 font-sans font-light tracking-wide text-sm sm:text-base max-w-4xl mx-auto leading-relaxed"
             >
               {banner.description}
             </div>

@@ -28,9 +28,17 @@ export default function SectionLandProduct() {
   return (
     <section
       id="philosophy"
-      className="relative w-full gradient-bg-alt text-[#FAFBF9] py-24 sm:py-36 overflow-hidden font-mono border-t border-white/10"
+      className="relative w-full gradient-bg-alt text-[#FAFBF9] py-24 sm:py-36 overflow-hidden font-sans border-t border-white/10 ambient-bg-overlay"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      {/* Background merged topographic overlay */}
+      <img
+        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2000&auto=format&fit=crop"
+        alt="Topographic overlay"
+        className="ambient-bg-image"
+        loading="lazy"
+      />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Editorial Sub-header */}
         <motion.div 
           id="land-philosophy-header" 
@@ -40,7 +48,7 @@ export default function SectionLandProduct() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-3xl text-left border-l-2 border-gold pl-6 mb-16 sm:mb-24"
         >
-          <h2 className="font-mono font-bold text-2xl sm:text-4xl tracking-tight text-white/90 uppercase leading-[1.1]">
+          <h2 className="font-display font-bold text-2xl sm:text-4xl tracking-tight text-[#BAA360] uppercase leading-[1.1]">
             CORE VALUES
           </h2>
         </motion.div>
@@ -55,13 +63,13 @@ export default function SectionLandProduct() {
         >
           <h3
             id="manifesto-huge-headline"
-            className="font-mono font-bold tracking-tight leading-[0.95] text-left uppercase text-white"
+            className="font-display font-black tracking-tight leading-[0.95] text-left uppercase text-white"
             style={{ fontSize: "clamp(2.5rem, 6.5vw, 6.5rem)" }}
           >
             REAL ESTATE IS MORE THAN <br />
-            <span className="text-neutral-400 font-normal">CONSTRUCTION</span>
+            <span className="text-gold font-light italic">CONSTRUCTION</span>
           </h3>
-          <p className="mt-8 max-w-3xl text-neutral-300 font-mono font-normal text-sm sm:text-base tracking-wide leading-relaxed">
+          <p className="mt-8 max-w-3xl text-neutral-300 font-sans font-light text-sm sm:text-base tracking-wide leading-relaxed">
             Enduring lifestyles and thriving communities. Our vision to redefine urban living in India through excellence in design, transparency, and sustainable development.
           </p>
         </motion.div>
@@ -81,7 +89,7 @@ export default function SectionLandProduct() {
                 className="bg-white/5 border border-white/20 p-6 rounded-xl hover:border-gold/40 hover:bg-white/10 transition-all group cursor-pointer"
               >
                 <Icon className="w-8 h-8 text-gold mb-4" />
-                <h4 className="text-lg font-mono font-bold text-white mb-2">
+                <h4 className="text-lg font-sans font-semibold text-white mb-2">
                   {value.title}
                 </h4>
               </motion.div>
