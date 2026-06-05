@@ -76,7 +76,7 @@ export default function LegacyTownship() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0d1f0c] text-white font-mono">
+    <div className="min-h-screen bg-[#0d1f0c] text-white font-sans">
       {/* Scroll Progress Indicator */}
       <motion.div
         className="fixed top-0 left-0 h-1 bg-gradient-to-r from-gold to-[#A0814C] z-[60]"
@@ -109,7 +109,7 @@ export default function LegacyTownship() {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-mono font-bold text-5xl md:text-7xl tracking-tight uppercase mb-6"
+            className="font-luxury-heading text-5xl md:text-7xl tracking-wide uppercase mb-6"
           >
             Legacy Township
           </motion.h1>
@@ -142,7 +142,7 @@ export default function LegacyTownship() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-4">
+            <h2 className="font-luxury-heading text-3xl md:text-5xl uppercase mb-4">
               Project Overview
             </h2>
             <p className="text-lg text-neutral-300 leading-relaxed mb-8 font-normal">
@@ -167,7 +167,7 @@ export default function LegacyTownship() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-4">
+            <h2 className="font-luxury-heading text-3xl md:text-5xl uppercase mb-4">
               Project Gallery
             </h2>
             <p className="text-lg text-neutral-300 font-normal">
@@ -214,7 +214,7 @@ export default function LegacyTownship() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-4">
+            <h2 className="font-luxury-heading text-3xl md:text-5xl uppercase mb-4">
               Floor Plans
             </h2>
             <p className="text-lg text-neutral-300 font-normal">
@@ -231,7 +231,7 @@ export default function LegacyTownship() {
                 transition={{ delay: idx * 0.1 }}
                 className="bg-white/5 border border-white/20 rounded-xl p-6"
               >
-                <h3 className="font-mono text-xl font-bold text-white mb-4">
+                <h3 className="font-sans text-xl font-semibold text-white mb-4">
                   {config.type}
                 </h3>
                 <div className="space-y-2 mb-6">
@@ -260,7 +260,7 @@ export default function LegacyTownship() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-4">
+            <h2 className="font-luxury-heading text-3xl md:text-5xl uppercase mb-4">
               Floor Plans
             </h2>
             <p className="text-lg text-neutral-300 font-normal">
@@ -290,7 +290,7 @@ export default function LegacyTownship() {
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className="font-mono text-lg font-bold text-white mb-1">{plan.title}</h3>
+                  <h3 className="font-sans text-lg font-semibold text-white mb-1">{plan.title}</h3>
                   <p className="text-sm text-neutral-400 mb-2">{plan.subtitle}</p>
                   <p className="text-gold font-mono text-sm">{plan.area}</p>
                 </div>
@@ -309,7 +309,7 @@ export default function LegacyTownship() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-4">
+            <h2 className="font-luxury-heading text-3xl md:text-5xl uppercase mb-4">
               Project Highlights
             </h2>
           </motion.div>
@@ -363,7 +363,7 @@ export default function LegacyTownship() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-8">
+            <h2 className="font-luxury-heading text-3xl md:text-5xl uppercase mb-8">
               Growth Drivers
             </h2>
             <div className="space-y-6">
@@ -405,7 +405,7 @@ export default function LegacyTownship() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-mono text-3xl md:text-4xl font-bold uppercase mb-6">
+            <h2 className="font-luxury-heading text-3xl md:text-4xl uppercase mb-6">
               Schedule a Site Visit
             </h2>
             <p className="text-neutral-300 mb-8 font-normal">

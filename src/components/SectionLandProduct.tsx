@@ -48,7 +48,7 @@ export default function SectionLandProduct() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-3xl text-left border-l-2 border-gold pl-6 mb-16 sm:mb-24"
         >
-          <h2 className="font-display font-bold text-2xl sm:text-4xl tracking-tight text-[#BAA360] uppercase leading-[1.1]">
+          <h2 className="font-luxury-heading text-2xl sm:text-4xl tracking-tight text-[#BAA360] uppercase leading-[1.1]">
             CORE VALUES
           </h2>
         </motion.div>
@@ -63,11 +63,11 @@ export default function SectionLandProduct() {
         >
           <h3
             id="manifesto-huge-headline"
-            className="font-display font-black tracking-tight leading-[0.95] text-left uppercase text-white"
+            className="font-luxury-heading tracking-tight leading-[0.95] text-left uppercase text-white"
             style={{ fontSize: "clamp(2.5rem, 6.5vw, 6.5rem)" }}
           >
             REAL ESTATE IS MORE THAN <br />
-            <span className="text-gold font-light italic">CONSTRUCTION</span>
+            <span className="text-gold font-luxury-heading-italic">CONSTRUCTION</span>
           </h3>
           <p className="mt-8 max-w-3xl text-neutral-300 font-sans font-light text-sm sm:text-base tracking-wide leading-relaxed">
             Enduring lifestyles and thriving communities. Our vision to redefine urban living in India through excellence in design, transparency, and sustainable development.

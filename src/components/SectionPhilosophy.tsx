@@ -34,9 +34,9 @@ export default function SectionPhilosophy() {
             className="lg:col-span-4 flex flex-col justify-between min-h-[150px] lg:min-h-[300px]"
           >
             <div>
-              <h3 className="font-display font-bold text-2xl sm:text-3xl uppercase tracking-tight text-white leading-tight">
+              <h3 className="font-luxury-heading text-2xl sm:text-3xl uppercase tracking-tight text-white leading-tight">
                 DEVELOPMENT <br />
-                <span className="text-gold font-semibold italic">PHILOSOPHY</span>
+                <span className="text-gold font-luxury-heading-italic">PHILOSOPHY</span>
               </h3>
             </div>
             <div className="p-4 bg-white/10 backdrop-blur-md border-l-2 border-gold max-w-xs mt-6 lg:mt-0 shadow-lg">

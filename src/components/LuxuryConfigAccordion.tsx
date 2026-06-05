@@ -78,7 +78,7 @@ export default function LuxuryConfigAccordion() {
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.99 }}
           >
-            <span className="text-2xl font-bold text-[#D4AF37] uppercase tracking-wide">
+            <span className="text-2xl font-luxury-heading text-[#D4AF37] uppercase tracking-wide">
               {item.title}
             </span>
             <motion.div
@@ -117,7 +117,7 @@ export default function LuxuryConfigAccordion() {
                   </div>
 
                   <div className="flex flex-col justify-center">
-                    <h3 className="text-3xl font-bold text-[#D4AF37] mb-6 uppercase">
+                    <h3 className="text-3xl font-luxury-heading text-[#D4AF37] mb-6 uppercase">
                       {item.title} Details
                     </h3>
                     
@@ -137,7 +137,7 @@ export default function LuxuryConfigAccordion() {
                     </div>
 
                     <div className="mb-8">
-                      <h4 className="text-lg font-semibold text-[#D4AF37] mb-3">Features</h4>
+                      <h4 className="text-lg font-luxury-heading text-[#D4AF37] mb-3">Features</h4>
                       <ul className="space-y-2">
                         {item.specs.features.map((feature, index) => (
                           <li key={index} className="text-white/80 flex items-center gap-2">
