@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { MapPin, Home, Award, Shield, Check, Building2, TreePine, Users, Zap, Lock } from "lucide-react";
+import { MapPin, Home, Award, Shield, Check, Building2, TreePine, Users, Zap, Lock, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import Header from "../components/Header";
@@ -92,24 +92,33 @@ export default function LegacyTownship() {
       />
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
         <motion.div 
           style={{ y }}
           className="absolute inset-0 z-0"
         >
           <img
-            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600&auto=format&fit=crop"
             alt="Legacy Township"
             className="w-full h-full object-cover"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0d1f0c]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-[#0d1f0c]" />
         </motion.div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-6"
+          >
+            <Sparkles className="w-4 h-4" style={{ color: '#C9A45C' }} />
+            <span className="text-xs font-sans font-semibold tracking-widest uppercase" style={{ color: '#C9A45C' }}>Flagship Development</span>
+          </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-luxury-heading text-5xl md:text-7xl tracking-wide uppercase mb-6"
+            transition={{ delay: 0.1 }}
+            className="font-display text-5xl md:text-7xl lg:text-8xl tracking-wide uppercase mb-6 text-white"
           >
             Legacy Township
           </motion.h1>
@@ -117,24 +126,25 @@ export default function LegacyTownship() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl md:text-2xl text-[#BAA360] font-semibold max-w-3xl mx-auto"
+            className="text-xl md:text-2xl font-display font-medium max-w-3xl mx-auto mb-8"
+            style={{ color: '#C9A45C' }}
           >
-            A Landmark of Luxury Living, Smart Infrastructure & Elevated Experiences
+            A Landmark of Luxury Living
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="flex items-center justify-center gap-2 mt-6 text-neutral-400"
+            transition={{ delay: 0.3 }}
+            className="flex items-center justify-center gap-2 text-neutral-300"
           >
             <MapPin className="w-4 h-4" />
-            <span className="text-sm">Whitefield-Hoskote Corridor, Bangalore East</span>
+            <span className="text-sm font-sans">Whitefield-Hoskote Corridor, Bangalore East</span>
           </motion.div>
         </div>
       </section>
 
-      {/* Project Overview */}
-      <section className="py-24 bg-[#0d1f0c]">
+      {/* Project Overview - Visual Statistics */}
+      <section className="section-spacing-md section-dark">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -142,24 +152,47 @@ export default function LegacyTownship() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-luxury-heading text-3xl md:text-5xl uppercase mb-4">
-              Project Overview
+            <h2 className="font-display text-3xl md:text-5xl uppercase mb-4 text-white">
+              By The Numbers
             </h2>
-            <p className="text-lg text-neutral-300 leading-relaxed mb-8 font-normal">
-              Spanning 105 total acres of high-elevation flat land with a 45-acre residential core, Legacy Township is the absolute pinnacle of master-planned integrated living. Designed as a self-sustaining city, it features 2,000 premium apartments, 750 ultra-luxury estate plots, a 1 Lakh Sq Ft landmark elite clubhouse, and over 80+ custom active lifestyle amenities supporting multi-generational value creation.
+            <p className="text-lg text-neutral-300 leading-relaxed font-normal max-w-2xl mx-auto">
+              A self-sustaining city designed for multi-generational value creation
             </p>
-            <img
-              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
-              alt="Legacy Township Overview"
-              className="w-full h-96 object-cover rounded-xl border border-white/20 hover:scale-[1.02] transition-transform duration-500"
-              loading="lazy"
-            />
           </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { value: "105", label: "Total Acres", icon: MapPin },
+              { value: "2000", label: "Apartments", icon: Building2 },
+              { value: "750", label: "Villa Plots", icon: Home },
+              { value: "1 Lakh", label: "Sq Ft Clubhouse", icon: Award }
+            ].map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="premium-card-dark p-8 text-center"
+                >
+                  <Icon className="w-8 h-8 mx-auto mb-4" style={{ color: '#C9A45C' }} />
+                  <div className="text-4xl md:text-5xl font-display font-bold text-white mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm font-sans text-neutral-400 uppercase tracking-wider">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
       {/* Gallery Section */}
-      <section className="py-24 bg-[#24421E]">
+      <section className="section-spacing-md section-dark">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -167,7 +200,7 @@ export default function LegacyTownship() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-luxury-heading text-3xl md:text-5xl uppercase mb-4">
+            <h2 className="font-display text-3xl md:text-5xl uppercase mb-4 text-white">
               Project Gallery
             </h2>
             <p className="text-lg text-neutral-300 font-normal">

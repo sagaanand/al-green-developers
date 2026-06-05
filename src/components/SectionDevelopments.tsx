@@ -90,46 +90,46 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                   <div className={`flex flex-col justify-between space-y-6 ${isEven ? "lg:order-1" : "lg:order-2"} ${isFlagship ? "lg:col-span-8" : "lg:col-span-7"}`}>
                     <div
                       onClick={() => onOpenProjectDetail(project.id)}
-                      className="relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-white/20 group bg-neutral-900 cursor-pointer shadow-lg transition-shadow hover:shadow-xl"
+                      className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden group bg-neutral-900 cursor-pointer shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
                     >
                       <img
                         id={`project-showcase-img-${project.id}`}
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-[4s] group-hover:scale-105 filter brightness-[0.88] contrast-[1.02]"
+                        className="w-full h-full object-cover transition-transform duration-[4s] group-hover:scale-105"
                         referrerPolicy="no-referrer"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent opacity-70" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
                       {/* Left vertical location sticker */}
-                      <div className="absolute bottom-6 left-6 flex items-center gap-2 px-3 py-1.5 rounded bg-black/90 border border-white/20 z-15">
-                        <MapPin className="w-3.5 h-3.5 text-gold" />
-                        <span className="text-[9px] font-mono tracking-wider text-white uppercase">{project.location}</span>
+                      <div className="absolute bottom-6 left-6 flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 backdrop-blur-sm border border-white/20 z-15">
+                        <MapPin className="w-4 h-4" style={{ color: '#C9A45C' }} />
+                        <span className="text-xs font-sans font-medium tracking-wide" style={{ color: '#111827' }}>{project.location}</span>
                       </div>
 
-                      <div className={`absolute top-6 right-6 flex items-center gap-1.5 px-3 py-1 border rounded text-[9px] font-mono tracking-widest uppercase font-bold shadow-lg ${
+                      <div className={`absolute top-6 right-6 flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-sans font-semibold tracking-wider uppercase shadow-lg ${
                         project.id === "legacy"
-                          ? "bg-gold text-black border-gold"
-                          : "bg-white/10 border-gold/40 text-[#D6C392]"
+                          ? "bg-white text-black"
+                          : "bg-white/90 text-gray-800"
                       }`}>
-                        {project.id === "legacy" && <Sparkles className="w-3 h-3 text-black" />}
-                        <span>{project.id === "legacy" ? "FLAGSHIP DEVELOPMENT" : "Pre-Audited Zone"}</span>
+                        {project.id === "legacy" && <Sparkles className="w-4 h-4" style={{ color: '#C9A45C' }} />}
+                        <span>{project.id === "legacy" ? "Flagship" : "Premium"}</span>
                       </div>
                     </div>
 
-                    {/* Certified parameters block */}
-                    <div className="bg-white/10 border border-white/20 rounded-xl p-6 sm:p-8 space-y-6 shadow-lg">
+                    {/* Certified parameters block - premium card */}
+                    <div className="premium-card-dark p-6 sm:p-8 space-y-6">
                       <div>
-                        <span className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-neutral-400 font-bold">
-                          <FolderGit2 className="w-3.5 h-3.5 text-gold" />
-                          CERTIFIED PARAMETERS & SPATIAL PLANS
+                        <span className="flex items-center gap-1.5 text-xs font-sans uppercase tracking-widest font-semibold" style={{ color: '#C9A45C' }}>
+                          <FolderGit2 className="w-4 h-4" />
+                          Certified Parameters
                         </span>
                         <h4 className="text-white text-sm font-sans font-semibold uppercase mt-2">Physical Layout Design Elements</h4>
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {project.masterplan.map((item, idx) => (
-                          <div key={idx} className="p-4 bg-white/5 rounded border border-white/10 transition-colors hover:border-white/20 hover:bg-white/10">
-                            <span className="text-gold font-mono text-xs font-bold block mb-1">0{idx + 1}.</span>
+                          <div key={idx} className="p-4 bg-white/5 rounded-xl border border-white/10 transition-colors hover:border-white/20 hover:bg-white/10">
+                            <span className="font-mono text-xs font-bold block mb-1" style={{ color: '#C9A45C' }}>0{idx + 1}.</span>
                             <p className="text-xs text-neutral-300 font-normal leading-relaxed">{item}</p>
                           </div>
                         ))}
@@ -141,60 +141,60 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                   <div className={`flex flex-col justify-between space-y-8 ${isEven ? "lg:order-2" : "lg:order-1"} ${isFlagship ? "lg:col-span-4" : "lg:col-span-5"}`}>
                     {/* Title & story */}
                     <div className="space-y-4">
-                      <span className="text-[9px] font-mono text-gold uppercase tracking-[0.2em] bg-white/5 px-2.5 py-1 rounded border border-gold/25 w-fit block font-bold">
-                        LAND MUTATION TRUST PRE-VERIFIED
+                      <span className="text-xs font-sans uppercase tracking-widest font-semibold px-3 py-1.5 rounded-full bg-white/10 border border-white/20 w-fit block" style={{ color: '#C9A45C' }}>
+                        Land Mutation Trust Pre-Verified
                       </span>
                       <h3 className="text-3xl sm:text-4xl font-display font-semibold tracking-wide text-white uppercase leading-tight">
                         {project.title}
                       </h3>
-                      <p className="text-xs font-sans text-neutral-400 tracking-wide uppercase italic">
+                      <p className="text-sm font-sans text-neutral-400 tracking-wide leading-relaxed">
                         {project.tagline}
                       </p>
                       <div className="h-[1.5px] w-24 bg-gradient-to-r from-gold to-[#A0814C]" />
-                      <p className="text-xs sm:text-sm text-neutral-300 font-normal leading-relaxed">
+                      <p className="text-sm text-neutral-300 font-normal leading-relaxed">
                         {project.story}
                       </p>
                     </div>
 
-                    {/* Rating Gauges */}
-                    <div className="p-6 bg-[#111111]/40 rounded-xl border border-white/[0.06] space-y-6 card-glow">
-                      <span className="flex items-center gap-1.5 text-[9px] font-mono text-neutral-400 uppercase tracking-widest font-bold">
-                        <Activity className="w-3.5 h-3.5 text-gold" />
-                        ACCENTURE INFRA REGULATORY VALUE MODEL
+                    {/* Rating Gauges - premium card */}
+                    <div className="premium-card-dark p-6 space-y-6">
+                      <span className="flex items-center gap-1.5 text-xs font-sans uppercase tracking-widest font-semibold" style={{ color: '#C9A45C' }}>
+                        <Activity className="w-4 h-4" />
+                        Regulatory Value Model
                       </span>
 
                       <div className="grid grid-cols-3 gap-3">
-                        <div className="text-center p-3 border border-white/[0.04] bg-black/40 rounded">
-                          <span className="text-[9px] text-neutral-400 font-mono block">CONNECTIVITY</span>
-                          <span className="text-sm text-white font-mono font-bold mt-1 block">
-                            {project.investmentScore.connectivity} <span className="text-[9px] font-normal text-neutral-400">/ 10</span>
+                        <div className="text-center p-3 border border-white/10 bg-white/5 rounded-xl">
+                          <span className="text-xs text-neutral-400 font-sans block">Connectivity</span>
+                          <span className="text-sm text-white font-sans font-bold mt-1 block">
+                            {project.investmentScore.connectivity} <span className="text-xs font-normal text-neutral-400">/ 10</span>
                           </span>
                         </div>
-                        <div className="text-center p-3 border border-white/[0.04] bg-black/40 rounded">
-                          <span className="text-[9px] text-neutral-400 font-mono block">INFRASTRUCTURE</span>
-                          <span className="text-sm text-white font-mono font-bold mt-1 block">
-                            {project.investmentScore.infrastructure} <span className="text-[9px] font-normal text-neutral-400">/ 10</span>
+                        <div className="text-center p-3 border border-white/10 bg-white/5 rounded-xl">
+                          <span className="text-xs text-neutral-400 font-sans block">Infrastructure</span>
+                          <span className="text-sm text-white font-sans font-bold mt-1 block">
+                            {project.investmentScore.infrastructure} <span className="text-xs font-normal text-neutral-400">/ 10</span>
                           </span>
                         </div>
-                        <div className="text-center p-3 border border-[#BAA360]/30 bg-gold/10 rounded">
-                          <span className="text-[9px] text-gold font-mono block font-bold">LIQUIDITY</span>
-                          <span className="text-sm text-gold font-mono font-bold mt-1 block">
-                            {project.investmentScore.liquidity} <span className="text-[9px] font-semibold text-gold/80">/ 10</span>
+                        <div className="text-center p-3 border border-white/10 bg-white/5 rounded-xl">
+                          <span className="text-xs font-sans block" style={{ color: '#C9A45C' }}>Liquidity</span>
+                          <span className="text-sm font-sans font-bold mt-1 block" style={{ color: '#C9A45C' }}>
+                            {project.investmentScore.liquidity} <span className="text-xs font-semibold" style={{ color: '#C9A45C', opacity: 0.8 }}>/ 10</span>
                           </span>
                         </div>
                       </div>
 
                       <div className="flex items-center justify-between pt-2">
-                        <span className="text-[9px] font-mono text-neutral-400 uppercase tracking-wider font-semibold">CUMULATIVE STABILITY SCORE</span>
-                        <span className="text-xs text-gold font-mono font-bold tracking-widest">{project.investmentScore.total} VALUE RATING</span>
+                        <span className="text-xs font-sans text-neutral-400 uppercase tracking-wider font-semibold">Cumulative Stability Score</span>
+                        <span className="text-sm font-sans font-bold tracking-widest" style={{ color: '#C9A45C' }}>{project.investmentScore.total} Value Rating</span>
                       </div>
                     </div>
 
                     {/* Growth Triggers */}
                     <div className="space-y-4">
-                      <span className="flex items-center gap-1.5 text-[10px] font-mono tracking-widest uppercase text-neutral-300 font-bold mb-2">
-                        <Target className="w-3.5 h-3.5 text-gold" />
-                        PRIMARY TRANSIT & DEVELOPMENT DRIVERS
+                      <span className="flex items-center gap-1.5 text-xs font-sans tracking-widest uppercase text-neutral-300 font-semibold mb-2" style={{ color: '#C9A45C' }}>
+                        <Target className="w-4 h-4" />
+                        Primary Transit & Development Drivers
                       </span>
                       <ul className="space-y-2.5">
                         {project.growthDrivers.map((drv, idx) => (
