@@ -163,7 +163,7 @@ export default function SectionHero({ onScrollToSection, heroImage }: SectionHer
             {/* Description */}
             <div
               id="hero-description"
-              className="mt-8 text-neutral-300 font-sans font-light tracking-wide text-sm sm:text-base max-w-4xl mx-auto leading-relaxed"
+              className="mt-8 font-sans font-light tracking-wide text-sm sm:text-base max-w-4xl mx-auto leading-relaxed" style={{ color: '#D1D5DB' }}
             >
               {banner.description}
             </div>

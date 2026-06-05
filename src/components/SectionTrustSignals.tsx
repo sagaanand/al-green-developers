@@ -30,18 +30,18 @@ export default function SectionTrustSignals() {
   ];
 
   return (
-    <section className="relative w-full section-light py-32 border-t border-white/10">
+    <section className="relative w-full section-spacing-lg border-t border-gray-100" style={{ background: '#F8FAF8' }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <h2 className="font-luxury-heading text-4xl md:text-5xl uppercase mb-6" style={{ color: '#0F3D1E' }}>
+          <h2 className="font-display text-4xl md:text-5xl uppercase mb-6" style={{ color: '#111827' }}>
             Trust & Compliance
           </h2>
-          <p className="text-lg max-w-2xl mx-auto leading-relaxed font-normal" style={{ color: '#5F6368' }}>
+          <p className="text-lg max-w-2xl mx-auto leading-relaxed font-normal" style={{ color: '#6B7280' }}>
             Verified approvals, transparent documentation, and regular construction updates
           </p>
         </motion.div>
@@ -60,14 +60,14 @@ export default function SectionTrustSignals() {
               >
                 <div className="flex items-center justify-between mb-6">
                   <Icon className="w-10 h-10" style={{ color: '#C9A45C' }} />
-                  <span className="status-badge-success">
+                  <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider" style={{ background: '#E8F7EC', color: '#0F8A3C' }}>
                     {signal.status}
                   </span>
                 </div>
-                <h3 className="font-sans text-xl font-semibold mb-3" style={{ color: '#1A1A1A' }}>
+                <h3 className="font-sans text-xl font-semibold mb-3" style={{ color: '#111827' }}>
                   {signal.title}
                 </h3>
-                <p className="text-base leading-relaxed" style={{ color: '#5F6368' }}>
+                <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>
                   {signal.description}
                 </p>
               </motion.div>
