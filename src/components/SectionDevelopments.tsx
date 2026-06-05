@@ -43,7 +43,13 @@ interface SectionDevelopmentsProps {
 
 export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVisit }: SectionDevelopmentsProps) {
   return (
-    <section id="developments" className="relative w-full gradient-bg-deep py-32 sm:py-40 border-t border-white/10 overflow-hidden section-light-overlay">
+    <section id="developments" className="relative w-full gradient-bg-deep py-32 sm:py-40 border-t border-white/10 overflow-hidden ambient-bg-overlay section-light-overlay">
+      <img
+        src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2000&auto=format&fit=crop"
+        alt="Architectural ambient"
+        className="ambient-bg-image"
+        loading="lazy"
+      />
       {/* Structural visual guidelines */}
       <div className="absolute top-0 bottom-0 left-[8%] w-[0.5px] bg-white/[0.04] z-0 hidden md:block" />
       <div className="absolute top-0 bottom-0 right-[8%] w-[0.5px] bg-white/[0.04] z-0 hidden md:block" />
@@ -58,10 +64,10 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-3xl mb-16 sm:mb-24"
         >
-          <h2 className="font-mono font-bold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
-            ACTIVE <span className="text-gold font-bold">DEVELOPMENTS</span>
+          <h2 className="font-display font-semibold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
+            ACTIVE <span className="text-gold font-semibold">DEVELOPMENTS</span>
           </h2>
-          <p className="mt-4 text-neutral-300 font-mono font-normal text-xs sm:text-sm tracking-wide max-w-xl leading-relaxed">
+          <p className="mt-4 text-neutral-300 font-normal text-xs sm:text-sm tracking-wide max-w-xl leading-relaxed">
             Accenture Infra is not selling simple apartments or speculative assets. We formulate fully realized community frameworks: flagship integrated townships, boutique eco-developments, luxury hospitality divisions, and high-connectivity commercial logistics networks.
           </p>
         </motion.div>
@@ -124,13 +130,13 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                           <FolderGit2 className="w-3.5 h-3.5 text-gold" />
                           CERTIFIED PARAMETERS & SPATIAL PLANS
                         </span>
-                        <h4 className="text-white text-sm font-mono font-bold uppercase mt-2">Physical Layout Design Elements</h4>
+                        <h4 className="text-white text-sm font-sans font-semibold uppercase mt-2">Physical Layout Design Elements</h4>
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {project.masterplan.map((item, idx) => (
                           <div key={idx} className="p-4 bg-white/5 rounded border border-white/10 transition-colors hover:border-white/20 hover:bg-white/10">
                             <span className="text-gold font-mono text-xs font-bold block mb-1">0{idx + 1}.</span>
-                            <p className="text-xs text-neutral-300 font-mono font-normal leading-relaxed">{item}</p>
+                            <p className="text-xs text-neutral-300 font-normal leading-relaxed">{item}</p>
                           </div>
                         ))}
                       </div>
@@ -144,14 +150,14 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                       <span className="text-[9px] font-mono text-gold uppercase tracking-[0.2em] bg-white/5 px-2.5 py-1 rounded border border-gold/25 w-fit block font-bold">
                         LAND MUTATION TRUST PRE-VERIFIED
                       </span>
-                      <h3 className="text-3xl sm:text-4xl font-mono font-medium tracking-tight text-white uppercase leading-tight">
+                      <h3 className="text-3xl sm:text-4xl font-display font-semibold tracking-wide text-white uppercase leading-tight">
                         {project.title}
                       </h3>
-                      <p className="text-xs font-mono text-neutral-400 tracking-wide uppercase italic">
+                      <p className="text-xs font-sans text-neutral-400 tracking-wide uppercase italic">
                         {project.tagline}
                       </p>
                       <div className="h-[1.5px] w-24 bg-gradient-to-r from-gold to-[#A0814C]" />
-                      <p className="text-xs sm:text-sm text-neutral-300 font-mono font-normal leading-relaxed">
+                      <p className="text-xs sm:text-sm text-neutral-300 font-normal leading-relaxed">
                         {project.story}
                       </p>
                     </div>
@@ -198,7 +204,7 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                       </span>
                       <ul className="space-y-2.5">
                         {project.growthDrivers.map((drv, idx) => (
-                          <li key={idx} className="text-xs text-neutral-300 font-mono font-normal flex items-start gap-2 leading-relaxed">
+                          <li key={idx} className="text-xs text-neutral-300 font-normal flex items-start gap-2 leading-relaxed">
                             <ChevronRight className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
                             <span>{drv}</span>
                           </li>
@@ -263,10 +269,10 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
             <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-[#BAA360] block mb-2 font-bold select-none">
               STRATEGIC LAND BANKING CORRIDORS
             </span>
-            <h3 className="font-mono font-bold text-2xl sm:text-3xl uppercase tracking-tight text-white leading-tight">
-              FUTURE Raw Land <span className="text-gold font-bold">Acquisitions</span>
+            <h3 className="font-display font-semibold text-2xl sm:text-3xl uppercase tracking-tight text-white leading-tight">
+              FUTURE Raw Land <span className="text-gold font-semibold">Acquisitions</span>
             </h3>
-            <p className="mt-2 text-xs sm:text-sm text-neutral-300 font-mono font-normal max-w-xl">
+            <p className="mt-2 text-xs sm:text-sm text-neutral-300 font-normal max-w-xl">
               We proactively secure raw layouts directly on projected infra spurs, before public tenders go live. This guarantees maximum early-stage cost leverage.
             </p>
           </div>
@@ -291,7 +297,7 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                   </div>
 
                   <div className="space-y-2">
-                    <h4 className="font-mono text-xl font-bold uppercase text-white tracking-wide">
+                    <h4 className="font-sans text-xl font-semibold uppercase text-white tracking-wide">
                       {fd.title}
                     </h4>
                     <div className="flex items-center gap-1.5 text-xs font-mono text-neutral-300">
@@ -311,7 +317,7 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                       </span>
                     </div>
                     
-                    <p className="text-xs text-neutral-300 font-mono font-normal leading-relaxed">
+                    <p className="text-xs text-neutral-300 font-normal leading-relaxed">
                       {fd.details}
                     </p>
                   </div>

@@ -19,10 +19,16 @@ export default function SectionTimeline() {
   const CurrentIcon = stageIcons[currentStage.id] || ShieldCheck;
 
   return (
-    <section className="relative w-full bg-[#24421E] py-32 sm:py-40 border-t border-white/10 overflow-hidden">
+    <section className="relative w-full bg-[#24421E] py-32 sm:py-40 border-t border-white/10 overflow-hidden ambient-bg-overlay">
+      <img
+        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2000&auto=format&fit=crop"
+        alt="Architectural ambient"
+        className="ambient-bg-image"
+        loading="lazy"
+      />
       <div className="absolute top-1/4 right-[5%] w-96 h-96 bg-[#FAFBF9]/5 rounded-full blur-3xl z-0 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 font-mono">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 font-sans">
         {/* Section Header */}
         <motion.div 
           id="timeline-intro" 
@@ -32,10 +38,10 @@ export default function SectionTimeline() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-3xl mb-16 sm:mb-24"
         >
-          <h2 className="font-mono font-bold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
-            TRANSPARENCY <span className="text-gold font-bold">TIMELINE</span>
+          <h2 className="font-display font-semibold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
+            TRANSPARENCY <span className="text-gold font-semibold">TIMELINE</span>
           </h2>
-          <p className="mt-4 text-neutral-300 font-mono font-normal text-sm sm:text-base tracking-wide max-w-xl">
+          <p className="mt-4 text-neutral-300 font-normal text-sm sm:text-base tracking-wide max-w-xl">
             Uncompromising structural validation. Every acre we list undergoes our signature triple auditing process before developer pre-launch.
           </p>
         </motion.div>
@@ -108,7 +114,7 @@ export default function SectionTimeline() {
                             <span>Active Stage Schedule: {stage.duration}</span>
                           </div>
                           
-                          <p className="text-xs text-neutral-300 font-mono font-normal leading-relaxed">
+                          <p className="text-xs text-neutral-300 font-normal leading-relaxed">
                             {stage.description}
                           </p>
 
@@ -171,14 +177,14 @@ export default function SectionTimeline() {
                     <CalendarRange className="w-3 h-3 text-gold" />
                     <span>Active Stage Schedule: {currentStage.duration}</span>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-mono font-bold text-white uppercase tracking-tight mt-4">
+                  <h3 className="text-2xl sm:text-3xl font-display font-semibold text-white uppercase tracking-tight mt-4">
                     {currentStage.stageName.split(".")[1]}
                   </h3>
                   <div className="h-[2px] w-16 bg-gold mt-3" />
                 </div>
 
                 {/* Subtitle / Description */}
-                <p className="text-sm text-neutral-300 font-mono font-normal leading-relaxed">
+                <p className="text-sm text-neutral-300 font-normal leading-relaxed">
                   {currentStage.description}
                 </p>
 

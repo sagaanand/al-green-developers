@@ -58,7 +58,13 @@ export default function SectionCredibilityMetrics() {
   };
 
   return (
-    <section className="relative w-full bg-[#24421E] py-24 border-b border-white/10" ref={ref}>
+    <section className="relative w-full bg-[#24421E] py-24 border-b border-white/10 ambient-bg-overlay" ref={ref}>
+      <img
+        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop"
+        alt="Architectural ambient"
+        className="ambient-bg-image"
+        loading="lazy"
+      />
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {metrics.map((metric, index) => {
@@ -89,7 +95,7 @@ export default function SectionCredibilityMetrics() {
                 >
                   {formatNumber(counters[index], metric.suffix)}
                 </motion.div>
-                <div className="text-sm md:text-base text-neutral-300 font-mono font-normal uppercase tracking-wider">
+                <div className="text-sm md:text-base text-neutral-300 font-sans font-semibold uppercase tracking-wider">
                   {metric.label}
                 </div>
               </motion.div>

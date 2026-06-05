@@ -39,7 +39,13 @@ export default function SectionSocialProof() {
   ];
 
   return (
-    <section className="relative w-full bg-[#0d1f0c] py-24 border-t border-white/10">
+    <section className="relative w-full bg-[#0d1f0c] py-24 border-t border-white/10 ambient-bg-overlay">
+      <img
+        src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000&auto=format&fit=crop"
+        alt="Architectural ambient"
+        className="ambient-bg-image"
+        loading="lazy"
+      />
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

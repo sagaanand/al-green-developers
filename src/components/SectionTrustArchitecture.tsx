@@ -95,7 +95,13 @@ export default function SectionTrustArchitecture() {
   ];
 
   return (
-    <section className="relative w-full bg-[#0d1f0c] py-32 border-t border-white/10">
+    <section className="relative w-full bg-[#0d1f0c] py-32 border-t border-white/10 ambient-bg-overlay">
+      <img
+        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop"
+        alt="Architectural ambient"
+        className="ambient-bg-image"
+        loading="lazy"
+      />
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -104,7 +110,7 @@ export default function SectionTrustArchitecture() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="font-mono text-4xl md:text-5xl font-bold uppercase mb-6">
+          <h2 className="font-display text-4xl md:text-5xl font-semibold uppercase mb-6">
             Trust & Transparency
           </h2>
           <p className="text-neutral-200 text-lg max-w-3xl mx-auto leading-relaxed font-normal">
@@ -119,7 +125,7 @@ export default function SectionTrustArchitecture() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-mono text-2xl font-bold text-white mb-8"
+            className="font-display text-2xl font-semibold text-white mb-8"
           >
             Official Approvals
           </motion.h3>
@@ -137,7 +143,7 @@ export default function SectionTrustArchitecture() {
                   className="bg-white/5 border border-white/20 p-6 rounded-xl cursor-pointer"
                 >
                   <Icon className="w-10 h-10 text-gold mb-4" />
-                  <h4 className="font-mono text-lg font-bold text-white mb-2">
+                  <h4 className="font-sans text-lg font-semibold text-white mb-2">
                     {approval.title}
                   </h4>
                   <p className="text-sm font-mono text-gold mb-3">
@@ -161,7 +167,7 @@ export default function SectionTrustArchitecture() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-mono text-2xl font-bold text-white mb-8"
+            className="font-display text-2xl font-semibold text-white mb-8"
           >
             Construction Progress
           </motion.h3>
@@ -191,7 +197,7 @@ export default function SectionTrustArchitecture() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h4 className="font-mono text-lg font-bold text-white mb-2">
+                  <h4 className="font-sans text-lg font-semibold text-white mb-2">
                     {update.phase}
                   </h4>
                   <p className="text-sm font-semibold text-green-400 mb-4">
@@ -217,7 +223,7 @@ export default function SectionTrustArchitecture() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-mono text-2xl font-bold text-white mb-8"
+            className="font-display text-2xl font-semibold text-white mb-8"
           >
             Masterplans & Documentation
           </motion.h3>
@@ -234,7 +240,7 @@ export default function SectionTrustArchitecture() {
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h4 className="font-mono text-lg font-bold text-white mb-1">
+                    <h4 className="font-sans text-lg font-semibold text-white mb-1">
                       {plan.title}
                     </h4>
                     <p className="text-sm font-mono text-gold">
@@ -271,7 +277,7 @@ export default function SectionTrustArchitecture() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-mono text-2xl font-bold text-white mb-8"
+            className="font-display text-2xl font-semibold text-white mb-8"
           >
             Site Infrastructure
           </motion.h3>
@@ -289,7 +295,7 @@ export default function SectionTrustArchitecture() {
                   className="bg-white/5 border border-white/20 p-6 rounded-xl cursor-pointer"
                 >
                   <Icon className="w-10 h-10 text-gold mb-4" />
-                  <h4 className="font-mono text-lg font-bold text-white mb-2">
+                  <h4 className="font-sans text-lg font-semibold text-white mb-2">
                     {item.title}
                   </h4>
                   <p className="text-sm text-neutral-300 leading-relaxed">

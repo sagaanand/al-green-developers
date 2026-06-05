@@ -82,17 +82,23 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
   };
 
   return (
-    <section id="visit" className="relative w-full bg-[#0d1f0c] py-32 sm:py-40 border-t border-white/10 overflow-hidden font-mono">
+    <section id="visit" className="relative w-full bg-[#0d1f0c] py-32 sm:py-40 border-t border-white/10 overflow-hidden font-sans ambient-bg-overlay">
+      <img
+        src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2000&auto=format&fit=crop"
+        alt="Architectural ambient"
+        className="ambient-bg-image"
+        loading="lazy"
+      />
       <div className="absolute top-0 bottom-0 left-[8%] w-[0.5px] bg-white/5 z-0 hidden md:block" />
       <div className="absolute top-0 bottom-0 right-[8%] w-[0.5px] bg-white/5 z-0 hidden md:block" />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div id="booking-intro" className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="font-mono font-bold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
-            SITE VISIT <span className="text-gold font-bold">CONCIERGE</span>
+          <h2 className="font-display font-semibold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
+            SITE VISIT <span className="text-gold font-semibold">CONCIERGE</span>
           </h2>
-          <p className="mt-4 text-neutral-300 font-mono font-normal text-xs sm:text-sm tracking-wide leading-relaxed">
+          <p className="mt-4 text-neutral-300 font-normal text-xs sm:text-sm tracking-wide leading-relaxed">
             Experience land intelligence in person. We provide full gated access, title binder review, and luxury site transport coordination.
           </p>
         </div>
@@ -128,7 +134,7 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
                   className="space-y-6"
                 >
                   <div>
-                    <h3 className="font-mono text-lg font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                    <h3 className="font-sans text-lg font-semibold text-white uppercase tracking-wider flex items-center gap-2">
                       <User className="w-5 h-5 text-gold" />
                       Client Categorization & Intent
                     </h3>
@@ -176,7 +182,7 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
                   className="space-y-6"
                 >
                   <div>
-                    <h3 className="font-mono text-lg font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                    <h3 className="font-sans text-lg font-semibold text-white uppercase tracking-wider flex items-center gap-2">
                       <Compass className="w-5 h-5 text-gold" />
                       Map Project & Select Ideal Date
                     </h3>
@@ -268,7 +274,7 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
                   className="space-y-6"
                 >
                   <div>
-                    <h3 className="font-mono text-lg font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                    <h3 className="font-sans text-lg font-semibold text-white uppercase tracking-wider flex items-center gap-2">
                       <Compass className="w-5 h-5 text-gold" />
                       Contact & Concierge Coordinates
                     </h3>
@@ -370,7 +376,7 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
                   </div>
 
                   <div>
-                    <h3 className="font-mono text-xl font-bold uppercase tracking-wider text-white">
+                    <h3 className="font-sans text-xl font-semibold uppercase tracking-wider text-white">
                       Appointment Registered
                     </h3>
                     <p className="text-[10px] font-mono text-gold uppercase tracking-[0.15em] mt-1 font-bold font-mono">

@@ -30,7 +30,13 @@ export default function SectionTrustSignals() {
   ];
 
   return (
-    <section className="relative w-full bg-[#24421E] py-32 border-t border-white/10">
+    <section className="relative w-full bg-[#24421E] py-32 border-t border-white/10 ambient-bg-overlay">
+      <img
+        src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2000&auto=format&fit=crop"
+        alt="Architectural ambient"
+        className="ambient-bg-image"
+        loading="lazy"
+      />
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -38,7 +44,7 @@ export default function SectionTrustSignals() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="font-mono text-4xl md:text-5xl font-bold uppercase mb-6">
+          <h2 className="font-display text-4xl md:text-5xl font-semibold uppercase mb-6">
             Trust & Compliance
           </h2>
           <p className="text-neutral-200 text-lg max-w-2xl mx-auto leading-relaxed font-normal">
@@ -68,7 +74,7 @@ export default function SectionTrustSignals() {
                     {signal.status}
                   </span>
                 </div>
-                <h3 className="font-mono text-xl font-bold text-white mb-3">
+                <h3 className="font-sans text-xl font-semibold text-white mb-3">
                   {signal.title}
                 </h3>
                 <p className="text-base text-neutral-300 leading-relaxed">
