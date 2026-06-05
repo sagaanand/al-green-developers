@@ -177,7 +177,7 @@ className="font-luxury-heading text-5xl md:text-7xl tracking-wide uppercase mb-6
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-gold/30 transition-all duration-300 group relative"
+                className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:border-gray-200 transition-all duration-300 group relative"
               >
                 <div className="aspect-square overflow-hidden">
                   <motion.img
@@ -189,14 +189,9 @@ className="font-luxury-heading text-5xl md:text-7xl tracking-wide uppercase mb-6
                     loading="lazy"
                   />
                 </div>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex items-center justify-center p-4"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <p className="text-sm font-bold text-white text-center">{highlight.text}</p>
-                </motion.div>
+                <div className="p-4 bg-white border-t border-gray-100">
+                  <h3 className="font-sans text-sm font-semibold text-center" style={{ color: '#111827' }}>{highlight.text}</h3>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -247,7 +242,7 @@ className="font-luxury-heading text-5xl md:text-7xl tracking-wide uppercase mb-6
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white/5 border border-white/20 rounded-xl overflow-hidden hover:border-gold/30 transition-all group cursor-pointer"
+                className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:border-gray-200 transition-all group cursor-pointer"
                 onClick={() => {
                   setSelectedFloorPlanIndex(index);
                   setIsFloorPlanOpen(true);
@@ -261,10 +256,10 @@ className="font-luxury-heading text-5xl md:text-7xl tracking-wide uppercase mb-6
                     loading="lazy"
                   />
                 </div>
-                <div className="p-4">
-                  <h3 className="font-sans text-lg font-semibold text-white mb-1">{plan.title}</h3>
-                  <p className="text-sm text-neutral-400 mb-2">{plan.subtitle}</p>
-                  <p className="text-gold font-mono text-sm">{plan.area}</p>
+                <div className="p-4 bg-white border-t border-gray-100">
+                  <h3 className="font-sans text-lg font-semibold mb-1" style={{ color: '#111827' }}>{plan.title}</h3>
+                  <p className="text-sm mb-2" style={{ color: '#6B7280' }}>{plan.subtitle}</p>
+                  <p className="text-sm font-mono font-bold" style={{ color: '#C9A45C' }}>{plan.area}</p>
                 </div>
               </motion.div>
             ))}
