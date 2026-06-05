@@ -10,15 +10,7 @@ export default function SectionPhilosophy() {
   ];
 
   return (
-    <section className="relative w-full bg-[#0d1f0c] py-32 sm:py-48 overflow-hidden font-sans border-t border-white/10 ambient-bg-overlay">
-      {/* Background merged forest canopy */}
-      <img
-        src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop"
-        alt="Forest canopy ambient"
-        className="ambient-bg-image"
-        loading="lazy"
-      />
-
+    <section className="relative w-full section-dark py-32 sm:py-48 overflow-hidden font-sans border-t border-white/10">
       {/* Absolute high-tech alignment grid */}
       <div className="absolute top-0 bottom-0 left-[8%] w-[0.5px] bg-white/5 z-0 hidden md:block" />
       <div className="absolute top-0 bottom-0 right-[8%] w-[0.5px] bg-white/5 z-0 hidden md:block" />

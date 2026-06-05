@@ -61,8 +61,8 @@ export default function SectionHero({ onScrollToSection, heroImage }: SectionHer
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden section-gradient-hero"
     >
       {/* Background Cinematic Drone Video falling back to High-Res Image */}
-      <motion.div 
-        id="hero-media-wrapper" 
+      <motion.div
+        id="hero-media-wrapper"
         className="absolute inset-0 z-0"
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
@@ -76,6 +76,7 @@ export default function SectionHero({ onScrollToSection, heroImage }: SectionHer
           loop
           muted
           playsInline
+          preload="metadata"
           className="w-full h-full object-cover filter brightness-[0.45] contrast-[1.05]"
         />
         

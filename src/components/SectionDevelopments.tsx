@@ -43,13 +43,7 @@ interface SectionDevelopmentsProps {
 
 export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVisit }: SectionDevelopmentsProps) {
   return (
-    <section id="developments" className="relative w-full gradient-bg-deep py-32 sm:py-40 border-t border-white/10 overflow-hidden ambient-bg-overlay section-light-overlay">
-      <img
-        src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2000&auto=format&fit=crop"
-        alt="Architectural ambient"
-        className="ambient-bg-image"
-        loading="lazy"
-      />
+    <section id="developments" className="relative w-full section-dark py-32 sm:py-40 border-t border-white/10 overflow-hidden section-light-overlay">
       {/* Structural visual guidelines */}
       <div className="absolute top-0 bottom-0 left-[8%] w-[0.5px] bg-white/[0.04] z-0 hidden md:block" />
       <div className="absolute top-0 bottom-0 right-[8%] w-[0.5px] bg-white/[0.04] z-0 hidden md:block" />

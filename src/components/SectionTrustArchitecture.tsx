@@ -95,13 +95,7 @@ export default function SectionTrustArchitecture() {
   ];
 
   return (
-    <section className="relative w-full bg-[#0d1f0c] py-32 border-t border-white/10 ambient-bg-overlay">
-      <img
-        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop"
-        alt="Architectural ambient"
-        className="ambient-bg-image"
-        loading="lazy"
-      />
+    <section className="relative w-full section-dark py-32 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -140,7 +134,7 @@ export default function SectionTrustArchitecture() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-white/5 border border-white/20 p-6 rounded-xl cursor-pointer"
+                  className="premium-card-dark p-6 cursor-pointer"
                 >
                   <Icon className="w-10 h-10 text-gold mb-4" />
                   <h4 className="font-sans text-lg font-semibold text-white mb-2">
@@ -180,7 +174,7 @@ export default function SectionTrustArchitecture() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15, duration: 0.5 }}
                 whileHover={{ scale: 1.02 }}
-                className="bg-white/5 border border-white/20 rounded-xl overflow-hidden cursor-pointer"
+                className="premium-card-dark rounded-xl overflow-hidden cursor-pointer"
               >
                 <div className="relative h-48">
                   <img
@@ -236,7 +230,7 @@ export default function SectionTrustArchitecture() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 whileHover={{ scale: 1.03, y: -5 }}
-                className="bg-white/5 border border-white/20 p-6 rounded-xl cursor-pointer"
+                className="premium-card-dark p-6 cursor-pointer"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
@@ -292,7 +286,7 @@ export default function SectionTrustArchitecture() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-white/5 border border-white/20 p-6 rounded-xl cursor-pointer"
+                  className="premium-card-dark p-6 cursor-pointer"
                 >
                   <Icon className="w-10 h-10 text-gold mb-4" />
                   <h4 className="font-sans text-lg font-semibold text-white mb-2">

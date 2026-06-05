@@ -39,13 +39,7 @@ export default function SectionSocialProof() {
   ];
 
   return (
-    <section className="relative w-full bg-[#0d1f0c] py-24 border-t border-white/10 ambient-bg-overlay">
-      <img
-        src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000&auto=format&fit=crop"
-        alt="Architectural ambient"
-        className="ambient-bg-image"
-        loading="lazy"
-      />
+    <section className="relative w-full bg-[#0d1f0c] py-24 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -53,7 +47,7 @@ export default function SectionSocialProof() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-4">
+          <h2 className="font-luxury-heading text-3xl md:text-5xl uppercase mb-4 text-white">
             What Our Customers Say
           </h2>
           <p className="text-neutral-300 max-w-2xl mx-auto font-normal">
@@ -70,7 +64,7 @@ export default function SectionSocialProof() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white/5 border border-white/20 p-8 rounded-xl"
+              className="premium-card-dark p-8"
             >
               <div className="flex items-center gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
@@ -114,7 +108,7 @@ export default function SectionSocialProof() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white/5 border border-white/20 p-6 rounded-xl"
+                className="premium-card-dark p-6"
               >
                 <div className="flex items-center gap-4 mb-4">
                   <Icon className="w-8 h-8 text-gold" />

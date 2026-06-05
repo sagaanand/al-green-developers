@@ -28,16 +28,8 @@ export default function SectionLandProduct() {
   return (
     <section
       id="philosophy"
-      className="relative w-full gradient-bg-alt text-[#FAFBF9] py-24 sm:py-36 overflow-hidden font-sans border-t border-white/10 ambient-bg-overlay"
+      className="relative w-full section-dark py-24 sm:py-36 overflow-hidden font-sans border-t border-white/10"
     >
-      {/* Background merged topographic overlay */}
-      <img
-        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2000&auto=format&fit=crop"
-        alt="Topographic overlay"
-        className="ambient-bg-image"
-        loading="lazy"
-      />
-
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Editorial Sub-header */}
         <motion.div 

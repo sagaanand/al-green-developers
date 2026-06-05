@@ -82,13 +82,7 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
   };
 
   return (
-    <section id="visit" className="relative w-full bg-[#0d1f0c] py-32 sm:py-40 border-t border-white/10 overflow-hidden font-sans ambient-bg-overlay">
-      <img
-        src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2000&auto=format&fit=crop"
-        alt="Architectural ambient"
-        className="ambient-bg-image"
-        loading="lazy"
-      />
+    <section id="visit" className="relative w-full section-dark py-32 sm:py-40 border-t border-white/10 overflow-hidden font-sans">
       <div className="absolute top-0 bottom-0 left-[8%] w-[0.5px] bg-white/5 z-0 hidden md:block" />
       <div className="absolute top-0 bottom-0 right-[8%] w-[0.5px] bg-white/5 z-0 hidden md:block" />
 

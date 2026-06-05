@@ -3,15 +3,7 @@ import { Phone, ArrowRight } from "lucide-react";
 
 export default function SectionCallbackCTA() {
   return (
-    <section className="relative w-full bg-gradient-to-br from-[#0d1f0c] to-[#24421E] py-24 sm:py-36 border-t border-white/10 overflow-hidden ambient-bg-overlay">
-      {/* Background merged luxury villa outline */}
-      <img
-        src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop"
-        alt="Luxury villa ambient"
-        className="ambient-bg-image"
-        loading="lazy"
-      />
-
+    <section className="relative w-full section-dark py-24 sm:py-36 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

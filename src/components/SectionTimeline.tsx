@@ -19,13 +19,7 @@ export default function SectionTimeline() {
   const CurrentIcon = stageIcons[currentStage.id] || ShieldCheck;
 
   return (
-    <section className="relative w-full bg-[#24421E] py-32 sm:py-40 border-t border-white/10 overflow-hidden ambient-bg-overlay">
-      <img
-        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2000&auto=format&fit=crop"
-        alt="Architectural ambient"
-        className="ambient-bg-image"
-        loading="lazy"
-      />
+    <section className="relative w-full section-dark py-32 sm:py-40 border-t border-white/10 overflow-hidden">
       <div className="absolute top-1/4 right-[5%] w-96 h-96 bg-[#FAFBF9]/5 rounded-full blur-3xl z-0 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 font-sans">
