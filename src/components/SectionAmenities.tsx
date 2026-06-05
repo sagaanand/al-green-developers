@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Dumbbell, Gamepad2, Basketball, Users, Waves, Sparkles } from "lucide-react";
+import { Dumbbell, Gamepad2, Trophy, Users, Waves, Sparkles } from "lucide-react";
 
 const amenityCategories = [
   {
@@ -17,7 +17,7 @@ const amenityCategories = [
   {
     id: "sports",
     title: "Sports",
-    icon: Basketball,
+    icon: Trophy,
     items: ["Basketball court", "Multipurpose court", "Skating arena", "Cricket practice net", "Golf putting green", "Rock climbing wall", "Squash court", "Jogging track"]
   },
   {
