@@ -11,27 +11,30 @@ interface SectionHeroProps {
 const banners = [
   {
     id: 3,
-    title: "LEGACY TOWNSHIP",
-    subtitle: "A Landmark of Luxury Living, Smart Infrastructure & Elevated Experiences",
-    description: "Premium Apartments • Luxury Villas • Resort • Commercial Spaces",
+    title: "Building Communities Beyond Generations",
+    subtitle: "Integrated Townships • Luxury Residences • Hospitality • Commercial Infrastructure",
+    description: "Experience premium living thoughtfully designed for elevated lifestyles",
     badge: "Flagship Development",
-    cta: "Enquire Now"
+    cta: "Explore Projects",
+    ctaSecondary: "Schedule Private Tour"
   },
   {
     id: 2,
-    title: "VELORA GREENS",
+    title: "Velora Greens",
     subtitle: "Thoughtfully Crafted for Elevated Living",
     description: "90 Elegant Apartments • Premium Row Housing • Exclusive Villa Plots • Lifestyle Clubhouse & Curated Amenities",
     badge: "Premium Community",
-    cta: "Discover Your Future Home Today"
+    cta: "Explore Projects",
+    ctaSecondary: "Schedule Private Tour"
   },
   {
     id: 1,
-    title: "ACCENTURE INFRA",
+    title: "Accenture Infra",
     subtitle: "Redefining Modern Living",
-    description: "A premium real estate developer shaping future-ready communities through exceptional engineering, refined luxury, and thoughtfully planned urban infrastructure designed for elevated lifestyles",
+    description: "A premium real estate developer shaping future-ready communities through exceptional engineering, refined luxury, and thoughtfully planned urban infrastructure",
     badge: "Premium Developer",
-    cta: "Learn More"
+    cta: "Explore Projects",
+    ctaSecondary: "Schedule Private Tour"
   }
 ];
 
@@ -77,12 +80,11 @@ export default function SectionHero({ onScrollToSection, heroImage }: SectionHer
           muted
           playsInline
           preload="metadata"
-          className="w-full h-full object-cover filter brightness-[0.45] contrast-[1.05]"
+          className="w-full h-full object-cover"
         />
         
-        {/* Soft elegant gradient layers */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#24421E] via-black/40 to-black/80 z-10" />
-        <div className="absolute inset-0 bg-radial-gradient(ellipse_at_center,rgba(0,0,0,0)_0%,rgba(36,66,30,0.2)_100%) z-10" />
+        {/* Reduced overlay for better visibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-black/15 to-black/20 z-10" />
 
         {/* Abstract design: Subtle thin technical alignment line */}
         <div className="absolute left-[8%] top-0 bottom-0 w-[0.5px] bg-white/[0.05] z-10 hidden md:block" />
@@ -175,24 +177,23 @@ export default function SectionHero({ onScrollToSection, heroImage }: SectionHer
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <motion.button
-                id="hero-cta-opportunities"
+                id="hero-cta-primary"
                 onClick={() => onScrollToSection("developments")}
-                className="w-full xs:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-gold to-[#A0814C] text-[11px] font-mono tracking-widest uppercase font-bold text-black hover:opacity-95 shadow-lg shadow-gold/20 transition-all active:scale-[0.98] cursor-pointer flex items-center justify-center gap-1.5"
+                className="w-full xs:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-gold to-[#A0814C] text-sm font-sans tracking-widest uppercase font-semibold text-black hover:opacity-95 shadow-lg shadow-gold/20 transition-all active:scale-[0.98] cursor-pointer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span>{banner.cta}</span>
+                {banner.cta}
               </motion.button>
 
               <motion.button
-                id="hero-cta-intelligence"
-                onClick={() => onScrollToSection("developments")}
-                className="w-full xs:w-auto px-8 py-4 rounded-full border border-white/30 hover:border-gold bg-white/5 text-[11px] font-mono tracking-widest uppercase text-white transition-all active:scale-[0.98] cursor-pointer flex items-center justify-center gap-2 hover:bg-white/10"
+                id="hero-cta-secondary"
+                onClick={() => onScrollToSection("visit")}
+                className="w-full xs:w-auto px-8 py-4 rounded-full border-2 border-gold text-sm font-sans tracking-widest uppercase font-semibold text-gold hover:bg-gold hover:text-black transition-all active:scale-[0.98] cursor-pointer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Compass className="w-4 h-4 text-gold" />
-                <span>Explore Projects</span>
+                {banner.ctaSecondary}
               </motion.button>
             </motion.div>
           </motion.div>
