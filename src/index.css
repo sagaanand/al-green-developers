@@ -438,9 +438,28 @@
   letter-spacing: 0.05em;
 }
 
-/* Light Section Background */
+/* Premium Experience Polish */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth transitions for interactive elements */
+button, a, .cursor-pointer {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Premium section backgrounds */
 .section-light {
-  background: #F8FAF8;
+  background: var(--color-surface-alt);
+}
+
+.section-dark {
+  background: var(--color-primary-dark);
 }
 
 /* Dark Section Typography */
