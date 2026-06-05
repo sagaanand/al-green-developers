@@ -173,7 +173,7 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
         : "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop";
 
   return (
-    <div id={`project-detail-panel-${projectId}`} className="fixed inset-0 z-50 overflow-y-auto bg-[#0A0A0A] text-white font-mono antialiased">
+    <div id={`project-detail-panel-${projectId}`} className="fixed inset-0 z-50 overflow-y-auto bg-[#0A0A0A] text-white font-sans antialiased">
       {/* Absolute top control header */}
       <div className="sticky top-0 bg-[#0A0A0A]/90 backdrop-blur-xl border-b border-white/[0.05] z-50 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -215,7 +215,7 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
             <span className="text-gold font-mono text-xs uppercase tracking-[0.3em] font-semibold block">
               {isLegacy ? "INTEGRATED CITY" : isVelora ? "BOUTIQUE COMMUNITY" : isHayat ? "HOSPITALITY DIVISION" : "COMMERCIAL DIVISION"}
             </span>
-            <h1 className="font-mono font-black text-4xl sm:text-6xl md:text-8xl tracking-tight uppercase leading-none text-white">
+            <h1 className="font-display font-semibold text-4xl sm:text-6xl md:text-8xl tracking-wide uppercase leading-none text-white">
               {projectName.split(" ")[0]} <br />
               <span className="text-gold">{projectName.split(" ").slice(1).join(" ")}</span>
             </h1>
@@ -244,8 +244,8 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
             <span className="text-[10px] font-mono tracking-[0.25em] text-[#BAA360] uppercase font-bold block">
               THE MUTUAL VALUE HYPOTHESIS
             </span>
-            <h2 className="font-mono font-bold text-2xl sm:text-4xl uppercase text-white leading-tight">
-              WHY SECURE AN ASSET WITH <span className="font-bold text-gold">ACCENTURE INFRA?</span>
+            <h2 className="font-display font-semibold text-2xl sm:text-4xl uppercase text-white leading-tight">
+              WHY SECURE AN ASSET WITH <span className="font-semibold text-gold">ACCENTURE INFRA?</span>
             </h2>
             <div className="h-[2px] w-20 bg-gold" />
             <p className="text-sm text-neutral-400 font-mono font-normal leading-relaxed">
@@ -694,10 +694,10 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
           <span className="text-[10px] font-mono text-[#BAA360] tracking-[0.25em] uppercase font-bold block mb-2">
             EPICUREAN LAND ECOSYSTEMS
           </span>
-          <h2 className="font-mono font-bold text-2xl sm:text-5xl uppercase text-white leading-tight">
+          <h2 className="font-display font-bold text-2xl sm:text-5xl uppercase text-white leading-tight">
             THE ART OF <span className="text-gold font-bold">ECO-LIVING</span>
           </h2>
-          <p className="mt-4 text-xs sm:text-sm text-neutral-400 font-mono font-normal max-w-xl mx-auto">
+          <p className="mt-4 text-xs sm:text-sm text-neutral-400 font-sans font-normal max-w-xl mx-auto">
             Not a concrete jungle. Multi-acre forest pockets, deep bioswales, organic farms, and quiet microclimate lanes planned to enhance human focus and longevity.
           </p>
         </div>
@@ -709,13 +709,14 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
                 src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=600&auto=format&fit=crop" 
                 alt="Native Tree Garden" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                loading="lazy"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60" />
               <div className="absolute bottom-4 left-4 right-4 text-xs font-mono tracking-wider">SEC_MUT_NURSERY</div>
             </div>
-            <h4 className="text-white font-mono text-lg font-bold uppercase tracking-wider">Native Forest Commons</h4>
-            <p className="text-xs text-neutral-400 font-mono font-normal leading-relaxed">
+            <h4 className="text-white font-sans text-lg font-bold uppercase tracking-wider">Native Forest Commons</h4>
+            <p className="text-xs text-neutral-400 font-sans font-normal leading-relaxed">
               Every Accenture Infra property features a state-of-the-art native botany nursery. Up to 2,500 mature, indigenous trees and shrubs are nurtured on-site to build high-end microclimate layers.
             </p>
           </div>
@@ -726,13 +727,14 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop" 
                 alt="Double height lobby lounge" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                loading="lazy"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60" />
               <div className="absolute bottom-4 left-4 right-4 text-xs font-mono tracking-wider">SEC_CLUB_LOUNGE</div>
             </div>
-            <h4 className="text-white font-mono text-lg font-bold uppercase tracking-wider font-semibold">The Grand Vault Lounges</h4>
-            <p className="text-xs text-neutral-400 font-mono font-normal leading-relaxed">
+            <h4 className="text-white font-sans text-lg font-bold uppercase tracking-wider">The Grand Vault Lounges</h4>
+            <p className="text-xs text-neutral-400 font-sans font-normal leading-relaxed">
               Quiet double-height wooden study libraries, meeting chambers, and organic juice bars crafted for remote tech executives, business operators, and multigenerational adopters.
             </p>
           </div>
@@ -743,13 +745,14 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
                 src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?q=80&w=600&auto=format&fit=crop" 
                 alt="Premium Wellness Spa Bath" 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                loading="lazy"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60" />
               <div className="absolute bottom-4 left-4 right-4 text-xs font-mono tracking-wider">SEC_WELLNESS_POD</div>
             </div>
-            <h4 className="text-white font-mono text-lg font-bold uppercase tracking-wider">Therapeutic Water Pools</h4>
-            <p className="text-xs text-neutral-400 font-mono font-normal leading-relaxed">
+            <h4 className="text-white font-sans text-lg font-bold uppercase tracking-wider">Therapeutic Water Pools</h4>
+            <p className="text-xs text-neutral-400 font-sans font-normal leading-relaxed">
               State of the art mineral pools, biological water filtration lines, and sauna rooms designed strictly to aid physical restoration and premium wellness focus.
             </p>
           </div>
@@ -761,10 +764,10 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
         <span className="text-[10px] font-mono text-[#BAA360] tracking-[0.25em] uppercase font-bold block">
           PRIVATE RECRUITMENT ACTIVE
         </span>
-        <h3 className="font-mono font-bold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
+        <h3 className="font-display font-bold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
           SECURE AN ENGAGEMENT SESSION ON <span className="font-bold text-gold">THE PLOTTED GROUND</span>
         </h3>
-        <p className="text-sm text-neutral-400 font-mono font-normal max-w-xl mx-auto leading-relaxed">
+        <p className="text-sm text-neutral-400 font-sans font-normal max-w-xl mx-auto leading-relaxed">
           Book a private consultant-led tour of the property boundaries. We will mutation-verify deeds, analyze local developmental infrastructure layers, and walk the physical soil layout.
         </p>
 

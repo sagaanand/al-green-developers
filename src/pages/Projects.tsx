@@ -8,7 +8,7 @@ import FloatingCTA from "../components/FloatingCTA";
 
 export default function Projects() {
   return (
-    <div className="min-h-screen bg-[#0d1f0c] text-white font-mono">
+    <div className="min-h-screen bg-[#0d1f0c] text-white font-sans">
       <Header 
         onScrollToSection={() => {}}
         onOpenTracker={() => {}}
@@ -23,7 +23,7 @@ export default function Projects() {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-mono font-bold text-5xl md:text-7xl tracking-tight uppercase mb-6"
+            className="font-display font-semibold text-5xl md:text-7xl tracking-wide uppercase mb-6"
           >
             Our Projects
           </motion.h1>
@@ -56,6 +56,7 @@ export default function Projects() {
                     src={project.image}
                     alt={project.title}
                     className="w-full h-96 object-cover rounded-xl border border-white/10"
+                    loading="lazy"
                   />
                 </div>
                 <div className={`order-1 lg:order-${index % 2 === 0 ? '2' : '1'}`}>
@@ -73,7 +74,7 @@ export default function Projects() {
                       <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-mono">Available</span>
                     )}
                   </div>
-                  <h2 className="font-mono text-3xl md:text-4xl font-bold uppercase mb-4">
+                  <h2 className="font-display text-3xl md:text-4xl font-semibold uppercase mb-4">
                     {project.title}
                   </h2>
                   <div className="flex items-center gap-2 text-neutral-400 mb-6">
@@ -106,7 +107,7 @@ export default function Projects() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-4">
+            <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-4">
               Compare Projects
             </h2>
             <p className="text-neutral-300 max-w-2xl mx-auto">
@@ -118,11 +119,11 @@ export default function Projects() {
             <table className="w-full border-collapse">
               <thead>
                 <tr className="border-b border-white/20">
-                  <th className="text-left py-4 px-4 font-mono text-sm uppercase tracking-wider text-gold">Feature</th>
-                  <th className="text-center py-4 px-4 font-mono text-sm uppercase tracking-wider text-gold">Legacy Township</th>
-                  <th className="text-center py-4 px-4 font-mono text-sm uppercase tracking-wider text-gold">Velora Greens</th>
-                  <th className="text-center py-4 px-4 font-mono text-sm uppercase tracking-wider text-gold">Hayat Resort</th>
-                  <th className="text-center py-4 px-4 font-mono text-sm uppercase tracking-wider text-gold">Warehousing</th>
+                  <th className="text-left py-4 px-4 font-sans text-xs uppercase tracking-wider text-gold">Feature</th>
+                  <th className="text-center py-4 px-4 font-sans text-xs uppercase tracking-wider text-gold">Legacy Township</th>
+                  <th className="text-center py-4 px-4 font-sans text-xs uppercase tracking-wider text-gold">Velora Greens</th>
+                  <th className="text-center py-4 px-4 font-sans text-xs uppercase tracking-wider text-gold">Hayat Resort</th>
+                  <th className="text-center py-4 px-4 font-sans text-xs uppercase tracking-wider text-gold">Warehousing</th>
                 </tr>
               </thead>
               <tbody>
@@ -183,7 +184,7 @@ export default function Projects() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-4">
+            <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-4">
               Future Projects
             </h2>
             <p className="text-neutral-300 max-w-2xl mx-auto">
@@ -193,7 +194,7 @@ export default function Projects() {
 
           <div className="max-w-4xl mx-auto bg-white/5 border border-white/10 rounded-xl p-8 md:p-12">
             <div className="text-center">
-              <h3 className="font-mono text-2xl font-bold uppercase mb-4">
+              <h3 className="font-sans text-2xl font-semibold uppercase mb-4">
                 KADUGODI METRO ROAD STRIP
               </h3>
               <p className="text-neutral-300 mb-6">
