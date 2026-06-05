@@ -77,16 +77,16 @@ export default function SectionAmenities() {
                 className="premium-card-dark p-8 hover:-translate-y-2 transition-transform duration-300"
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="p-3 rounded-xl bg-white/10">
+                  <div className="p-3 rounded-xl bg-white border border-gray-100">
                     <Icon className="w-6 h-6" style={{ color: '#C9A45C' }} />
                   </div>
-                  <h3 className="font-display text-2xl font-semibold text-white">
+                  <h3 className="font-display text-2xl font-semibold" style={{ color: '#111827' }}>
                     {category.title}
                   </h3>
                 </div>
                 <ul className="space-y-3">
                   {category.items.map((item, idx) => (
-                    <li key={idx} className="text-sm text-neutral-300 font-sans flex items-center gap-2">
+                    <li key={idx} className="text-sm font-sans flex items-center gap-2" style={{ color: '#6B7280' }}>
                       <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#C9A45C' }} />
                       {item}
                     </li>

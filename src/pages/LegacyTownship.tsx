@@ -109,7 +109,7 @@ export default function LegacyTownship() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full mb-6"
           >
             <Sparkles className="w-4 h-4" style={{ color: '#C9A45C' }} />
             <span className="text-xs font-sans font-semibold tracking-widest uppercase" style={{ color: '#C9A45C' }}>Flagship Development</span>
@@ -178,10 +178,10 @@ export default function LegacyTownship() {
                   className="premium-card-dark p-8 text-center"
                 >
                   <Icon className="w-8 h-8 mx-auto mb-4" style={{ color: '#C9A45C' }} />
-                  <div className="text-4xl md:text-5xl font-display font-bold text-white mb-2">
+                  <div className="text-4xl md:text-5xl font-display font-bold mb-2" style={{ color: '#111827' }}>
                     {stat.value}
                   </div>
-                  <div className="text-sm font-sans text-neutral-400 uppercase tracking-wider">
+                  <div className="text-sm font-sans uppercase tracking-wider" style={{ color: '#6B7280' }}>
                     {stat.label}
                   </div>
                 </motion.div>
@@ -322,10 +322,10 @@ export default function LegacyTownship() {
                     loading="lazy"
                   />
                 </div>
-                <div className="p-4">
-                  <h3 className="font-sans text-lg font-semibold text-white mb-1">{plan.title}</h3>
-                  <p className="text-sm text-neutral-400 mb-2">{plan.subtitle}</p>
-                  <p className="text-gold font-mono text-sm">{plan.area}</p>
+                <div className="p-4 bg-white border border-gray-100 rounded-b-xl">
+                  <h3 className="font-sans text-lg font-semibold mb-1" style={{ color: '#111827' }}>{plan.title}</h3>
+                  <p className="text-sm mb-2" style={{ color: '#6B7280' }}>{plan.subtitle}</p>
+                  <p className="text-sm font-mono font-bold" style={{ color: '#C9A45C' }}>{plan.area}</p>
                 </div>
               </motion.div>
             ))}

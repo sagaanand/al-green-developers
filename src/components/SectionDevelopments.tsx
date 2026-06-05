@@ -103,7 +103,7 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
                       {/* Left vertical location sticker */}
-                      <div className="absolute bottom-6 left-6 flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 backdrop-blur-sm border border-white/20 z-15">
+                      <div className="absolute bottom-6 left-6 flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 z-15">
                         <MapPin className="w-4 h-4" style={{ color: '#C9A45C' }} />
                         <span className="text-xs font-sans font-medium tracking-wide" style={{ color: '#111827' }}>{project.location}</span>
                       </div>
@@ -111,7 +111,7 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                       <div className={`absolute top-6 right-6 flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-sans font-semibold tracking-wider uppercase shadow-lg ${
                         project.id === "legacy"
                           ? "bg-white text-black"
-                          : "bg-white/90 text-gray-800"
+                          : "bg-white text-gray-800"
                       }`}>
                         {project.id === "legacy" && <Sparkles className="w-4 h-4" style={{ color: '#C9A45C' }} />}
                         <span>{project.id === "legacy" ? "Flagship" : "Premium"}</span>
@@ -125,13 +125,13 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                           <FolderGit2 className="w-4 h-4" />
                           Certified Parameters
                         </span>
-                        <h4 className="text-white text-sm font-sans font-semibold uppercase mt-2">Physical Layout Design Elements</h4>
+                        <h4 className="text-sm font-sans font-semibold uppercase mt-2" style={{ color: '#111827' }}>Physical Layout Design Elements</h4>
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {project.masterplan.map((item, idx) => (
-                          <div key={idx} className="p-4 bg-white/5 rounded-xl border border-white/10 transition-colors hover:border-white/20 hover:bg-white/10">
+                          <div key={idx} className="p-4 bg-white rounded-xl border border-gray-100 transition-colors hover:border-gray-200">
                             <span className="font-mono text-xs font-bold block mb-1" style={{ color: '#C9A45C' }}>0{idx + 1}.</span>
-                            <p className="text-xs text-neutral-300 font-normal leading-relaxed">{item}</p>
+                            <p className="text-xs" style={{ color: '#6B7280' }}>{item}</p>
                           </div>
                         ))}
                       </div>
@@ -165,19 +165,19 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                       </span>
 
                       <div className="grid grid-cols-3 gap-3">
-                        <div className="text-center p-3 border border-white/10 bg-white/5 rounded-xl">
-                          <span className="text-xs text-neutral-400 font-sans block">Connectivity</span>
-                          <span className="text-sm text-white font-sans font-bold mt-1 block">
-                            {project.investmentScore.connectivity} <span className="text-xs font-normal text-neutral-400">/ 10</span>
+                        <div className="text-center p-3 border border-gray-100 bg-white rounded-xl">
+                          <span className="text-xs font-sans block" style={{ color: '#6B7280' }}>Connectivity</span>
+                          <span className="text-sm font-sans font-bold mt-1 block" style={{ color: '#111827' }}>
+                            {project.investmentScore.connectivity} <span className="text-xs font-normal" style={{ color: '#6B7280' }}>/ 10</span>
                           </span>
                         </div>
-                        <div className="text-center p-3 border border-white/10 bg-white/5 rounded-xl">
-                          <span className="text-xs text-neutral-400 font-sans block">Infrastructure</span>
-                          <span className="text-sm text-white font-sans font-bold mt-1 block">
-                            {project.investmentScore.infrastructure} <span className="text-xs font-normal text-neutral-400">/ 10</span>
+                        <div className="text-center p-3 border border-gray-100 bg-white rounded-xl">
+                          <span className="text-xs font-sans block" style={{ color: '#6B7280' }}>Infrastructure</span>
+                          <span className="text-sm font-sans font-bold mt-1 block" style={{ color: '#111827' }}>
+                            {project.investmentScore.infrastructure} <span className="text-xs font-normal" style={{ color: '#6B7280' }}>/ 10</span>
                           </span>
                         </div>
-                        <div className="text-center p-3 border border-white/10 bg-white/5 rounded-xl">
+                        <div className="text-center p-3 border border-gray-100 bg-white rounded-xl">
                           <span className="text-xs font-sans block" style={{ color: '#C9A45C' }}>Liquidity</span>
                           <span className="text-sm font-sans font-bold mt-1 block" style={{ color: '#C9A45C' }}>
                             {project.investmentScore.liquidity} <span className="text-xs font-semibold" style={{ color: '#C9A45C', opacity: 0.8 }}>/ 10</span>
@@ -186,21 +186,21 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                       </div>
 
                       <div className="flex items-center justify-between pt-2">
-                        <span className="text-xs font-sans text-neutral-400 uppercase tracking-wider font-semibold">Cumulative Stability Score</span>
+                        <span className="text-xs font-sans uppercase tracking-wider font-semibold" style={{ color: '#6B7280' }}>Cumulative Stability Score</span>
                         <span className="text-sm font-sans font-bold tracking-widest" style={{ color: '#C9A45C' }}>{project.investmentScore.total} Value Rating</span>
                       </div>
                     </div>
 
                     {/* Growth Triggers */}
                     <div className="space-y-4">
-                      <span className="flex items-center gap-1.5 text-xs font-sans tracking-widest uppercase text-neutral-300 font-semibold mb-2" style={{ color: '#C9A45C' }}>
+                      <span className="flex items-center gap-1.5 text-xs font-sans tracking-widest uppercase font-semibold mb-2" style={{ color: '#C9A45C' }}>
                         <Target className="w-4 h-4" />
                         Primary Transit & Development Drivers
                       </span>
-                      <ul className="space-y-2.5">
+                      <ul className="space-y-3">
                         {project.growthDrivers.map((drv, idx) => (
-                          <li key={idx} className="text-xs text-neutral-300 font-normal flex items-start gap-2 leading-relaxed">
-                            <ChevronRight className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
+                          <li key={idx} className="text-xs font-sans flex items-start gap-2 leading-relaxed" style={{ color: '#6B7280' }}>
+                            <ChevronRight className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: '#C9A45C' }} />
                             <span>{drv}</span>
                           </li>
                         ))}
@@ -223,10 +223,10 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                           <button
                             id={`fast-visit-cta-${project.id}`}
                             onClick={() => onOpenSiteVisit(project.title)}
-                            className="py-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-xs font-mono tracking-widest uppercase text-white font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98] cursor-pointer shadow-sm"
+                            className="py-4 rounded-xl bg-white border border-gray-200 hover:border-gray-300 text-xs font-mono tracking-widest uppercase font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98] cursor-pointer shadow-sm"
                           >
-                            <span>Book Private Tour</span>
-                            <Calendar className="w-3.5 h-3.5 text-gold" />
+                            <span style={{ color: '#111827' }}>Book Private Tour</span>
+                            <Calendar className="w-3.5 h-3.5" style={{ color: '#C9A45C' }} />
                           </button>
                         </>
                       ) : (
@@ -243,10 +243,10 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                           <button
                             id={`fast-visit-cta-${project.id}`}
                             onClick={() => onOpenSiteVisit(project.title)}
-                            className="py-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-xs font-mono tracking-widest uppercase text-white font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98] cursor-pointer shadow-sm"
+                            className="py-4 rounded-xl bg-white border border-gray-200 hover:border-gray-300 text-xs font-mono tracking-widest uppercase font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98] cursor-pointer shadow-sm"
                           >
-                            <span>Book Private Tour</span>
-                            <Calendar className="w-3.5 h-3.5 text-gold" />
+                            <span style={{ color: '#111827' }}>Book Private Tour</span>
+                            <Calendar className="w-3.5 h-3.5" style={{ color: '#C9A45C' }} />
                           </button>
                         </>
                       )}

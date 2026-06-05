@@ -204,7 +204,7 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
           <img 
             src={bgImage} 
             alt={projectName} 
-            className="w-full h-full object-cover filter brightness-[0.3] contrast-[1.05]"
+            className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-[#0A0A0A]/85" />
