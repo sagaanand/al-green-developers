@@ -30,16 +30,16 @@ export default function SectionTestimonials() {
   const [activeTestimonial, setActiveTestimonial] = useState(testimonials[0]);
 
   return (
-    <section className="relative w-full gradient-bg-forest py-24 sm:py-36 border-t border-white/10 overflow-hidden font-mono section-light-overlay">
+    <section className="relative w-full gradient-bg-forest py-24 sm:py-36 border-t border-white/10 overflow-hidden font-sans section-light-overlay">
       <div className="absolute bottom-10 left-1/3 w-80 h-80 bg-white/5 rounded-full blur-3xl z-0 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div id="testimonials-intro" className="max-w-3xl mb-16 sm:mb-20">
-          <h2 className="font-mono font-bold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
-            RESIDENT <span className="text-gold font-bold">TESTIMONIALS</span>
+          <h2 className="font-display font-semibold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
+            RESIDENT <span className="text-gold font-semibold">TESTIMONIALS</span>
           </h2>
-          <p className="mt-4 text-neutral-300 font-mono font-normal text-xs sm:text-sm tracking-wide max-w-xl">
+          <p className="mt-4 text-neutral-300 font-normal text-xs sm:text-sm tracking-wide max-w-xl">
             Hear from families and investors who have made our communities their home.
           </p>
         </div>
@@ -84,7 +84,7 @@ export default function SectionTestimonials() {
             <div className="space-y-6">
               <Quote className="w-12 h-12 text-gold opacity-20" />
               
-              <p className="text-sm sm:text-base text-neutral-200 font-mono font-normal leading-relaxed">
+              <p className="text-lg sm:text-xl text-neutral-100 font-display italic font-medium leading-relaxed">
                 "{activeTestimonial.content}"
               </p>
 
@@ -93,8 +93,8 @@ export default function SectionTestimonials() {
                   {activeTestimonial.initials}
                 </div>
                 <div>
-                  <h3 className="font-mono text-base font-bold text-white uppercase tracking-wider">{activeTestimonial.type}</h3>
-                  <p className="text-xs text-gold font-mono uppercase tracking-widest mt-1 font-semibold font-mono">{activeTestimonial.location}</p>
+                  <h3 className="font-sans text-base font-semibold text-white uppercase tracking-wider">{activeTestimonial.type}</h3>
+                  <p className="text-xs text-gold font-sans uppercase tracking-widest mt-1 font-semibold">{activeTestimonial.location}</p>
                 </div>
               </div>
             </div>

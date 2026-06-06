@@ -30,7 +30,7 @@ export default function AboutUs() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0d1f0c] text-white font-mono">
+    <div className="min-h-screen bg-[#0d1f0c] text-white font-sans">
       <Header 
         onScrollToSection={() => {}}
         onOpenTracker={() => {}}
@@ -45,7 +45,7 @@ export default function AboutUs() {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-mono font-bold text-5xl md:text-7xl tracking-tight uppercase mb-6"
+            className="font-display font-semibold text-5xl md:text-7xl tracking-wide uppercase mb-6"
           >
             About Us
           </motion.h1>
@@ -69,7 +69,7 @@ export default function AboutUs() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto text-center mb-16"
           >
-            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-8">
+            <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-8">
               Enduring Lifestyles and Thriving Communities
             </h2>
             <p className="text-lg text-neutral-300 leading-relaxed mb-8">
@@ -91,7 +91,7 @@ export default function AboutUs() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-8">
+            <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-8">
               Our Vision
             </h2>
             <p className="text-lg text-neutral-300 leading-relaxed mb-8">
@@ -124,7 +124,7 @@ export default function AboutUs() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-8">
+            <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-8">
               Our Mission
             </h2>
             <p className="text-lg text-neutral-300 leading-relaxed mb-8">
@@ -161,7 +161,7 @@ export default function AboutUs() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-4">
+            <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-4">
               Core Values
             </h2>
             <p className="text-neutral-300 max-w-2xl mx-auto">
@@ -182,7 +182,7 @@ export default function AboutUs() {
                   className="bg-white/5 border border-white/10 p-8 rounded-xl hover:border-gold/30 transition-all group"
                 >
                   <Icon className="w-12 h-12 text-gold mb-4" />
-                  <h3 className="text-xl font-mono font-bold text-white">
+                  <h3 className="text-xl font-sans font-semibold text-white">
                     {value.title}
                   </h3>
                 </motion.div>
@@ -200,7 +200,7 @@ export default function AboutUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-mono text-3xl md:text-4xl font-bold uppercase mb-6">
+            <h2 className="font-display text-3xl md:text-4xl font-semibold uppercase mb-6">
               Ready to Experience the Difference?
             </h2>
             <p className="text-neutral-300 mb-8">

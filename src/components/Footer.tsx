@@ -13,7 +13,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
   };
 
   return (
-    <footer id="footer-section" className="relative w-full bg-[#24421E] text-[#FAFBF9] pt-20 pb-28 sm:pb-24 border-t border-white/10 overflow-hidden font-mono">
+    <footer id="footer-section" className="relative w-full bg-[#24421E] text-[#FAFBF9] pt-20 pb-28 sm:pb-24 border-t border-white/10 overflow-hidden font-sans">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 sm:gap-16">
           {/* Logo Brand / Pitch Column (4 Columns) */}
@@ -29,16 +29,16 @@ export default function Footer({ onScrollToSection }: FooterProps) {
                 className="w-14 h-14 object-contain group-hover:scale-105 transition-transform duration-300"
               />
               <div className="text-center">
-                <span className="block font-mono text-lg tracking-[0.15em] font-normal text-white group-hover:text-gold transition-colors">
+                <span className="block font-sans text-lg tracking-[0.15em] font-normal text-white group-hover:text-gold transition-colors">
                   ACCENTURE
                 </span>
-                <span className="block font-mono text-lg tracking-[0.15em] font-bold text-[#BAA360] group-hover:text-gold transition-colors">
+                <span className="block font-sans text-lg tracking-[0.15em] font-bold text-[#BAA360] group-hover:text-gold transition-colors">
                   INFRA
                 </span>
               </div>
             </button>
 
-            <p className="text-sm text-neutral-300 font-mono font-normal max-w-sm leading-relaxed">
+            <p className="text-sm text-neutral-300 font-normal max-w-sm leading-relaxed">
               Accenture Infra is a land intelligence and community development company that happens to build real estate projects. Built to safeguard capital, protect the environment, and establish sustainable multi-generational community grids.
             </p>
 
@@ -50,10 +50,10 @@ export default function Footer({ onScrollToSection }: FooterProps) {
 
           {/* Projects Menu (4 Columns) */}
           <div className="md:col-span-4 space-y-4">
-            <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-[#BAA360] block font-bold font-mono">
+            <span className="text-[10px] uppercase font-sans tracking-[0.25em] text-[#BAA360] block font-bold">
               PROJECTS
             </span>
-            <ul className="space-y-2.5 font-mono text-xs font-mono">
+            <ul className="space-y-2.5 text-xs">
               {[
                 { id: "legacy", label: "LEGACY TOWNSHIP", desc: "105-Acre Integrated City" },
                 { id: "velora", label: "VELORA GREENS", desc: "Boutique Residential Community" },
@@ -75,11 +75,11 @@ export default function Footer({ onScrollToSection }: FooterProps) {
 
           {/* Contact Details (4 Columns) */}
           <div className="md:col-span-4 space-y-6">
-            <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-[#BAA360] block font-bold font-mono">
+            <span className="text-[10px] uppercase font-sans tracking-[0.25em] text-[#BAA360] block font-bold">
               OFFICIAL CORRESPONDENCES
             </span>
 
-            <div className="space-y-4 font-mono text-xs text-neutral-300 font-mono">
+            <div className="space-y-4 text-xs text-neutral-300">
               <div>
                 <span className="block text-[9px] text-[#BAA360] uppercase tracking-wider mb-1 font-bold font-mono">HEADQUARTERS</span>
                 <span className="text-white block font-mono font-medium">

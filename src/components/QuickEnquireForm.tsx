@@ -36,7 +36,7 @@ export default function QuickEnquireForm({ projectName = "Accenture Infra Projec
 
   return (
     <div className="bg-white/5 border border-white/20 rounded-xl p-8">
-      <h3 className="font-mono text-2xl font-bold text-white mb-2">
+      <h3 className="font-sans text-2xl font-semibold text-white mb-2">
         Quick Enquiry
       </h3>
       <p className="text-neutral-300 mb-6">

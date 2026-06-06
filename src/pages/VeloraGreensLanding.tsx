@@ -20,7 +20,7 @@ export default function VeloraGreensLanding() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0d1f0c] text-white font-mono">
+    <div className="min-h-screen bg-[#0d1f0c] text-white font-sans">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
@@ -42,10 +42,10 @@ export default function VeloraGreensLanding() {
               <div className="flex items-center gap-3">
                 <img src={logoIcon} alt="Logo" className="w-12 h-12 object-contain" />
                 <div className="text-center">
-                  <span className="block font-mono text-lg tracking-[0.25em] font-normal text-white">
+                  <span className="block font-sans text-lg tracking-[0.25em] font-normal text-white">
                     ACCENTURE
                   </span>
-                  <span className="block font-mono text-lg tracking-[0.25em] font-black text-[#BAA360]">
+                  <span className="block font-sans text-lg tracking-[0.25em] font-black text-[#BAA360]">
                     INFRA
                   </span>
                 </div>
@@ -57,7 +57,7 @@ export default function VeloraGreensLanding() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <h1 className="font-mono text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-4">
+                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-4">
                   VELORA GREENS
                 </h1>
                 <p className="text-xl md:text-2xl text-[#BAA360] font-semibold mb-6">
@@ -192,7 +192,7 @@ export default function VeloraGreensLanding() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Velora Greens?</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-semibold mb-4">Why Velora Greens?</h2>
             <p className="text-white/70 max-w-2xl mx-auto">
               A meticulously curated boutique sanctuary designed for elevated peace, lower spatial density, and high air exchange
             </p>
@@ -240,7 +240,7 @@ export default function VeloraGreensLanding() {
                 className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 hover:border-[#BAA360]/50 transition-colors"
               >
                 <feature.icon className="w-10 h-10 text-[#BAA360] mb-4" />
-                <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+                <h3 className="text-xl font-sans font-semibold mb-2">{feature.title}</h3>
                 <p className="text-white/70 text-sm">{feature.description}</p>
               </motion.div>
             ))}
@@ -257,7 +257,7 @@ export default function VeloraGreensLanding() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Prime Location</h2>
+              <h2 className="font-display text-3xl md:text-4xl font-semibold mb-6">Prime Location</h2>
               <p className="text-white/70 mb-8">
                 Located in the Sarjapur-Varthur Tech Belt, one of Bangalore East's fastest-growing corridors with exceptional connectivity and infrastructure development.
               </p>
@@ -283,7 +283,7 @@ export default function VeloraGreensLanding() {
             >
               <div className="text-center">
                 <MapPin className="w-16 h-16 text-[#BAA360] mx-auto mb-4" />
-                <h3 className="text-2xl font-bold mb-2">Sarjapur-Varthur Tech Belt</h3>
+                <h3 className="font-sans text-2xl font-semibold mb-2">Sarjapur-Varthur Tech Belt</h3>
                 <p className="text-white/70">Bangalore East</p>
               </div>
             </motion.div>
@@ -299,7 +299,7 @@ export default function VeloraGreensLanding() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Don't Miss This Opportunity</h2>
+            <h2 className="font-display text-3xl md:text-4xl font-semibold mb-4">Don't Miss This Opportunity</h2>
             <p className="text-white/70 mb-8">
               Limited inventory at launch pricing. Book your free site visit today.
             </p>

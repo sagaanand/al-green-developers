@@ -181,7 +181,7 @@ export default function App() {
       
       {/* Main Website Route */}
       <Route path="*" element={
-        <div id="root-viewport-shell" className="relative min-h-screen gradient-bg-mesh text-[#FAFBF9] select-none">
+        <div id="root-viewport-shell" className="relative min-h-screen gradient-bg-mesh text-[#FAFBF9]">
           {/* Scroll Progress Indicator */}
           <motion.div
             className="fixed top-0 left-0 h-1 bg-gradient-to-r from-gold to-[#A0814C] z-[60]"

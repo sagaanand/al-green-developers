@@ -14,7 +14,7 @@ export default function AccentureGreenzWarehousing() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0d1f0c] text-white font-mono">
+    <div className="min-h-screen bg-[#0d1f0c] text-white font-sans">
       <Header 
         onScrollToSection={() => {}}
         onOpenTracker={() => {}}
@@ -37,7 +37,7 @@ export default function AccentureGreenzWarehousing() {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-mono font-bold text-5xl md:text-7xl tracking-tight uppercase mb-6"
+            className="font-display font-semibold text-5xl md:text-7xl tracking-wide uppercase mb-6"
           >
             Accenture Greenz Warehousing
           </motion.h1>
@@ -70,7 +70,7 @@ export default function AccentureGreenzWarehousing() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-8">
+            <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-8">
               Overview
             </h2>
             <p className="text-lg text-neutral-300 leading-relaxed mb-8 font-normal">
@@ -95,7 +95,7 @@ export default function AccentureGreenzWarehousing() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-4">
+            <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-4">
               Features
             </h2>
           </motion.div>
@@ -111,7 +111,7 @@ export default function AccentureGreenzWarehousing() {
                 className="bg-white/5 border border-white/10 p-8 rounded-xl"
               >
                 <Warehouse className="w-10 h-10 text-gold mb-4" />
-                <h3 className="font-mono text-xl font-bold uppercase">{feature}</h3>
+                <h3 className="font-sans text-xl font-semibold uppercase">{feature}</h3>
               </motion.div>
             ))}
           </div>
@@ -127,7 +127,7 @@ export default function AccentureGreenzWarehousing() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-8">
+            <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-8">
               Masterplan
             </h2>
             <div className="space-y-4">
@@ -156,7 +156,7 @@ export default function AccentureGreenzWarehousing() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="font-mono text-3xl md:text-5xl font-bold uppercase mb-8">
+            <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-8">
               Growth Drivers
             </h2>
             <div className="space-y-6">
@@ -183,7 +183,7 @@ export default function AccentureGreenzWarehousing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-mono text-3xl md:text-4xl font-bold uppercase mb-6">
+            <h2 className="font-display text-3xl md:text-4xl font-semibold uppercase mb-6">
               Explore Commercial Opportunities
             </h2>
             <p className="text-neutral-300 mb-8 font-normal">

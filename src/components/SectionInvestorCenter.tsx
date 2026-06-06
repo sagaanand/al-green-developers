@@ -73,7 +73,7 @@ export default function SectionInvestorCenter({ onAddLead }: SectionInvestorCent
   };
 
   return (
-    <section id="investors" className="relative w-full gradient-bg-forest py-24 sm:py-36 border-t border-white/10 overflow-hidden font-mono section-light-overlay">
+    <section id="investors" className="relative w-full gradient-bg-forest py-24 sm:py-36 border-t border-white/10 overflow-hidden font-sans section-light-overlay">
       <div className="absolute top-1/3 left-10 w-96 h-96 bg-white/[0.04] rounded-full blur-3xl z-0 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -87,11 +87,11 @@ export default function SectionInvestorCenter({ onAddLead }: SectionInvestorCent
             className="lg:col-span-6 space-y-8"
           >
             <div>
-              <h2 className="font-mono font-bold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
+              <h2 className="font-display font-semibold text-3xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
                 PROJECT <br />
-                <span className="text-gold font-bold">INFORMATION</span>
+                <span className="text-gold font-semibold">INFORMATION</span>
               </h2>
-              <p className="mt-4 text-neutral-300 font-mono font-normal text-sm sm:text-base tracking-wide max-w-xl">
+              <p className="mt-4 text-neutral-300 font-normal text-sm sm:text-base tracking-wide max-w-xl">
                 Access detailed project brochures, layout plans, and development guides for our premium communities.
               </p>
             </div>
@@ -139,7 +139,7 @@ export default function SectionInvestorCenter({ onAddLead }: SectionInvestorCent
                   className="space-y-5 relative z-10"
                 >
                   <div>
-                    <h3 className="font-mono text-lg font-bold text-white uppercase tracking-wider">
+                    <h3 className="font-sans text-lg font-semibold text-white uppercase tracking-wider">
                       Request Capital Intelligence
                     </h3>
                     <p className="text-[10px] font-mono text-gold mt-1 uppercase font-bold font-mono">
@@ -267,7 +267,7 @@ export default function SectionInvestorCenter({ onAddLead }: SectionInvestorCent
                   </div>
 
                   <div className="space-y-2">
-                    <h3 className="font-mono text-xl font-bold uppercase tracking-wider text-white">
+                    <h3 className="font-sans text-xl font-semibold uppercase tracking-wider text-white">
                       Request Received
                     </h3>
                     <p className="text-xs font-mono text-gold uppercase tracking-[0.1em] font-bold font-mono">

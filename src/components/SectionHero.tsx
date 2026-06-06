@@ -63,28 +63,22 @@ export default function SectionHero({ onScrollToSection, heroImage }: SectionHer
       id="hero"
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden section-gradient-hero"
     >
-      {/* Background Cinematic Drone Video falling back to High-Res Image */}
+      {/* Background image with parallax */}
       <motion.div
         id="hero-media-wrapper"
         className="absolute inset-0 z-0"
-        initial={{ scale: 1.1 }}
+        initial={{ scale: 1.06 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 20, ease: "easeOut" }}
+        transition={{ duration: 7, ease: [0.22, 1, 0.36, 1] }}
       >
-        <video
-          id="hero-background-video"
-          src="https://assets.mixkit.co/videos/preview/mixkit-flight-over-dense-green-forest-trees-under-fog-42295-large.mp4"
-          poster={heroImage}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
+        <img
+          src={heroImage}
+          alt="Al Green Developers"
           className="w-full h-full object-cover"
         />
-        
-        {/* Reduced overlay for better visibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-black/15 to-black/20 z-10" />
+
+        {/* Dark overlay — matches Velora style, fades to black at bottom */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0d1208] z-10" />
 
         {/* Abstract design: Subtle thin technical alignment line */}
         <div className="absolute left-[8%] top-0 bottom-0 w-[0.5px] bg-white/[0.05] z-10 hidden md:block" />
