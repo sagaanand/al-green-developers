@@ -24,6 +24,7 @@ import LegacyTownship from "./pages/LegacyTownship";
 import VeloraGreens from "./pages/VeloraGreens";
 import HayatGreenzResort from "./pages/HayatGreenzResort";
 import AccentureGreenzWarehousing from "./pages/AccentureGreenzWarehousing";
+import HomePage2 from "./pages/HomePage2";
 import { LeadSubmission, SiteVisitSchedule } from "./types";
 import { Compass } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -179,6 +180,9 @@ export default function App() {
       <Route path="/project/hayat" element={<HayatGreenzResort />} />
       <Route path="/project/logistics" element={<AccentureGreenzWarehousing />} />
       
+      {/* Homepage V2 — Video Hero */}
+      <Route path="/home2" element={<HomePage2 />} />
+
       {/* Main Website Route */}
       <Route path="*" element={
         <div id="root-viewport-shell" className="relative min-h-screen gradient-bg-mesh text-[#FAFBF9]">
