@@ -165,7 +165,7 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
         : "Strategic Commerce & Logistics Ecosystem";
 
   const bgImage = isLegacy 
-    ? "/src/assets/images/al_green_legacy_1780310147200.png"
+    ? "/images/al_green_legacy.png"
     : isVelora
       ? "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1200&auto=format&fit=crop"
       : isHayat

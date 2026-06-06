@@ -40,7 +40,7 @@ export default function App() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  const heroImage = "/src/assets/images/al_green_hero_1780310125091.png";
+  const heroImage = "/images/al_green_hero.png";
 
   // Handle GitHub Pages SPA routing
   useEffect(() => {

@@ -94,7 +94,7 @@ export const PROJECTS: Project[] = [
       infrastructure: 9.9,
       liquidity: 9.8
     },
-    image: "/src/assets/images/al_green_legacy_1780310147200.png",
+    image: "/images/al_green_legacy.png",
     ctaText: "Explore Integrated City"
   },
   {
