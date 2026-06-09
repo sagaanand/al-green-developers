@@ -292,7 +292,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
             </div>
 
             {/* Middle Links list */}
-            <div className="px-8 py-6 flex flex-col gap-5 overflow-y-auto grow">
+            <div className="px-8 py-6 flex flex-col gap-5 overflow-y-auto grow" data-lenis-prevent>
               {/* Core Verticals */}
               <div className="space-y-4">
                 <span className="text-xs uppercase tracking-[0.2em] font-sans text-[#FAFBF9]/60 block mb-2 font-bold">

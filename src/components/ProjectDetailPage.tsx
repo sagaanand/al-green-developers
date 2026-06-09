@@ -173,7 +173,7 @@ export default function ProjectDetailPage({ projectId, onClose, onBookTour }: Pr
         : "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop";
 
   return (
-    <div id={`project-detail-panel-${projectId}`} className="fixed inset-0 z-50 overflow-y-auto bg-[#0A0A0A] text-white font-sans antialiased">
+    <div id={`project-detail-panel-${projectId}`} className="fixed inset-0 z-50 overflow-y-auto bg-[#0A0A0A] text-white font-sans antialiased" data-lenis-prevent>
       {/* Absolute top control header */}
       <div className="sticky top-0 bg-[#0A0A0A]/90 backdrop-blur-xl border-b border-white/[0.05] z-50 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">

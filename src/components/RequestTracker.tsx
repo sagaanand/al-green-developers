@@ -87,7 +87,7 @@ export default function RequestTracker({ isOpen, onClose, leads, visits, onCance
             </div>
 
             {/* Scrollable Ledger content */}
-            <div className="flex-1 overflow-y-auto p-6 space-y-8 bg-[#152913]">
+            <div className="flex-1 overflow-y-auto p-6 space-y-8 bg-[#152913]" data-lenis-prevent>
               {/* Security Header */}
               <div className="p-4 bg-black/45 border border-white/10 rounded-lg">
                 <div className="flex gap-3">
