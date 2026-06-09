@@ -42,8 +42,8 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
       label: "Developments",
       icon: FolderKanban,
       items: [
-        { label: "Legacy Township", desc: "Flagship 105-Acre Integrated City", id: "legacy" },
         { label: "Velora Greens", desc: "Boutique Residential Enclave", id: "velora" },
+        { label: "Legacy Township", desc: "Flagship 105-Acre Integrated City", id: "legacy" },
         { label: "Future Projects", desc: "STRR & Kadugodi Express Corridors", scrollId: "developments" }
       ]
     },
@@ -299,21 +299,6 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   Business Verticals
                 </span>
                 
-                {/* Legacy */}
-                <button
-                  id="mobile-nav-legacy"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    if (onOpenProjectDetail) onOpenProjectDetail("legacy");
-                  }}
-                  className="w-full text-left flex justify-between items-center py-2 border-b border-white/10 group"
-                >
-                  <div>
-                    <span className="block text-lg font-sans uppercase tracking-wider text-white group-hover:text-gold transition-colors">Legacy Township</span>
-                    <span className="block text-xs text-neutral-300">105-Acre Flagship Integrated City</span>
-                  </div>
-                </button>
-
                 {/* Velora */}
                 <button
                   id="mobile-nav-velora"
@@ -326,6 +311,21 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   <div>
                     <span className="block text-lg font-sans uppercase tracking-wider text-white group-hover:text-gold transition-colors">Velora Greens</span>
                     <span className="block text-xs text-neutral-300">Boutique Residential Enclave</span>
+                  </div>
+                </button>
+
+                {/* Legacy */}
+                <button
+                  id="mobile-nav-legacy"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    if (onOpenProjectDetail) onOpenProjectDetail("legacy");
+                  }}
+                  className="w-full text-left flex justify-between items-center py-2 border-b border-white/10 group"
+                >
+                  <div>
+                    <span className="block text-lg font-sans uppercase tracking-wider text-white group-hover:text-gold transition-colors">Legacy Township</span>
+                    <span className="block text-xs text-neutral-300">105-Acre Flagship Integrated City</span>
                   </div>
                 </button>
 
