@@ -9,7 +9,7 @@ interface FooterProps {
 export default function Footer({ onScrollToSection }: FooterProps) {
   const handleWhatsappSim = () => {
     const msg = encodeURIComponent("Hello Al Green, I would like to schedule a virtual consulting session.");
-    window.open(`https://wa.me/919999999999?text=${msg}`);
+    window.open(`https://wa.me/918042019603?text=${msg}`);
   };
 
   return (
@@ -90,8 +90,8 @@ export default function Footer({ onScrollToSection }: FooterProps) {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <span className="block text-[9px] text-[#BAA360] uppercase tracking-wider mb-1 font-bold font-mono">DIRECT CONTACT</span>
-                  <a href="tel:+919999999999" className="text-white hover:text-gold block font-mono font-medium">
-                    +91 99999 99999
+                  <a href="tel:+918042019603" className="text-white hover:text-gold block font-mono font-medium">
+                    +91 80 4201 9603
                   </a>
                 </div>
                 <div>

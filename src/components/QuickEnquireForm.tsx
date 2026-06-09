@@ -26,7 +26,7 @@ export default function QuickEnquireForm({ projectName = "Accenture Infra Projec
     );
 
     // Open WhatsApp
-    window.open(`https://wa.me/919999999999?text=${message}`, "_blank");
+    window.open(`https://wa.me/918042019603?text=${message}`, "_blank");
 
     // Reset form
     setName("");

@@ -3,11 +3,11 @@ import { Phone, MessageCircle, Calendar } from "lucide-react";
 export default function StickyMobileFooter() {
   const handleWhatsApp = () => {
     const msg = encodeURIComponent("Hi, I'm interested in Accenture Infra projects. Please share details.");
-    window.open(`https://wa.me/919999999999?text=${msg}`);
+    window.open(`https://wa.me/918042019603?text=${msg}`);
   };
 
   const handleCall = () => {
-    window.open("tel:+919999999999");
+    window.open("tel:+918042019603");
   };
 
   const handleSchedule = () => {
