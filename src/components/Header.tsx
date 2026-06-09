@@ -73,8 +73,11 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
   const handleDropdownItemClick = (item: { label: string; desc: string; id?: string; scrollId?: string }) => {
     setActiveDropdown(null);
     if (item.id) {
-      // Navigate to project page
-      window.location.href = `/project/${item.id}`;
+      if (onOpenProjectDetail) {
+        onOpenProjectDetail(item.id);
+      } else {
+        window.location.href = `/project/${item.id}`;
+      }
     } else if (item.scrollId) {
       onScrollToSection(item.scrollId);
     }

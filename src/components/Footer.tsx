@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 
 interface FooterProps {
   onScrollToSection: (id: string) => void;
+  onOpenProjectDetail?: (id: string) => void;
 }
 
-export default function Footer({ onScrollToSection }: FooterProps) {
+export default function Footer({ onScrollToSection, onOpenProjectDetail }: FooterProps) {
   const handleWhatsappSim = () => {
     const msg = encodeURIComponent("Hello Al Green, I would like to schedule a virtual consulting session.");
     window.open(`https://wa.me/918042019603?text=${msg}`);
@@ -61,13 +62,19 @@ export default function Footer({ onScrollToSection }: FooterProps) {
                 { id: "logistics", label: "WAREHOUSING", desc: "Industrial Logistics Infrastructure" },
               ].map((item) => (
                 <li key={item.id}>
-                  <Link
-                    to={`/project/${item.id}`}
-                    className="text-neutral-400 hover:text-gold flex flex-col cursor-pointer transition-colors group"
+                  <button
+                    onClick={() => {
+                      if (onOpenProjectDetail) {
+                        onOpenProjectDetail(item.id);
+                      } else {
+                        window.location.href = `/project/${item.id}`;
+                      }
+                    }}
+                    className="text-neutral-400 hover:text-gold flex flex-col cursor-pointer transition-colors group text-left w-full"
                   >
                     <span className="font-medium">{item.label}</span>
                     <span className="text-[10px] text-neutral-500 group-hover:text-neutral-400">{item.desc}</span>
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>

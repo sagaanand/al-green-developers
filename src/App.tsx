@@ -231,7 +231,7 @@ export default function App() {
       </main>
 
       {/* Section 11: Premium Footer */}
-      <Footer onScrollToSection={handleScrollToSection} />
+      <Footer onScrollToSection={handleScrollToSection} onOpenProjectDetail={setSelectedProjectId} />
 
       {/* Floating CTA */}
       <FloatingCTA />
@@ -251,20 +251,34 @@ export default function App() {
       {/* Embedded Project Overlaid Subroute Views */}
       <AnimatePresence>
         {selectedProjectId && (
-          <motion.div
-            id="modal-project-subroute"
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-[#24421E]"
-          >
-            <ProjectDetailPage
-              projectId={selectedProjectId}
-              onClose={() => setSelectedProjectId(null)}
-              onBookTour={handleTriggerDevelopmentBooking}
+          <div id="modal-project-subroute" className="fixed inset-0 z-50 overflow-hidden font-sans">
+            {/* Backdrop Dim */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="absolute inset-0 bg-black/65 backdrop-blur-xs cursor-pointer" 
+              onClick={() => setSelectedProjectId(null)} 
             />
-          </motion.div>
+
+            {/* Slide-out Panel from Right */}
+            <div className="absolute inset-y-0 right-0 max-w-full flex pl-10 sm:pl-16">
+              <motion.div
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "spring", damping: 30, stiffness: 200 }}
+                className="w-screen max-w-4xl bg-[#0A0A0A] border-l border-white/10 h-full flex flex-col relative"
+              >
+                <ProjectDetailPage
+                  projectId={selectedProjectId}
+                  onClose={() => setSelectedProjectId(null)}
+                  onBookTour={handleTriggerDevelopmentBooking}
+                />
+              </motion.div>
+            </div>
+          </div>
         )}
       </AnimatePresence>
 
