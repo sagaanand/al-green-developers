@@ -95,8 +95,8 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                       </div>
                     </div>
                     {/* Dummy RERA Registration No below the image */}
-                    <div className="mt-3 text-[10px] font-mono tracking-widest text-[#BAA360] uppercase pl-1">
-                      RERA Registration No: {project.id === "legacy" ? "PRM/KA/RERA/1251/L-1251" : "PRM/KA/RERA/1251/V-2364"}
+                    <div className="mt-4 text-[9px] font-mono tracking-widest text-gold/80 uppercase bg-white/5 py-1.5 px-4 rounded-full border border-white/10 w-fit mx-auto shadow-sm backdrop-blur-sm">
+                      RERA NO: {project.id === "legacy" ? "PRM/KA/RERA/1251/L-1251" : "PRM/KA/RERA/1251/V-2364"}
                     </div>
                   </div>
 
