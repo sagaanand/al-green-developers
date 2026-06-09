@@ -83,7 +83,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
               <div>
                 <span className="block text-[9px] text-[#BAA360] uppercase tracking-wider mb-1 font-bold font-mono">HEADQUARTERS</span>
                 <span className="text-white block font-mono font-medium">
-                  Level 8, Aman Signature Tower, <span className="block font-mono font-medium">Whitefield East Road, Bangalore, Karnataka, 560066.</span>
+                  2nd floor, No. 4AM, 501/1, Outer Ring Rd, <span className="block font-mono font-medium">HRBR Layout, Bengaluru, Karnataka 560043.</span>
                 </span>
               </div>
 
@@ -96,9 +96,9 @@ export default function Footer({ onScrollToSection }: FooterProps) {
                 </div>
                 <div>
                   <span className="block text-[9px] text-[#BAA360] uppercase tracking-wider mb-1 font-bold font-mono">SECURE DISPATCH</span>
-                  <a href="mailto:advisor@algreendevelopers.com" className="text-white hover:text-gold block font-mono font-medium flex items-center gap-1">
+                  <a href="mailto:info@accentureinfra.com" className="text-white hover:text-gold block font-mono font-medium flex items-center gap-1">
                     <Mail className="w-3.5 h-3.5 text-gold" />
-                    advisor@algreen
+                    info@accentureinfra.com
                   </a>
                 </div>
               </div>
@@ -116,7 +116,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
               </button>
               <a
                 id="footer-action-email"
-                href="mailto:advisor@algreendevelopers.com"
+                href="mailto:info@accentureinfra.com"
                 className="py-2.5 rounded border border-white/10 hover:border-gold hover:bg-white/5 text-[10px] font-mono tracking-widest text-gold uppercase font-bold text-center flex items-center justify-center gap-1 px-3 font-mono"
               >
                 <span>Secure Email</span>

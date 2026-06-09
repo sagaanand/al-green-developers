@@ -1,9 +1,16 @@
 import { motion } from "motion/react";
 import { Phone, ArrowRight } from "lucide-react";
+import forestCanopyAmbient from "../assets/images/forest_canopy_ambient.png";
 
 export default function SectionCallbackCTA() {
   return (
     <section className="relative w-full section-dark py-24 sm:py-36 border-t border-white/10">
+      {/* Background Image with 10% Transparency */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-10 pointer-events-none"
+        style={{ backgroundImage: `url(${forestCanopyAmbient})` }}
+      />
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -31,7 +38,10 @@ export default function SectionCallbackCTA() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-gold to-[#A0814C] text-black font-bold text-sm md:text-base font-mono tracking-widest uppercase shadow-lg shadow-gold/20 hover:shadow-gold/30 transition-all"
+            onClick={() => {
+              document.getElementById("visit")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-gold to-[#A0814C] text-black font-bold text-sm md:text-base font-mono tracking-widest uppercase shadow-lg shadow-gold/20 hover:shadow-gold/30 transition-all cursor-pointer"
           >
             <Phone className="w-5 h-5" />
             <span>Schedule a Callback</span>

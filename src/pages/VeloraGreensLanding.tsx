@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Check, MapPin, Shield, Leaf, Home, Award, Phone, ArrowRight, X } from "lucide-react";
 import logoIcon from "../assets/logo-icon.png";
@@ -8,7 +8,7 @@ export default function VeloraGreensLanding() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { Phone, MessageCircle } from "lucide-react";
 
 interface QuickEnquireFormProps {
@@ -11,7 +11,7 @@ export default function QuickEnquireForm({ projectName = "Accenture Infra Projec
   const [projectInterest, setProjectInterest] = useState(projectName);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     if (!name.trim() || !phone.trim()) {

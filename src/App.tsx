@@ -2,16 +2,12 @@ import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import RequestTracker from "./components/RequestTracker";
-import SectionHero from "./components/SectionHero";
-import SectionCredibilityMetrics from "./components/SectionCredibilityMetrics";
-import SectionTrustSignals from "./components/SectionTrustSignals";
-import SectionTrustArchitecture from "./components/SectionTrustArchitecture";
+import SectionHeroVideo from "./components/SectionHeroVideo";
 import SectionSocialProof from "./components/SectionSocialProof";
 import SectionLandProduct from "./components/SectionLandProduct";
 import SectionDevelopments from "./components/SectionDevelopments";
 import ProjectDetailPage from "./components/ProjectDetailPage";
 import SectionPhilosophy from "./components/SectionPhilosophy";
-import SectionTimeline from "./components/SectionTimeline";
 import SectionSiteVisit from "./components/SectionSiteVisit";
 import SectionCallbackCTA from "./components/SectionCallbackCTA";
 import Footer from "./components/Footer";
@@ -93,7 +89,6 @@ export default function App() {
         "hero",
         "philosophy",
         "developments",
-        "timeline",
         "investors",
         "visit"
       ];
@@ -203,25 +198,15 @@ export default function App() {
             onOpenProjectDetail={setSelectedProjectId}
           />
 
-      {/* Main interactive section segments */}
       <main id="main-content-canvas" className="pb-24 lg:pb-0">
-        {/* Section 01: Hero */}
-        <SectionHero onScrollToSection={handleScrollToSection} heroImage={heroImage} />
-
-        {/* Section 02: Credibility Metrics */}
-        <SectionCredibilityMetrics />
+        <SectionHeroVideo
+          onScrollToSection={handleScrollToSection}
+          videoSrc="/videos/hero-bg.mp4"
+          posterSrc={heroImage}
+        />
 
         {/* Section 03: Manifesto */}
         <SectionLandProduct />
-
-        {/* Section 04: Trust Signals */}
-        <SectionTrustSignals />
-
-        {/* Section 05: Trust Architecture */}
-        <SectionTrustArchitecture />
-
-        {/* Section 06: Social Proof */}
-        <SectionSocialProof />
 
         {/* Section 06: Active Premium Developments */}
         <SectionDevelopments
@@ -235,8 +220,8 @@ export default function App() {
         {/* Section 08: Development Philosophy */}
         <SectionPhilosophy />
 
-        {/* Section 05: Development Steps / Transparency Vertical Timeline */}
-        <SectionTimeline />
+        {/* Section 06: Social Proof */}
+        <SectionSocialProof />
 
         {/* Section 06: Guided Concierge Site Visit */}
         <SectionSiteVisit

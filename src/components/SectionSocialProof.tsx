@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
-import { Star, Quote, Construction, TrendingUp } from "lucide-react";
+import { Star, Quote } from "lucide-react";
+import alGreenHero from "../assets/images/al_green_hero_1780310125091.png";
 
 export default function SectionSocialProof() {
   const testimonials = [
@@ -23,24 +24,15 @@ export default function SectionSocialProof() {
     }
   ];
 
-  const constructionUpdates = [
-    {
-      project: "Legacy Township",
-      status: "Foundation Work Complete",
-      progress: 35,
-      icon: Construction
-    },
-    {
-      project: "Velora Greens",
-      status: "Land Development in Progress",
-      progress: 20,
-      icon: TrendingUp
-    }
-  ];
-
   return (
     <section className="relative w-full bg-[#0d1f0c] py-24 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6">
+      {/* Background Image with 10% Transparency */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-10 pointer-events-none"
+        style={{ backgroundImage: `url(${alGreenHero})` }}
+      />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,52 +73,6 @@ export default function SectionSocialProof() {
               </div>
             </motion.div>
           ))}
-        </div>
-
-        {/* Construction Updates */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h3 className="font-mono text-2xl md:text-3xl font-bold uppercase mb-4">
-            Construction Progress
-          </h3>
-          <p className="text-neutral-300 max-w-2xl mx-auto">
-            Stay updated with our latest project developments
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {constructionUpdates.map((update, index) => {
-            const Icon = update.icon;
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="premium-card-dark p-6"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <Icon className="w-8 h-8 text-gold" />
-                  <div>
-                    <div className="font-bold text-white">{update.project}</div>
-                    <div className="text-sm text-neutral-400">{update.status}</div>
-                  </div>
-                </div>
-                <div className="w-full bg-white/10 rounded-full h-2">
-                  <div
-                    className="bg-gradient-to-r from-gold to-[#A0814C] h-2 rounded-full transition-all duration-1000"
-                    style={{ width: `${update.progress}%` }}
-                  />
-                </div>
-                <div className="text-right text-sm text-gold mt-2">{update.progress}% Complete</div>
-              </motion.div>
-            );
-          })}
         </div>
       </div>
     </section>
