@@ -100,9 +100,9 @@ export const PROJECTS: Project[] = [
   {
     id: "velora",
     title: "VELORA GREENS",
-    tagline: "A Premium Boutique Residential Community",
+    tagline: "a thoughtfully envisioned community in East Bangalore offering Modern Living Residences and distinctive Velora Greens Courtyard Homes",
     location: "Sarjapur-Varthur Tech Belt, Bangalore East",
-    story: "A premium boutique residential community offering elegant apartments, contemporary row housing, and premium villa plots within a green and lifestyle-oriented environment. Designed for modern families and discerning investors, the project combines urban comfort with open spaces, wellness amenities, and refined living experiences.",
+    story: "A thoughtfully envisioned community in East Bangalore offering Modern Living Residences and distinctive Velora Greens Courtyard Homes. Designed for modern families and discerning investors, the project combines urban comfort with open spaces, wellness amenities, and refined living experiences.",
     masterplan: [
       "90 thoughtfully designed apartments across 6 residential blocks",
       "15 apartments per block with spacious 2 & 3 BHK residences",
@@ -124,7 +124,7 @@ export const PROJECTS: Project[] = [
       liquidity: 9.5
     },
     image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1000&auto=format&fit=crop",
-    ctaText: "Explore Boutique Community"
+    ctaText: "Explore Courtyard Homes"
   },
   {
     id: "hayat",

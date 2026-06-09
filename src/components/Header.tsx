@@ -42,7 +42,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
       label: "Developments",
       icon: FolderKanban,
       items: [
-        { label: "Velora Greens", desc: "Boutique Residential Enclave", id: "velora" },
+        { label: "Velora Greens", desc: "Modern Living & Courtyard Homes in East Bangalore", id: "velora" },
         { label: "Legacy Township", desc: "Flagship 105-Acre Integrated City", id: "legacy" },
         { label: "Future Projects", desc: "STRR & Kadugodi Express Corridors", scrollId: "developments" }
       ]
@@ -310,7 +310,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                 >
                   <div>
                     <span className="block text-lg font-sans uppercase tracking-wider text-white group-hover:text-gold transition-colors">Velora Greens</span>
-                    <span className="block text-xs text-neutral-300">Boutique Residential Enclave</span>
+                    <span className="block text-xs text-neutral-300">Modern Living & Courtyard Homes in East Bangalore</span>
                   </div>
                 </button>
 

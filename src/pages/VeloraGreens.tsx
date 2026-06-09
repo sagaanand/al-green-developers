@@ -143,7 +143,7 @@ className="font-luxury-heading text-5xl md:text-7xl tracking-wide uppercase mb-6
               Overview
             </h2>
             <p className="text-lg text-neutral-300 leading-relaxed mb-8 font-normal">
-              A premium boutique residential community offering elegant apartments, contemporary row housing, and premium villa plots within a green and lifestyle-oriented environment. Designed for modern families and discerning investors, the project combines urban comfort with open spaces, wellness amenities, and refined living experiences.
+              A thoughtfully envisioned community in East Bangalore offering Modern Living Residences and distinctive Velora Greens Courtyard Homes. Designed for modern families and discerning investors, the project combines urban comfort with open spaces, wellness amenities, and refined living experiences.
             </p>
             <img
               src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop"
@@ -322,7 +322,7 @@ className="font-luxury-heading text-5xl md:text-7xl tracking-wide uppercase mb-6
               Schedule a Site Visit
             </h2>
             <p className="text-neutral-300 mb-8 font-normal">
-              Experience Velora Greens in person. Our team will guide you through this boutique community.
+              Experience Velora Greens in person. Our team will guide you through this thoughtfully envisioned community.
             </p>
             <Link
               to="/"

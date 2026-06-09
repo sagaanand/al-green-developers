@@ -70,27 +70,33 @@ export default function SectionDevelopments({ onOpenProjectDetail, onOpenSiteVis
                   className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
                 >
                   {/* Left/Right visual column */}
-                  <div className={`relative aspect-[4/3] w-full rounded-2xl overflow-hidden group bg-neutral-900 shadow-xl ${isEven ? "lg:order-1" : "lg:order-2"}`}>
-                    <img
-                      id={`project-showcase-img-${project.id}`}
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-[4s] group-hover:scale-105"
-                      referrerPolicy="no-referrer"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className={`${isEven ? "lg:order-1" : "lg:order-2"}`}>
+                    <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden group bg-neutral-900 shadow-xl">
+                      <img
+                        id={`project-showcase-img-${project.id}`}
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-[4s] group-hover:scale-105"
+                        referrerPolicy="no-referrer"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-                    {/* Location Sticker on Image */}
-                    <div className="absolute bottom-6 left-6 flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 z-15 shadow-md">
-                      <MapPin className="w-4 h-4 text-gold" />
-                      <span className="text-xs font-sans font-medium tracking-wide text-neutral-800">{project.location}</span>
+                      {/* Location Sticker on Image */}
+                      <div className="absolute bottom-6 left-6 flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 z-15 shadow-md">
+                        <MapPin className="w-4 h-4 text-gold" />
+                        <span className="text-xs font-sans font-medium tracking-wide text-neutral-800">{project.location}</span>
+                      </div>
+
+                      {/* Badge on Image */}
+                      <div className="absolute top-6 right-6 flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-sans font-semibold tracking-wider uppercase bg-white text-gray-800 shadow-md">
+                        {project.id === "legacy" && <Sparkles className="w-4 h-4 text-gold" />}
+                        <span>{project.id === "legacy" ? "Flagship" : "Premium"}</span>
+                      </div>
                     </div>
-
-                    {/* Badge on Image */}
-                    <div className="absolute top-6 right-6 flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-sans font-semibold tracking-wider uppercase bg-white text-gray-800 shadow-md">
-                      {project.id === "legacy" && <Sparkles className="w-4 h-4 text-gold" />}
-                      <span>{project.id === "legacy" ? "Flagship" : "Premium"}</span>
+                    {/* Dummy RERA Registration No below the image */}
+                    <div className="mt-3 text-[10px] font-mono tracking-widest text-[#BAA360] uppercase pl-1">
+                      RERA Registration No: {project.id === "legacy" ? "PRM/KA/RERA/1251/L-1251" : "PRM/KA/RERA/1251/V-2364"}
                     </div>
                   </div>
 

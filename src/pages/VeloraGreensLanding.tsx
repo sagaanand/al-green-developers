@@ -61,7 +61,7 @@ export default function VeloraGreensLanding() {
                   VELORA GREENS
                 </h1>
                 <p className="text-xl md:text-2xl text-[#BAA360] font-semibold mb-6">
-                  Boutique Residential Community in Bangalore East
+                  Modern Living & Courtyard Homes in Bangalore East
                 </p>
                 <div className="flex items-center gap-2 text-white/80 mb-4">
                   <MapPin className="w-5 h-5 text-[#BAA360]" />
@@ -95,7 +95,7 @@ export default function VeloraGreensLanding() {
                 className="grid grid-cols-2 gap-4"
               >
                 {[
-                  { icon: Home, text: "90 Boutique Homes" },
+                  { icon: Home, text: "90 Modern Living & Courtyard Homes" },
                   { icon: Leaf, text: "Heirloom Forest" },
                   { icon: Shield, text: "RERA Approved" },
                   { icon: Award, text: "9.5 Investment Score" }
@@ -194,14 +194,14 @@ export default function VeloraGreensLanding() {
           >
             <h2 className="font-display text-3xl md:text-4xl font-semibold mb-4">Why Velora Greens?</h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              A meticulously curated boutique sanctuary designed for elevated peace, lower spatial density, and high air exchange
+              A thoughtfully envisioned community in East Bangalore designed for elevated peace, lower spatial density, and high air exchange
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "90 Boutique Homes",
+                title: "90 Modern Residences",
                 description: "Elegant low-rise apartments with climate ventilation for natural airflow",
                 icon: Home
               },

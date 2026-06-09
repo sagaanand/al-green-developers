@@ -56,7 +56,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
             <ul className="space-y-2.5 text-xs">
               {[
                 { id: "legacy", label: "LEGACY TOWNSHIP", desc: "105-Acre Integrated City" },
-                { id: "velora", label: "VELORA GREENS", desc: "Boutique Residential Community" },
+                { id: "velora", label: "VELORA GREENS", desc: "Modern Living & Courtyard Homes in East Bangalore" },
                 { id: "hayat", label: "HAYAT GREENZ RESORT", desc: "Wellness & Nature Retreat" },
                 { id: "logistics", label: "WAREHOUSING", desc: "Industrial Logistics Infrastructure" },
               ].map((item) => (
