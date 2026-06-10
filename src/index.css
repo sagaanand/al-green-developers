@@ -357,3 +357,44 @@ button, a {
     animation: none;
   }
 }
+
+/* ─── Project Page Background Overlays ────────────────── */
+.bg-overlay-topographic {
+  position: relative;
+  overflow: hidden;
+}
+.bg-overlay-topographic::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("/src/assets/images/topographic_overlay.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  pointer-events: none;
+}
+.bg-overlay-topographic > * {
+  position: relative;
+  z-index: 10;
+}
+
+.bg-overlay-canopy {
+  position: relative;
+  overflow: hidden;
+}
+.bg-overlay-canopy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("/src/assets/images/forest_canopy_ambient.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  pointer-events: none;
+}
+.bg-overlay-canopy > * {
+  position: relative;
+  z-index: 10;
+}

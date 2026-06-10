@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import RequestTracker from "./components/RequestTracker";
 import SectionHeroVideo from "./components/SectionHeroVideo";
 import SectionSocialProof from "./components/SectionSocialProof";
 import SectionLandProduct from "./components/SectionLandProduct";
 import SectionDevelopments from "./components/SectionDevelopments";
-import ProjectDetailPage from "./components/ProjectDetailPage";
 import SectionPhilosophy from "./components/SectionPhilosophy";
 import SectionSiteVisit from "./components/SectionSiteVisit";
 import SectionCallbackCTA from "./components/SectionCallbackCTA";
@@ -27,12 +26,12 @@ import { motion, AnimatePresence } from "motion/react";
 
 export default function App() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [activeSection, setActiveSection] = useState("hero");
   const [isTrackerOpen, setIsTrackerOpen] = useState(false);
   const [leads, setLeads] = useState<LeadSubmission[]>([]);
   const [visits, setVisits] = useState<SiteVisitSchedule[]>([]);
   const [overrideSelectedProject, setOverrideSelectedProject] = useState("");
-  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [showFloatingCta, setShowFloatingCta] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -47,6 +46,19 @@ export default function App() {
       navigate(redirect);
     }
   }, [navigate]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const project = params.get("project");
+    if (project) {
+      setOverrideSelectedProject(project);
+    }
+    if (location.hash === "#visit") {
+      setTimeout(() => {
+        handleScrollToSection("visit");
+      }, 300);
+    }
+  }, [location.search, location.hash]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -152,8 +164,11 @@ export default function App() {
 
   const handleTriggerDevelopmentBooking = (projectName: string) => {
     setOverrideSelectedProject(projectName);
-    setSelectedProjectId(null); // Close the detail page if open to jump to site visit
     handleScrollToSection("visit");
+  };
+
+  const handleOpenProjectDetail = (projectId: string) => {
+    navigate(`/project/${projectId}`);
   };
 
   const hasActivity = leads.length > 0 || visits.length > 0;
@@ -195,7 +210,7 @@ export default function App() {
             onScrollToSection={handleScrollToSection}
             onOpenTracker={() => setIsTrackerOpen(true)}
             activeSection={activeSection}
-            onOpenProjectDetail={setSelectedProjectId}
+            onOpenProjectDetail={handleOpenProjectDetail}
           />
 
       <main id="main-content-canvas" className="pb-24 lg:pb-0">
@@ -210,7 +225,7 @@ export default function App() {
 
         {/* Section 06: Active Premium Developments */}
         <SectionDevelopments
-          onOpenProjectDetail={setSelectedProjectId}
+          onOpenProjectDetail={handleOpenProjectDetail}
           onOpenSiteVisit={handleTriggerDevelopmentBooking}
         />
 
@@ -231,7 +246,7 @@ export default function App() {
       </main>
 
       {/* Section 11: Premium Footer */}
-      <Footer onScrollToSection={handleScrollToSection} onOpenProjectDetail={setSelectedProjectId} />
+      <Footer onScrollToSection={handleScrollToSection} onOpenProjectDetail={handleOpenProjectDetail} />
 
       {/* Floating CTA */}
       <FloatingCTA />
@@ -247,40 +262,6 @@ export default function App() {
         visits={visits}
         onCancelVisit={handleCancelVisit}
       />
-
-      {/* Embedded Project Overlaid Subroute Views */}
-      <AnimatePresence>
-        {selectedProjectId && (
-          <div id="modal-project-subroute" className="fixed inset-0 z-50 overflow-hidden font-sans">
-            {/* Backdrop Dim */}
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="absolute inset-0 bg-black/65 backdrop-blur-xs cursor-pointer" 
-              onClick={() => setSelectedProjectId(null)} 
-            />
-
-            {/* Slide-out Panel from Right */}
-            <div className="absolute inset-y-0 right-0 max-w-full flex pl-10 sm:pl-16">
-              <motion.div
-                initial={{ x: "100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: "100%" }}
-                transition={{ type: "spring", damping: 30, stiffness: 200 }}
-                className="w-screen max-w-4xl bg-[#0A0A0A] border-l border-white/10 h-full flex flex-col relative"
-              >
-                <ProjectDetailPage
-                  projectId={selectedProjectId}
-                  onClose={() => setSelectedProjectId(null)}
-                  onBookTour={handleTriggerDevelopmentBooking}
-                />
-              </motion.div>
-            </div>
-          </div>
-        )}
-      </AnimatePresence>
 
       {/* Floating Small Icon CTA on Bottom Right - Only shows on Up Scrolls */}
       <AnimatePresence>

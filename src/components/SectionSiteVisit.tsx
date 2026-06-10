@@ -179,7 +179,7 @@ export default function SectionSiteVisit({ onScheduleVisit, overrideSelectedProj
                             onChange={(e) => setProjectSelected(e.target.value)}
                             className="w-full px-4 py-3 bg-black/45 border border-white/10 focus:border-gold rounded font-mono text-xs text-white focus:outline-none transition-colors font-mono"
                           >
-                            {PROJECTS.filter(p => p.id === "legacy" || p.id === "velora").map((proj) => (
+                            {PROJECTS.map((proj) => (
                               <option key={proj.id} value={proj.title} className="bg-[#111111] text-white font-mono">
                                 {proj.title}
                               </option>

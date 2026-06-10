@@ -39,7 +39,7 @@ export default function Projects() {
       </section>
 
       {/* Featured Projects */}
-      <section className="py-24 bg-[#0d1f0c]">
+      <section className="py-24 bg-[#0d1f0c] bg-overlay-canopy">
         <div className="max-w-7xl mx-auto px-6">
           <div className="space-y-24">
             {PROJECTS.map((project, index) => (
@@ -99,7 +99,7 @@ export default function Projects() {
       </section>
 
       {/* Project Comparison Table */}
-      <section className="py-24 bg-[#24421E]">
+      <section className="py-24 bg-[#24421E] bg-overlay-topographic">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -176,7 +176,7 @@ export default function Projects() {
       </section>
 
       {/* Future Projects */}
-      <section className="py-24 bg-[#24421E]">
+      <section className="py-24 bg-[#24421E] bg-overlay-canopy">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

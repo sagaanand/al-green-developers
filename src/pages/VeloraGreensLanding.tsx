@@ -184,7 +184,7 @@ export default function VeloraGreensLanding() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-[#0d1f0c]">
+      <section className="py-20 bg-[#0d1f0c] bg-overlay-canopy">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -249,7 +249,7 @@ export default function VeloraGreensLanding() {
       </section>
 
       {/* Location Section */}
-      <section className="py-20 bg-[#24421E]">
+      <section className="py-20 bg-[#24421E] bg-overlay-topographic">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -292,7 +292,7 @@ export default function VeloraGreensLanding() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-[#0d1f0c]">
+      <section className="py-20 bg-[#0d1f0c] bg-overlay-canopy">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
