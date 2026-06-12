@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Mail, Landmark, Compass, FolderKanban, Shield, KeyRound, ArrowUpRight, ChevronDown, X } from "lucide-react";
+import { Mail, Landmark, Compass, FolderKanban, Shield, KeyRound, ArrowUpRight, ChevronDown, X, Linkedin, Instagram, Facebook } from "lucide-react";
 import logoIcon from "../assets/logo-icon.png";
 import { Link } from "react-router-dom";
 
@@ -304,6 +304,40 @@ export default function Footer({ onScrollToSection, onOpenProjectDetail, faqType
                 <span>Secure Email</span>
                 <Mail className="w-3.5 h-3.5 text-gold" />
               </a>
+            </div>
+
+            {/* Social Media Channels */}
+            <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+              <span className="text-[9px] text-[#BAA360] uppercase tracking-wider font-bold font-mono">SOCIAL PORTALS</span>
+              <div className="flex items-center gap-2.5">
+                <a
+                  href="https://www.linkedin.com/company/accenture-infra-bangalore/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-7 h-7 rounded border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-neutral-400 transition-colors bg-white/[0.02] hover:bg-white/5"
+                  title="LinkedIn"
+                >
+                  <Linkedin className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/accentureinfra/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-7 h-7 rounded border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-neutral-400 transition-colors bg-white/[0.02] hover:bg-white/5"
+                  title="Instagram"
+                >
+                  <Instagram className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61590411426737"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-7 h-7 rounded border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-neutral-400 transition-colors bg-white/[0.02] hover:bg-white/5"
+                  title="Facebook"
+                >
+                  <Facebook className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           </div>
         </div>

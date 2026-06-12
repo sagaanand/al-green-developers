@@ -1,6 +1,6 @@
 import { useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Mail, Phone, MapPin, Clock, CheckCircle2, MessageSquare, Shield, Sparkles } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, CheckCircle2, MessageSquare, Shield, Sparkles, Linkedin, Instagram, Facebook } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FloatingCTA from "../components/FloatingCTA";
@@ -175,6 +175,44 @@ export default function Contact({ onAddLead }: ContactProps) {
                   Monday to Saturday: 09:00 AM – 06:30 PM (IST)<br />
                   Sunday: Gated site visits scheduled on prior booking clearance only.
                 </p>
+              </div>
+
+              {/* Social channels */}
+              <div className="p-5 bg-white/[0.01] border-l-2 border-gold rounded-r-xl font-mono text-xs text-gold/90 space-y-3">
+                <div className="flex items-center gap-2 font-bold uppercase tracking-wider">
+                  <span>OFFICIAL SOCIAL PORTALS:</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <a
+                    href="https://www.linkedin.com/company/accenture-infra-bangalore/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 hover:text-white transition-colors"
+                  >
+                    <Linkedin className="w-4 h-4 text-gold" />
+                    <span>LinkedIn</span>
+                  </a>
+                  <span className="text-white/20">|</span>
+                  <a
+                    href="https://www.instagram.com/accentureinfra/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 hover:text-white transition-colors"
+                  >
+                    <Instagram className="w-4 h-4 text-gold" />
+                    <span>Instagram</span>
+                  </a>
+                  <span className="text-white/20">|</span>
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61590411426737"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 hover:text-white transition-colors"
+                  >
+                    <Facebook className="w-4 h-4 text-gold" />
+                    <span>Facebook</span>
+                  </a>
+                </div>
               </div>
             </div>
 
