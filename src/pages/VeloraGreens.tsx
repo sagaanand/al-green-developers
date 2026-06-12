@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import FloatingCTA from "../components/FloatingCTA";
 import LuxuryConfigAccordion from "../components/LuxuryConfigAccordion";
 import FloorPlanPanel from "../components/FloorPlanPanel";
+import TypingHeader from "../components/TypingHeader";
 
 const VELORA_CONFIGS = [
   {
@@ -131,13 +132,10 @@ export default function VeloraGreens() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0d1f0c]" />
         </motion.div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-className="font-luxury-heading text-5xl md:text-7xl tracking-wide uppercase mb-6"
-          >
-            Velora Greens
-          </motion.h1>
+          <TypingHeader
+            className="font-luxury-heading text-5xl md:text-7xl tracking-wide uppercase mb-6 text-white"
+            segments={[{ text: "Velora Greens" }]}
+          />
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

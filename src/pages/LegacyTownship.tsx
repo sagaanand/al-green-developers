@@ -8,6 +8,7 @@ import FloatingCTA from "../components/FloatingCTA";
 import SectionAmenities from "../components/SectionAmenities";
 import SectionConfigurations from "../components/SectionConfigurations";
 import FloorPlanPanel from "../components/FloorPlanPanel";
+import TypingHeader from "../components/TypingHeader";
 
 const LEGACY_SECTORS = [
   {
@@ -196,14 +197,10 @@ export default function LegacyTownship() {
             <Sparkles className="w-4 h-4" style={{ color: '#C9A45C' }} />
             <span className="text-xs font-sans font-semibold tracking-widest uppercase" style={{ color: '#C9A45C' }}>Flagship Development</span>
           </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+          <TypingHeader
             className="font-display text-5xl md:text-7xl lg:text-8xl tracking-wide uppercase mb-6 text-white"
-          >
-            Legacy Township
-          </motion.h1>
+            segments={[{ text: "Legacy Township" }]}
+          />
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

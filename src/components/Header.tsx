@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Shield, Sparkles, FolderKanban, FileText, CalendarCheck, User, X, Menu, ChevronDown, Waves, Warehouse } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logoIcon from "../assets/logo-icon.png";
 
 interface HeaderProps {
@@ -12,12 +12,22 @@ interface HeaderProps {
 }
 
 export default function Header({ onScrollToSection, onOpenTracker, activeSection, onOpenProjectDetail }: HeaderProps) {
+  const navigate = useNavigate();
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  const handleVisitClick = () => {
+    setActiveDropdown(null);
+    if (location.pathname === "/" || location.pathname === "") {
+      onScrollToSection("visit");
+    } else {
+      navigate("/#visit");
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,7 +77,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
 
   const simpleNavItems = [
     { id: "about", label: "About", icon: Sparkles, link: "/about" },
-    { id: "visit", label: "Contact", icon: CalendarCheck }
+    { id: "contact", label: "Contact", icon: CalendarCheck, link: "/contact" }
   ];
 
   const handleDropdownItemClick = (item: { label: string; desc: string; id?: string; scrollId?: string }) => {
@@ -211,10 +221,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                 <button
                   id={`nav-link-${item.id}`}
                   key={item.id}
-                  onClick={() => {
-                    onScrollToSection(item.id);
-                    setActiveDropdown(null);
-                  }}
+                  onClick={handleVisitClick}
                   className="relative group py-2 flex items-center gap-1 cursor-pointer"
                 >
                   <span
@@ -238,7 +245,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
           <div className="flex items-center gap-3">
             <button
               id="header-hero-cta"
-              onClick={() => onScrollToSection("visit")}
+              onClick={handleVisitClick}
               className="hidden sm:flex px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-gold to-[#A0814C] hover:from-gold-light hover:to-gold text-sm font-sans tracking-widest uppercase text-black font-semibold shadow-lg shadow-gold/10 transition-all active:scale-[0.98] cursor-pointer"
             >
               Private Tour
@@ -382,10 +389,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                     <button
                       id={`mobile-simple-link-${item.id}`}
                       key={item.id}
-                      onClick={() => {
-                        onScrollToSection(item.id);
-                        setIsMobileMenuOpen(false);
-                      }}
+                      onClick={handleVisitClick}
                       className="w-full text-left py-1 text-lg font-sans uppercase tracking-wide text-white/90 hover:text-gold"
                     >
                       {item.label}
@@ -400,7 +404,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
               <button
                 id="mobile-drawer-cta-btn"
                 onClick={() => {
-                  onScrollToSection("visit");
+                  handleVisitClick();
                   setIsMobileMenuOpen(false);
                 }}
                 className="w-full py-3.5 rounded-full bg-gradient-to-r from-gold to-[#A0814C] text-xs font-sans tracking-widest uppercase text-black font-bold text-center"

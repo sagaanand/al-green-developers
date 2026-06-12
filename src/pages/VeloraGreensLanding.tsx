@@ -2,6 +2,7 @@ import { useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Check, MapPin, Shield, Leaf, Home, Award, Phone, ArrowRight, X } from "lucide-react";
 import logoIcon from "../assets/logo-icon.png";
+import TypingHeader from "../components/TypingHeader";
 
 export default function VeloraGreensLanding() {
   const [formData, setFormData] = useState({ name: "", phone: "" });
@@ -57,9 +58,10 @@ export default function VeloraGreensLanding() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-4">
-                  VELORA GREENS
-                </h1>
+                <TypingHeader
+                  className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-4 text-white"
+                  segments={[{ text: "VELORA GREENS" }]}
+                />
                 <p className="text-xl md:text-2xl text-[#BAA360] font-semibold mb-6">
                   Modern Living & Courtyard Homes in Bangalore East
                 </p>
@@ -110,6 +112,7 @@ export default function VeloraGreensLanding() {
 
             {/* Right - Lead Form */}
             <motion.div
+              id="lead-form"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FloatingCTA from "../components/FloatingCTA";
+import TypingHeader from "../components/TypingHeader";
 
 // Import premium pictorial assets
 import forestCanopyAmbient from "../assets/images/forest_canopy_ambient.png";
@@ -70,9 +71,15 @@ export default function AboutUs() {
             transition={{ duration: 0.8 }}
             className="p-8 sm:p-12 bg-black/60 backdrop-blur-md border border-white/10 rounded-2xl max-w-3xl mx-auto shadow-2xl"
           >
-            <h1 className="font-display font-semibold text-4xl sm:text-6xl tracking-wide uppercase mb-6 leading-tight text-white">
-              ABOUT <span className="text-gold">ACCENTURE INFRA</span>
-            </h1>
+            <span className="text-[10px] sm:text-xs font-mono tracking-[0.25em] text-[#BAA360] uppercase font-bold block mb-3">
+              ABOUT
+            </span>
+            <TypingHeader
+              className="font-display font-semibold text-3xl sm:text-5xl tracking-wide uppercase mb-6 leading-tight text-white"
+              segments={[
+                { text: "ACCENTURE INFRA", className: "text-gold" }
+              ]}
+            />
             <div className="h-[2px] w-20 bg-gold mx-auto mb-6" />
             <p className="text-lg text-neutral-300 font-mono font-light leading-relaxed max-w-xl mx-auto">
               Real Estate is more than Construction. It is the physical preservation of your family's future.
@@ -96,7 +103,7 @@ export default function AboutUs() {
               <div className="h-[2px] w-24 bg-gold" />
               <div className="space-y-6 text-neutral-300 font-sans font-light text-base leading-relaxed">
                 <p>
-                  At Accenture Infra, we believe that real estate is about more than just buildings. It's about creating spaces where families grow, communities thrive, and memories are made. Our vision is to redefine urban living in India through excellence in design, transparency, and sustainable development.
+                  At Accenture Infra, we believe that real estate is about more than just buildings. It's about creating spaces where families grow, communities thrive, and memories are made. Our vision is to redefine quality standards in modern real estate and construction.
                 </p>
                 <p>
                   Founded with a commitment to engineering excellence and environmental stewardship, we have developed over 105 acres of premium land across Bangalore East. Our projects integrate cutting-edge infrastructure with nature-centric design, creating communities that thrive for generations.
@@ -258,7 +265,7 @@ export default function AboutUs() {
               </h2>
               <div className="h-[2px] w-24 bg-gold" />
               <p className="text-lg text-neutral-300 font-sans font-light leading-relaxed">
-                To be India's most trusted developer by engineering sustainable communities that protect capital, preserve environment, and create multi-generational value for our customers and stakeholders.
+                Redefining quality standards in modern real estate and construction.
               </p>
 
               {/* Statistics counter block styled as premium card grids */}
@@ -295,7 +302,7 @@ export default function AboutUs() {
               </h2>
               <div className="h-[2px] w-24 bg-gold" />
               <p className="text-lg text-neutral-300 font-sans font-light leading-relaxed">
-                To deliver world-class real estate projects that exceed customer expectations through innovative design, transparent processes, and unwavering commitment to quality and sustainability.
+                To deliver world-class residential, commercial, and integrated communities through visionary design, precision execution, and an unwavering commitment to excellence.
               </p>
 
               {/* Commitments checklist with custom check icons */}

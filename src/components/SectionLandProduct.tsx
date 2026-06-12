@@ -71,7 +71,7 @@ export default function SectionLandProduct() {
                 <span className="text-gold font-luxury-heading-italic">CONSTRUCTION</span>
               </h3>
               <p className="max-w-2xl text-neutral-300 font-sans font-light text-sm sm:text-base tracking-wide leading-relaxed">
-                Enduring lifestyles and thriving communities. Our vision to redefine urban living in India through excellence in design, transparency, and sustainable development.
+                Enduring lifestyles and thriving communities. Redefining quality standards in modern real estate and construction.
               </p>
             </motion.div>
           </div>

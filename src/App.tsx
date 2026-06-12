@@ -20,6 +20,8 @@ import VeloraGreens from "./pages/VeloraGreens";
 import HayatGreenzResort from "./pages/HayatGreenzResort";
 import AccentureGreenzWarehousing from "./pages/AccentureGreenzWarehousing";
 import HomePage2 from "./pages/HomePage2";
+import Contact from "./pages/Contact";
+import ScrollToTop from "./components/ScrollToTop";
 import { LeadSubmission, SiteVisitSchedule } from "./types";
 import { Compass } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -174,119 +176,125 @@ export default function App() {
   const hasActivity = leads.length > 0 || visits.length > 0;
 
   return (
-    <Routes>
-      {/* Landing Page Route */}
-      <Route path="/velora-greens" element={<VeloraGreensLanding />} />
-      
-      {/* About Us Page */}
-      <Route path="/about" element={<AboutUs />} />
-      
-      {/* Projects Page */}
-      <Route path="/projects" element={<Projects />} />
-      
-      {/* Project Detail Pages */}
-      <Route path="/project/legacy" element={<LegacyTownship />} />
-      <Route path="/project/velora" element={<VeloraGreens />} />
-      <Route path="/project/hayat" element={<HayatGreenzResort />} />
-      <Route path="/project/logistics" element={<AccentureGreenzWarehousing />} />
-      
-      {/* Homepage V2 — Video Hero */}
-      <Route path="/home2" element={<HomePage2 />} />
+    <>
+      <ScrollToTop />
+      <Routes>
+        {/* Landing Page Route */}
+        <Route path="/velora-greens" element={<VeloraGreensLanding />} />
+        
+        {/* About Us Page */}
+        <Route path="/about" element={<AboutUs />} />
+        
+        {/* Projects Page */}
+        <Route path="/projects" element={<Projects />} />
+        
+        {/* Contact Page */}
+        <Route path="/contact" element={<Contact onAddLead={handleAddLead} />} />
+        
+        {/* Project Detail Pages */}
+        <Route path="/project/legacy" element={<LegacyTownship />} />
+        <Route path="/project/velora" element={<VeloraGreens />} />
+        <Route path="/project/hayat" element={<HayatGreenzResort />} />
+        <Route path="/project/logistics" element={<AccentureGreenzWarehousing />} />
+        
+        {/* Homepage V2 — Video Hero */}
+        <Route path="/home2" element={<HomePage2 />} />
 
-      {/* Main Website Route */}
-      <Route path="*" element={
-        <div id="root-viewport-shell" className="relative min-h-screen gradient-bg-mesh text-[#FAFBF9]">
-          {/* Scroll Progress Indicator */}
-          <motion.div
-            className="fixed top-0 left-0 h-1 bg-gradient-to-r from-gold to-[#A0814C] z-[60]"
-            style={{ width: `${scrollProgress}%` }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: scrollProgress > 0 ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-          />
+        {/* Main Website Route */}
+        <Route path="*" element={
+          <div id="root-viewport-shell" className="relative min-h-screen gradient-bg-mesh text-[#FAFBF9]">
+            {/* Scroll Progress Indicator */}
+            <motion.div
+              className="fixed top-0 left-0 h-1 bg-gradient-to-r from-gold to-[#A0814C] z-[60]"
+              style={{ width: `${scrollProgress}%` }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: scrollProgress > 0 ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
+            />
 
-          {/* Sticky header navigation */}
-          <Header
+            {/* Sticky header navigation */}
+            <Header
+              onScrollToSection={handleScrollToSection}
+              onOpenTracker={() => setIsTrackerOpen(true)}
+              activeSection={activeSection}
+              onOpenProjectDetail={handleOpenProjectDetail}
+            />
+
+        <main id="main-content-canvas" className="pb-24 lg:pb-0">
+          <SectionHeroVideo
             onScrollToSection={handleScrollToSection}
-            onOpenTracker={() => setIsTrackerOpen(true)}
-            activeSection={activeSection}
-            onOpenProjectDetail={handleOpenProjectDetail}
+            videoSrc="/videos/hero-bg.mp4"
+            posterSrc={heroImage}
           />
 
-      <main id="main-content-canvas" className="pb-24 lg:pb-0">
-        <SectionHeroVideo
-          onScrollToSection={handleScrollToSection}
-          videoSrc="/videos/hero-bg.mp4"
-          posterSrc={heroImage}
+          {/* Section 03: Manifesto */}
+          <SectionLandProduct />
+
+          {/* Section 06: Active Premium Developments */}
+          <SectionDevelopments
+            onOpenProjectDetail={handleOpenProjectDetail}
+            onOpenSiteVisit={handleTriggerDevelopmentBooking}
+          />
+
+          {/* Section 07: Callback CTA */}
+          <SectionCallbackCTA />
+
+          {/* Section 08: Development Philosophy */}
+          <SectionPhilosophy />
+
+          {/* Section 06: Social Proof */}
+          <SectionSocialProof />
+
+          {/* Section 06: Guided Concierge Site Visit */}
+          <SectionSiteVisit
+            onScheduleVisit={handleScheduleVisit}
+            overrideSelectedProject={overrideSelectedProject}
+          />
+        </main>
+
+        {/* Section 11: Premium Footer */}
+        <Footer onScrollToSection={handleScrollToSection} onOpenProjectDetail={handleOpenProjectDetail} />
+
+        {/* Floating CTA */}
+        <FloatingCTA />
+
+        {/* Sticky Mobile Footer */}
+        <StickyMobileFooter />
+
+        {/* Interactive Right-Sided Client Ledger Drawer */}
+        <RequestTracker
+          isOpen={isTrackerOpen}
+          onClose={() => setIsTrackerOpen(false)}
+          leads={leads}
+          visits={visits}
+          onCancelVisit={handleCancelVisit}
         />
 
-        {/* Section 03: Manifesto */}
-        <SectionLandProduct />
-
-        {/* Section 06: Active Premium Developments */}
-        <SectionDevelopments
-          onOpenProjectDetail={handleOpenProjectDetail}
-          onOpenSiteVisit={handleTriggerDevelopmentBooking}
-        />
-
-        {/* Section 07: Callback CTA */}
-        <SectionCallbackCTA />
-
-        {/* Section 08: Development Philosophy */}
-        <SectionPhilosophy />
-
-        {/* Section 06: Social Proof */}
-        <SectionSocialProof />
-
-        {/* Section 06: Guided Concierge Site Visit */}
-        <SectionSiteVisit
-          onScheduleVisit={handleScheduleVisit}
-          overrideSelectedProject={overrideSelectedProject}
-        />
-      </main>
-
-      {/* Section 11: Premium Footer */}
-      <Footer onScrollToSection={handleScrollToSection} onOpenProjectDetail={handleOpenProjectDetail} />
-
-      {/* Floating CTA */}
-      <FloatingCTA />
-
-      {/* Sticky Mobile Footer */}
-      <StickyMobileFooter />
-
-      {/* Interactive Right-Sided Client Ledger Drawer */}
-      <RequestTracker
-        isOpen={isTrackerOpen}
-        onClose={() => setIsTrackerOpen(false)}
-        leads={leads}
-        visits={visits}
-        onCancelVisit={handleCancelVisit}
-      />
-
-      {/* Floating Small Icon CTA on Bottom Right - Only shows on Up Scrolls */}
-      <AnimatePresence>
-        {showFloatingCta && !isTrackerOpen && (
-          <motion.button
-            id="floating-tracker-scroll-cta"
-            initial={{ scale: 0, opacity: 0, y: 20 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0, opacity: 0, y: 20 }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            onClick={() => setIsTrackerOpen(true)}
-            className="fixed bottom-6 right-6 z-45 w-12 h-12 rounded-full bg-[#24421E]/95 border border-[#BAA360]/40 text-gold flex items-center justify-center shadow-xl hover:bg-[#132210] hover:scale-105 active:scale-95 transition-all cursor-pointer group"
-            title="Access Client Dossier"
-          >
-            <div className="relative flex items-center justify-center">
-              <Compass className="w-5.5 h-5.5 text-gold group-hover:rotate-45 transition-transform duration-500" />
-              {hasActivity && (
-                <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-600 border border-[#FAFBF9] rounded-full animate-pulse" />
-              )}
-            </div>
-          </motion.button>
-        )}
-      </AnimatePresence>
-    </div>
-      } />
-    </Routes>
+        {/* Floating Small Icon CTA on Bottom Right - Only shows on Up Scrolls */}
+        <AnimatePresence>
+          {showFloatingCta && !isTrackerOpen && (
+            <motion.button
+              id="floating-tracker-scroll-cta"
+              initial={{ scale: 0, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0, opacity: 0, y: 20 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              onClick={() => setIsTrackerOpen(true)}
+              className="fixed bottom-6 right-6 z-45 w-12 h-12 rounded-full bg-[#24421E]/95 border border-[#BAA360]/40 text-gold flex items-center justify-center shadow-xl hover:bg-[#132210] hover:scale-105 active:scale-95 transition-all cursor-pointer group"
+              title="Access Client Dossier"
+            >
+              <div className="relative flex items-center justify-center">
+                <Compass className="w-5.5 h-5.5 text-gold group-hover:rotate-45 transition-transform duration-500" />
+                {hasActivity && (
+                  <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-600 border border-[#FAFBF9] rounded-full animate-pulse" />
+                )}
+              </div>
+            </motion.button>
+          )}
+        </AnimatePresence>
+      </div>
+        } />
+      </Routes>
+    </>
   );
 }

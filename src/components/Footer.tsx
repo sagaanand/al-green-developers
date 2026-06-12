@@ -310,6 +310,8 @@ export default function Footer({ onScrollToSection, onOpenProjectDetail, faqType
 
         {/* Policy Links */}
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-wrap gap-4 sm:gap-6 justify-center sm:justify-start text-[10px] font-mono text-neutral-400">
+          <Link to="/contact" className="hover:text-gold uppercase tracking-wider font-bold cursor-pointer">Contact Us</Link>
+          <span className="text-white/20">•</span>
           <button onClick={() => setActivePolicy("privacy")} className="hover:text-gold uppercase tracking-wider font-bold cursor-pointer">Privacy Policy</button>
           <span className="text-white/20">•</span>
           <button onClick={() => setActivePolicy("terms")} className="hover:text-gold uppercase tracking-wider font-bold cursor-pointer">Terms & Conditions</button>

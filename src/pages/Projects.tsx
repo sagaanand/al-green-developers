@@ -5,6 +5,7 @@ import { PROJECTS } from "../data";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FloatingCTA from "../components/FloatingCTA";
+import TypingHeader from "../components/TypingHeader";
 
 export default function Projects() {
   return (
@@ -20,13 +21,10 @@ export default function Projects() {
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#24421E] to-[#0d1f0c]" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="font-display font-semibold text-5xl md:text-7xl tracking-wide uppercase mb-6"
-          >
-            Our Projects
-          </motion.h1>
+          <TypingHeader
+            className="font-display font-semibold text-5xl md:text-7xl tracking-wide uppercase mb-6 text-white"
+            segments={[{ text: "Our Projects" }]}
+          />
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
