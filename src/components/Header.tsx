@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Shield, Sparkles, FolderKanban, FileText, CalendarCheck, User, X, Menu, ChevronDown, Waves, Warehouse } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import logoLight from "../assets/logo-light.png";
+import logoNewIcon from "../assets/logo-new-icon.png";
+import logoNewInfra from "../assets/logo-new-infra.png";
 
 interface HeaderProps {
   onScrollToSection: (id: string) => void;
@@ -122,12 +123,17 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
               }
               setActiveDropdown(null);
             }}
-            className="flex items-center cursor-pointer"
+            className="flex items-center gap-3 cursor-pointer group"
           >
             <img 
-              src={logoLight} 
-              alt="Accenture Infra Logo" 
-              className="h-16 w-auto object-contain hover:scale-105 transition-transform duration-300"
+              src={logoNewIcon} 
+              alt="Logo Icon" 
+              className="h-14 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+            />
+            <img 
+              src={logoNewInfra} 
+              alt="Infra Logo" 
+              className="h-7 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
             />
           </button>
 
@@ -281,12 +287,17 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                     navigate("/");
                   }
                 }}
-                className="flex items-center cursor-pointer text-left"
+                className="flex items-center gap-2 cursor-pointer text-left"
               >
                 <img 
-                  src={logoLight} 
-                  alt="Accenture Infra Logo" 
-                  className="h-10 w-auto object-contain"
+                  src={logoNewIcon} 
+                  alt="Logo Icon" 
+                  className="h-8 w-auto object-contain"
+                />
+                <img 
+                  src={logoNewInfra} 
+                  alt="Infra Logo" 
+                  className="h-4 w-auto object-contain"
                 />
               </button>
               <button
