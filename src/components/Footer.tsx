@@ -151,11 +151,11 @@ export default function Footer({ onScrollToSection, onOpenProjectDetail, faqType
         
         {/* FAQs Accordion Section */}
         {faqs.length > 0 && (
-          <div className="border-b border-white/10 pb-16 mb-16 text-left">
-            <span className="text-[10px] uppercase font-sans tracking-[0.25em] text-[#BAA360] block font-bold mb-6">
+          <div className="border-b border-white/10 pb-16 mb-16 flex flex-col items-center">
+            <span className="text-[10px] uppercase font-sans tracking-[0.25em] text-[#BAA360] block font-bold mb-6 text-center">
               FREQUENTLY ASKED QUESTIONS
             </span>
-            <div className="max-w-4xl space-y-4">
+            <div className="max-w-4xl w-full space-y-4">
               {faqs.map((faq, index) => {
                 const isOpen = activeFaqIndex === index;
                 return (
