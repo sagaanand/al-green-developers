@@ -55,9 +55,10 @@ export default function App() {
     if (project) {
       setOverrideSelectedProject(project);
     }
-    if (location.hash === "#visit") {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
       setTimeout(() => {
-        handleScrollToSection("visit");
+        handleScrollToSection(id);
       }, 300);
     }
   }, [location.search, location.hash]);

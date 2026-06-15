@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Shield, Sparkles, FolderKanban, FileText, CalendarCheck, User, X, Menu, ChevronDown, Waves, Warehouse } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import logoIcon from "../assets/logo-icon.png";
+import logoLight from "../assets/logo-light.png";
 
 interface HeaderProps {
   onScrollToSection: (id: string) => void;
@@ -83,13 +83,13 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
   const handleDropdownItemClick = (item: { label: string; desc: string; id?: string; scrollId?: string }) => {
     setActiveDropdown(null);
     if (item.id) {
-      if (onOpenProjectDetail) {
-        onOpenProjectDetail(item.id);
-      } else {
-        window.location.href = `/project/${item.id}`;
-      }
+      navigate(`/project/${item.id}`);
     } else if (item.scrollId) {
-      onScrollToSection(item.scrollId);
+      if (location.pathname === "/" || location.pathname === "") {
+        onScrollToSection(item.scrollId);
+      } else {
+        navigate(`/#${item.scrollId}`);
+      }
     }
   };
 
@@ -101,8 +101,8 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
           isVisible ? "translate-y-0" : "-translate-y-full"
         } ${
           isScrolled
-            ? "py-4 shadow-sm"
-            : "py-6"
+            ? "py-2 shadow-sm"
+            : "py-4"
         }`}
         style={{
           background: isScrolled ? 'rgba(15, 61, 30, 0.95)' : 'transparent',
@@ -115,24 +115,20 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
           <button
             id="brand-logo-btn"
             onClick={() => {
-              onScrollToSection("hero");
+              if (location.pathname === "/" || location.pathname === "") {
+                onScrollToSection("hero");
+              } else {
+                navigate("/");
+              }
               setActiveDropdown(null);
             }}
-            className="flex items-center gap-3 group text-left cursor-pointer"
+            className="flex items-center cursor-pointer"
           >
             <img 
-              src={logoIcon} 
-              alt="Logo Icon" 
-              className="w-14 h-14 object-contain group-hover:scale-105 transition-transform duration-300"
+              src={logoLight} 
+              alt="Accenture Infra Logo" 
+              className="h-16 w-auto object-contain hover:scale-105 transition-transform duration-300"
             />
-            <div className="text-center">
-              <span className="block font-sans text-lg tracking-[0.25em] font-normal text-white group-hover:text-gold transition-colors duration-300">
-                ACCENTURE
-              </span>
-              <span className="block font-sans text-lg tracking-[0.25em] font-black text-[#BAA360] group-hover:text-gold transition-colors duration-300">
-                INFRA
-              </span>
-            </div>
           </button>
 
           {/* Desktop Navigation */}
@@ -276,21 +272,23 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
           >
             {/* Top Bar inside Drawer */}
             <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-              <div className="flex items-center gap-3">
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  if (location.pathname === "/" || location.pathname === "") {
+                    onScrollToSection("hero");
+                  } else {
+                    navigate("/");
+                  }
+                }}
+                className="flex items-center cursor-pointer text-left"
+              >
                 <img 
-                  src={logoIcon} 
-                  alt="Logo Icon" 
-                  className="w-10 h-10 object-contain"
+                  src={logoLight} 
+                  alt="Accenture Infra Logo" 
+                  className="h-10 w-auto object-contain"
                 />
-                <div className="text-center">
-                  <span className="block font-sans text-sm tracking-[0.2em] font-normal text-white">
-                    ACCENTURE
-                  </span>
-                  <span className="block font-sans text-sm tracking-[0.2em] font-bold text-[#BAA360]">
-                    INFRA
-                  </span>
-                </div>
-              </div>
+              </button>
               <button
                 id="mobile-menu-close"
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -314,7 +312,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   id="mobile-nav-velora"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
-                    if (onOpenProjectDetail) onOpenProjectDetail("velora");
+                    navigate("/project/velora");
                   }}
                   className="w-full text-left flex justify-between items-center py-2 border-b border-white/10 group"
                 >
@@ -329,7 +327,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   id="mobile-nav-legacy"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
-                    if (onOpenProjectDetail) onOpenProjectDetail("legacy");
+                    navigate("/project/legacy");
                   }}
                   className="w-full text-left flex justify-between items-center py-2 border-b border-white/10 group"
                 >
@@ -344,7 +342,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   id="mobile-nav-hayat"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
-                    if (onOpenProjectDetail) onOpenProjectDetail("hayat");
+                    navigate("/project/hayat");
                   }}
                   className="w-full text-left flex justify-between items-center py-2 border-b border-white/10 group"
                 >
@@ -359,7 +357,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   id="mobile-nav-logistics"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
-                    if (onOpenProjectDetail) onOpenProjectDetail("logistics");
+                    navigate("/project/logistics");
                   }}
                   className="w-full text-left flex justify-between items-center py-2 border-b border-white/10 group"
                 >

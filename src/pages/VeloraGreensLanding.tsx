@@ -1,7 +1,7 @@
 import { useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Check, MapPin, Shield, Leaf, Home, Award, Phone, ArrowRight, X } from "lucide-react";
-import logoIcon from "../assets/logo-icon.png";
+import logoLight from "../assets/logo-light.png";
 import TypingHeader from "../components/TypingHeader";
 
 export default function VeloraGreensLanding() {
@@ -40,16 +40,8 @@ export default function VeloraGreensLanding() {
             {/* Left Content */}
             <div className="space-y-8">
               {/* Logo */}
-              <div className="flex items-center gap-3">
-                <img src={logoIcon} alt="Logo" className="w-12 h-12 object-contain" />
-                <div className="text-center">
-                  <span className="block font-sans text-lg tracking-[0.25em] font-normal text-white">
-                    ACCENTURE
-                  </span>
-                  <span className="block font-sans text-lg tracking-[0.25em] font-black text-[#BAA360]">
-                    INFRA
-                  </span>
-                </div>
+              <div className="flex items-center">
+                <img src={logoLight} alt="Accenture Infra Logo" className="h-10 w-auto object-contain" />
               </div>
 
               {/* Headline */}

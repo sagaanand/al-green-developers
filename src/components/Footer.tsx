@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Mail, Landmark, Compass, FolderKanban, Shield, KeyRound, ArrowUpRight, ChevronDown, X, Linkedin, Instagram, Facebook } from "lucide-react";
-import logoIcon from "../assets/logo-icon.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import logoLight from "../assets/logo-light.png";
 
 interface FooterProps {
   onScrollToSection: (id: string) => void;
@@ -11,6 +11,8 @@ interface FooterProps {
 }
 
 export default function Footer({ onScrollToSection, onOpenProjectDetail, faqType }: FooterProps) {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
   const [activePolicy, setActivePolicy] = useState<string | null>(null);
 
@@ -196,22 +198,20 @@ export default function Footer({ onScrollToSection, onOpenProjectDetail, faqType
           <div className="md:col-span-4 space-y-6">
             <button
               id="footer-brand-btn"
-              onClick={() => onScrollToSection("hero")}
-              className="flex items-center gap-3 cursor-pointer text-left group"
+              onClick={() => {
+                if (location.pathname === "/" || location.pathname === "") {
+                  onScrollToSection("hero");
+                } else {
+                  navigate("/");
+                }
+              }}
+              className="flex items-center cursor-pointer text-left group"
             >
               <img
-                src={logoIcon}
-                alt="Logo Icon"
-                className="w-14 h-14 object-contain group-hover:scale-105 transition-transform duration-300"
+                src={logoLight}
+                alt="Accenture Infra Logo"
+                className="h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="text-center">
-                <span className="block font-sans text-lg tracking-[0.15em] font-normal text-white group-hover:text-gold transition-colors">
-                  ACCENTURE
-                </span>
-                <span className="block font-sans text-lg tracking-[0.15em] font-bold text-[#BAA360] group-hover:text-gold transition-colors">
-                  INFRA
-                </span>
-              </div>
             </button>
 
             <p className="text-sm text-neutral-300 font-normal max-w-sm leading-relaxed">
@@ -239,11 +239,7 @@ export default function Footer({ onScrollToSection, onOpenProjectDetail, faqType
                 <li key={item.id}>
                   <button
                     onClick={() => {
-                      if (onOpenProjectDetail) {
-                        onOpenProjectDetail(item.id);
-                      } else {
-                        window.location.href = `/project/${item.id}`;
-                      }
+                      navigate(`/project/${item.id}`);
                     }}
                     className="text-neutral-400 hover:text-gold flex flex-col cursor-pointer transition-colors group text-left w-full"
                   >
