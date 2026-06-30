@@ -70,7 +70,7 @@ export default function Contact({ onAddLead }: ContactProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-neutral-850 font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-luxury-forest-light text-neutral-850 font-sans overflow-x-hidden">
       {/* Top Navbar */}
       <Header 
         onScrollToSection={() => {}}

@@ -21,7 +21,7 @@ export default function VeloraGreensLanding() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-neutral-800 font-sans">
+    <div className="min-h-screen bg-luxury-legacy-light text-neutral-800 font-sans">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}

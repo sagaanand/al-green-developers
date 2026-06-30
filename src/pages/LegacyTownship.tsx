@@ -159,7 +159,7 @@ export default function LegacyTownship() {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-neutral-850 font-sans">
+    <div className="min-h-screen bg-luxury-township-light text-neutral-850 font-sans">
       {/* Scroll Progress Indicator */}
       <motion.div
         className="fixed top-0 left-0 h-1 bg-[#C6A96B] z-[60]"

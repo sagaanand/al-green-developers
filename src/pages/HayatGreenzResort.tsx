@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { MapPin, Leaf, Droplet, TreePine, Shield } from "lucide-react";
+import { MapPin, Leaf, Droplet, TreePine, Shield, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -15,7 +15,7 @@ export default function HayatGreenzResort() {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-neutral-800 font-sans">
+    <div className="min-h-screen bg-luxury-spa-light text-neutral-800 font-sans">
       <Header 
         onScrollToSection={() => {}}
         onOpenTracker={() => {}}
@@ -169,59 +169,95 @@ export default function HayatGreenzResort() {
       </section>
 
       {/* Masterplan */}
-      <section className="py-24 bg-white bg-overlay-topographic">
+      <section className="py-24 bg-white/40 backdrop-blur-sm bg-overlay-topographic">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-left"
-          >
-            <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-8 text-[#163A2D]">
-              Masterplan
-            </h2>
-            <div className="space-y-4">
-              {[
-                "Eco-sensitive low-impact luxury wooden cabins & forest suites",
-                "Bio-retention organic pools & thermal outdoor mineral spas",
-                "15 acres of permanent high-elevation protected botanical sanctuary",
-                "Premium wellness lounges, meditation pavilions & raw pathways"
-              ].map((item, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <TreePine className="w-6 h-6 text-gold mt-1 shrink-0" />
-                  <p className="text-neutral-700 font-normal">{item}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-left"
+            >
+              <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-8 text-[#163A2D]">
+                Masterplan
+              </h2>
+              <div className="space-y-4">
+                {[
+                  "Eco-sensitive low-impact luxury wooden cabins & forest suites",
+                  "Bio-retention organic pools & thermal outdoor mineral spas",
+                  "15 acres of permanent high-elevation protected botanical sanctuary",
+                  "Premium wellness lounges, meditation pavilions & raw pathways"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <TreePine className="w-6 h-6 text-gold mt-1 shrink-0" />
+                    <p className="text-neutral-700 font-normal">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative aspect-[16/10] rounded-xl overflow-hidden shadow-lg border border-neutral-200"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800&auto=format&fit=crop"
+                alt="Hayat Resort Masterplan"
+                className="w-full h-full object-cover hover:scale-103 transition-transform duration-700"
+                loading="lazy"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Growth Drivers */}
-      <section className="py-24 bg-[#F8FAF8] bg-overlay-topographic">
+      <section className="py-24 bg-[#F8FAF8]/45 backdrop-blur-sm bg-overlay-topographic">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-left"
-          >
-            <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-8 text-[#163A2D]">
-              Growth Drivers
-            </h2>
-            <div className="space-y-6">
-              {[
-                "High-yielding secure fractional ownership program adjacent to protected reserves",
-                "Uncompromised environmental NOC layouts pre-obtained from forest authorities",
-                "+14.2% verified annual baseline passive returns"
-              ].map((driver, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <Leaf className="w-6 h-6 text-gold mt-1 shrink-0" />
-                  <p className="text-neutral-700 font-normal">{driver}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative aspect-[16/10] rounded-xl overflow-hidden shadow-lg border border-neutral-200 lg:order-1 order-2"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800&auto=format&fit=crop"
+                alt="Retreat Growth Drivers"
+                className="w-full h-full object-cover hover:scale-103 transition-transform duration-700"
+                loading="lazy"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-left lg:order-2 order-1"
+            >
+              <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-8 text-[#163A2D]">
+                Growth Drivers
+              </h2>
+              <div className="space-y-6">
+                {[
+                  "High-yielding secure fractional ownership program adjacent to protected reserves",
+                  "Uncompromised environmental NOC layouts pre-obtained from forest authorities",
+                  "+14.2% verified annual baseline passive returns"
+                ].map((driver, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <Zap className="w-6 h-6 text-gold mt-1 shrink-0" />
+                    <p className="text-neutral-700 font-normal">{driver}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 

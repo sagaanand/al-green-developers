@@ -15,7 +15,7 @@ export default function AccentureGreenzWarehousing() {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-neutral-800 font-sans">
+    <div className="min-h-screen bg-luxury-logistics-light text-neutral-800 font-sans">
       <Header 
         onScrollToSection={() => {}}
         onOpenTracker={() => {}}
@@ -169,59 +169,95 @@ export default function AccentureGreenzWarehousing() {
       </section>
 
       {/* Masterplan */}
-      <section className="py-24 bg-white bg-overlay-topographic">
+      <section className="py-24 bg-white/40 backdrop-blur-sm bg-overlay-topographic">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-left"
-          >
-            <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-8 text-[#163A2D]">
-              Masterplan
-            </h2>
-            <div className="space-y-4">
-              {[
-                "Reinforced heavy-freight grade internal transport roads",
-                "Plug-and-play high-voltage commercial solar substations",
-                "Custom temperature-controlled cold logistics hubs & dry storage",
-                "Pre-leased multinational corporate modules available for immediate acquisition"
-              ].map((item, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <Truck className="w-6 h-6 text-gold mt-1 shrink-0" />
-                  <p className="text-neutral-700 font-normal">{item}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-left"
+            >
+              <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-8 text-[#163A2D]">
+                Masterplan
+              </h2>
+              <div className="space-y-4">
+                {[
+                  "Reinforced heavy-freight grade internal transport roads",
+                  "Plug-and-play high-voltage commercial solar substations",
+                  "Custom temperature-controlled cold logistics hubs & dry storage",
+                  "Pre-leased multinational corporate modules available for immediate acquisition"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <Truck className="w-6 h-6 text-gold mt-1 shrink-0" />
+                    <p className="text-neutral-700 font-normal">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative aspect-[16/10] rounded-xl overflow-hidden shadow-lg border border-neutral-200"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop"
+                alt="Accenture Warehousing Masterplan"
+                className="w-full h-full object-cover hover:scale-103 transition-transform duration-700"
+                loading="lazy"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Growth Drivers */}
-      <section className="py-24 bg-[#F8FAF8] bg-overlay-topographic">
+      <section className="py-24 bg-[#F8FAF8]/45 backdrop-blur-sm bg-overlay-topographic">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-left"
-          >
-            <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-8 text-[#163A2D]">
-              Growth Drivers
-            </h2>
-            <div className="space-y-6">
-              {[
-                "Direct frontage borders on major cross-state cargo transit pathways (BCIC)",
-                "Pre-negotiated lease options providing secure corporate cashflows",
-                "Zoned high-density logistics warehousing layout clearance"
-              ].map((driver, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <Zap className="w-6 h-6 text-gold mt-1 shrink-0" />
-                  <p className="text-neutral-700 font-normal">{driver}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative aspect-[16/10] rounded-xl overflow-hidden shadow-lg border border-neutral-200 lg:order-1 order-2"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=800&auto=format&fit=crop"
+                alt="Growth Drivers Connectivity"
+                className="w-full h-full object-cover hover:scale-103 transition-transform duration-700"
+                loading="lazy"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-left lg:order-2 order-1"
+            >
+              <h2 className="font-display text-3xl md:text-5xl font-semibold uppercase mb-8 text-[#163A2D]">
+                Growth Drivers
+              </h2>
+              <div className="space-y-6">
+                {[
+                  "Direct frontage borders on major cross-state cargo transit pathways (BCIC)",
+                  "Pre-negotiated lease options providing secure corporate cashflows",
+                  "Zoned high-density logistics warehousing layout clearance"
+                ].map((driver, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <Zap className="w-6 h-6 text-gold mt-1 shrink-0" />
+                    <p className="text-neutral-700 font-normal">{driver}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
