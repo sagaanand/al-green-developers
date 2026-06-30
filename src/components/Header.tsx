@@ -91,19 +91,11 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
       <header
         id="main-nav-header"
         className="fixed top-0 left-0 w-full z-[99999] transform translate-z-0 will-change-transform py-3 transition-all duration-300"
-        style={
-          isScrolled
-            ? {
-                background: "rgba(255, 255, 255, 0.9)",
-                backdropFilter: "blur(16px)",
-                borderBottom: "1px solid rgba(0, 0, 0, 0.06)",
-              }
-            : {
-                background: "transparent",
-                backdropFilter: "none",
-                borderBottom: "none",
-              }
-        }
+        style={{
+          background: "rgba(26, 23, 17, 0.88)",
+          backdropFilter: "blur(12px)",
+          borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+        }}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between relative">
           {/* Logo Brand */}
@@ -124,12 +116,14 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
             <img 
               src={logoNewIcon} 
               alt="Logo Icon" 
+              style={{ filter: "drop-shadow(0 0 8px rgba(255, 255, 255, 0.6))" }}
               className="h-11 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
             />
             <img 
               src={logoNewInfra} 
               alt="Infra Logo" 
-              className={`h-6 w-auto object-contain group-hover:scale-105 transition-transform duration-300 ${isScrolled ? '' : 'invert'}`}
+              style={{ filter: "drop-shadow(0 0 8px rgba(255, 255, 255, 0.6))" }}
+              className="h-6 w-auto object-contain group-hover:scale-105 transition-transform duration-300 invert"
             />
           </button>
 
@@ -139,14 +133,14 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
             <Link
               to="/"
               className={`group py-2 flex items-center gap-1 cursor-pointer relative ${
-                location.pathname === "/" ? "text-[#163A2D] font-bold" : "text-[#163A2D]/80 hover:text-[#163A2D] hover:font-medium"
+                location.pathname === "/" ? "text-gold font-bold" : "text-neutral-200 hover:text-white font-semibold"
               }`}
             >
               <span className="text-sm font-sans tracking-wider uppercase transition-colors">
                 Home
               </span>
               {location.pathname === "/" && (
-                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#C6A96B]" />
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#B8A25D]" />
               )}
             </Link>
 
@@ -164,13 +158,13 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   <button
                     id={`nav-dropdown-trigger-${key}`}
                     className={`flex items-center gap-1 text-sm font-sans tracking-wider uppercase transition-colors cursor-pointer relative ${
-                      isDropdownActive ? "text-[#163A2D] font-bold" : "text-[#163A2D]/80 hover:text-[#163A2D] hover:font-medium"
+                      isDropdownActive ? "text-gold font-bold" : "text-neutral-200 hover:text-white font-semibold"
                     }`}
                   >
                     <span>{value.label}</span>
-                    <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180 text-[#163A2D]/60" />
+                    <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180 text-white/60" />
                     {isDropdownActive && (
-                      <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#C6A96B]" />
+                      <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#B8A25D]" />
                     )}
                   </button>
 
@@ -184,18 +178,18 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                         transition={{ duration: 0.15 }}
                         className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-64 z-[100000] transform translate-z-0"
                       >
-                        <div className="p-3 rounded-[15px] shadow-2xl bg-white border border-neutral-200/80 space-y-1">
+                        <div className="p-3 rounded-[15px] shadow-2xl bg-[#1A1711] border border-white/10 space-y-1">
                           {value.items.map((item, idx) => (
                             <button
                               id={`dropdown-item-${key}-${idx}`}
                               key={idx}
                               onClick={() => handleDropdownItemClick(item)}
-                              className="w-full text-left p-2 rounded-lg border border-transparent transition-all cursor-pointer group hover:bg-[#F8FAF8]"
+                              className="w-full text-left p-2 rounded-lg border border-transparent transition-all cursor-pointer group hover:bg-white/5"
                             >
-                              <span className="block text-sm font-sans uppercase tracking-wider text-neutral-800 group-hover:text-[#C6A96B] transition-colors">
+                              <span className="block text-sm font-sans uppercase tracking-wider text-neutral-200 group-hover:text-gold transition-colors">
                                 {item.label}
                               </span>
-                              <span className="block text-xs font-sans mt-0.5 text-neutral-500">
+                              <span className="block text-xs font-sans mt-0.5 text-neutral-400">
                                 {item.desc}
                               </span>
                             </button>
@@ -216,14 +210,14 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
                   to={item.link}
                   key={item.id}
                   className={`relative group py-2 flex items-center gap-1 cursor-pointer ${
-                    isActive ? "text-[#163A2D] font-bold" : "text-[#163A2D]/80 hover:text-[#163A2D] hover:font-medium"
+                    isActive ? "text-gold font-bold" : "text-neutral-200 hover:text-white font-semibold"
                   }`}
                 >
                   <span className="text-sm font-sans tracking-wider uppercase transition-colors">
                     {item.label}
                   </span>
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#C6A96B]" />
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#B8A25D]" />
                   )}
                 </Link>
               );
@@ -235,7 +229,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
             {!isHomepage && onDownloadBrochure && (
               <button
                 onClick={onDownloadBrochure}
-                className="hidden md:flex px-4 py-2 rounded-full border border-[#163A2D]/35 hover:border-[#163A2D] hover:bg-[#163A2D]/5 text-[#163A2D] text-xs font-sans tracking-widest uppercase font-semibold transition-all active:scale-[0.98] cursor-pointer focus-premium"
+                className="hidden md:flex px-4 py-2 rounded-full border border-white/20 hover:border-white hover:bg-white/5 text-white text-xs font-sans tracking-widest uppercase font-semibold transition-all active:scale-[0.98] cursor-pointer focus-premium"
                 aria-label="Download Project Brochure"
               >
                 Brochure
@@ -245,7 +239,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
               <button
                 id="header-hero-cta"
                 onClick={handleVisitClick}
-                className="hidden sm:flex px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-gold to-[#A0814C] hover:from-gold-light hover:to-gold text-sm font-sans tracking-widest uppercase text-black font-semibold shadow-lg shadow-gold/10 transition-all active:scale-[0.98] cursor-pointer focus-premium"
+                className="hidden sm:flex px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-gold to-[#A0814C] hover:from-gold hover:to-[#A0814C] text-sm font-sans tracking-widest uppercase text-black font-semibold shadow-lg shadow-gold/25 hover:shadow-gold/40 hover:scale-[1.03] transition-all active:scale-[0.98] cursor-pointer focus-premium"
               >
                 Private Tour
               </button>
@@ -255,7 +249,7 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
             <button
               id="mobile-menu-toggle"
               onClick={() => setIsMobileMenuOpen(true)}
-              className={`${isHomepage ? "flex" : "lg:hidden flex"} p-2 text-[#163A2D] hover:text-[#C6A96B] transition-colors`}
+              className={`${isHomepage ? "flex" : "lg:hidden flex"} p-2 text-white hover:text-gold transition-colors`}
               aria-label="Open navigation menu"
             >
               <Menu className="w-6 h-6" />
