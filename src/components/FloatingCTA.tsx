@@ -28,24 +28,24 @@ export default function FloatingCTA() {
         <div className="flex flex-col gap-3 mb-2">
           <button
             onClick={handleSchedule}
-            className="flex items-center gap-3 px-4 py-3 bg-[#24421E] text-white rounded-lg shadow-lg hover:bg-[#1a3319] transition-all group"
+            className="flex items-center gap-3 px-4 py-3 bg-white border border-neutral-200 text-neutral-850 rounded-lg shadow-lg hover:bg-neutral-50 transition-all group"
           >
-            <Calendar className="w-5 h-5 text-gold" />
-            <span className="text-sm font-medium">Schedule Visit</span>
+            <Calendar className="w-5 h-5 text-gold-dark" />
+            <span className="text-sm font-semibold">Schedule Visit</span>
           </button>
           <button
             onClick={handleCall}
-            className="flex items-center gap-3 px-4 py-3 bg-[#24421E] text-white rounded-lg shadow-lg hover:bg-[#1a3319] transition-all group"
+            className="flex items-center gap-3 px-4 py-3 bg-white border border-neutral-200 text-neutral-850 rounded-lg shadow-lg hover:bg-neutral-50 transition-all group"
           >
-            <Phone className="w-5 h-5 text-gold" />
-            <span className="text-sm font-medium">Call Now</span>
+            <Phone className="w-5 h-5 text-gold-dark" />
+            <span className="text-sm font-semibold">Call Now</span>
           </button>
           <button
             onClick={handleWhatsApp}
-            className="flex items-center gap-3 px-4 py-3 bg-[#24421E] text-white rounded-lg shadow-lg hover:bg-[#1a3319] transition-all group"
+            className="flex items-center gap-3 px-4 py-3 bg-white border border-neutral-200 text-neutral-850 rounded-lg shadow-lg hover:bg-neutral-50 transition-all group"
           >
-            <MessageCircle className="w-5 h-5 text-green-400" />
-            <span className="text-sm font-medium">WhatsApp</span>
+            <MessageCircle className="w-5 h-5 text-green-600" />
+            <span className="text-sm font-semibold">WhatsApp</span>
           </button>
         </div>
       )}

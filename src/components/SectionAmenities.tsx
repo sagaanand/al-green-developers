@@ -36,7 +36,7 @@ const amenityCategories = [
 
 export default function SectionAmenities() {
   return (
-    <section className="relative w-full section-dark section-spacing-lg border-t border-white/10">
+    <section className="relative w-full py-20 lg:py-[70px] bg-white border-t border-neutral-100">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -50,16 +50,17 @@ export default function SectionAmenities() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-[#F8FAF8] border border-[#163A2D]/10 rounded-full mb-6 shadow-xs"
           >
-            <Sparkles className="w-4 h-4" style={{ color: '#C9A45C' }} />
-            <span className="text-xs font-sans font-semibold tracking-widest uppercase" style={{ color: '#C9A45C' }}>80+ Amenities</span>
+            <Sparkles className="w-4 h-4 text-[#C6A96B]" />
+            <span className="text-xs font-mono font-bold tracking-widest uppercase text-[#C6A96B]">80+ Amenities</span>
           </motion.div>
-          <h2 className="font-display text-4xl md:text-5xl font-semibold uppercase mb-6 text-white">
-            Lifestyle <span style={{ color: '#C9A45C' }}>Amenities</span>
+          <h2 className="font-display text-4xl md:text-5xl font-medium uppercase mb-6 text-[#163A2D]">
+            Lifestyle <span className="text-[#C6A96B] italic font-display font-light">Amenities</span>
           </h2>
-          <p className="text-neutral-300 text-lg max-w-3xl mx-auto leading-relaxed font-normal">
-            World-class amenities designed for every age group, from kids to seniors
+          <div className="h-[2px] w-12 bg-[#C6A96B] mx-auto mt-4 mb-4" />
+          <p className="text-neutral-500 text-sm max-w-3xl mx-auto leading-relaxed font-sans font-light">
+            World-class amenities designed for every age group, from kids to seniors.
           </p>
         </motion.div>
 
@@ -68,31 +69,27 @@ export default function SectionAmenities() {
           {amenityCategories.map((category, index) => {
             const Icon = category.icon;
             return (
-              <motion.div
+              <div
                 key={category.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="premium-card-dark p-8 hover:-translate-y-2 transition-transform duration-300"
+                className="card-luxury p-8 bg-white border border-[#163A2D]/10 rounded-[20px] shadow-sm hover:shadow-md transition-all text-left"
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="p-3 rounded-xl bg-white border border-gray-100">
-                    <Icon className="w-6 h-6" style={{ color: '#C9A45C' }} />
+                  <div className="p-3 rounded-xl bg-[#F8FAF8] border border-[#163A2D]/5">
+                    <Icon className="w-6 h-6 text-[#C6A96B]" strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-display text-2xl font-semibold" style={{ color: '#111827' }}>
+                  <h3 className="font-display text-2xl font-semibold text-[#163A2D]">
                     {category.title}
                   </h3>
                 </div>
                 <ul className="space-y-3">
                   {category.items.map((item, idx) => (
-                    <li key={idx} className="text-sm font-sans flex items-center gap-2" style={{ color: '#6B7280' }}>
-                      <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#C9A45C' }} />
+                    <li key={idx} className="text-sm font-sans flex items-center gap-2 text-neutral-600 font-light">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#C6A96B]" />
                       {item}
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             );
           })}
         </div>

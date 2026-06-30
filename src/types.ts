@@ -66,9 +66,9 @@ export interface LeadSubmission {
   name: string;
   phone: string;
   email: string;
-  investorType: string;
+  investorType?: string;
   submittedAt: string;
-  reportType: string;
+  reportType?: string;
 }
 
 export interface SiteVisitSchedule {

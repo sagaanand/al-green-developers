@@ -25,10 +25,10 @@ export default function SectionSocialProof() {
   ];
 
   return (
-    <section className="relative w-full bg-[#0d1f0c] py-24 border-t border-white/10">
+    <section className="relative w-full bg-[#FAFBF6] py-20 lg:py-32 border-t border-neutral-100 bg-overlay-topographic">
       {/* Background Image with 10% Transparency */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center opacity-10 pointer-events-none"
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-[0.08] pointer-events-none"
         style={{ backgroundImage: `url(${alGreenHero})` }}
       />
 
@@ -39,10 +39,10 @@ export default function SectionSocialProof() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-luxury-heading text-3xl md:text-5xl uppercase mb-4 text-white">
+          <h2 className="font-luxury-heading text-3xl md:text-5xl uppercase mb-4 text-neutral-850">
             What Our Customers Say
           </h2>
-          <p className="text-neutral-300 max-w-2xl mx-auto font-normal">
+          <p className="text-neutral-600 max-w-2xl mx-auto font-normal">
             Real experiences from our valued customers
           </p>
         </motion.div>
@@ -56,7 +56,7 @@ export default function SectionSocialProof() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="premium-card-dark p-8"
+              className="bg-white border border-neutral-150 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300"
             >
               <div className="flex items-center gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
@@ -64,12 +64,12 @@ export default function SectionSocialProof() {
                 ))}
               </div>
               <Quote className="w-8 h-8 text-gold/30 mb-4" />
-              <p className="text-neutral-300 mb-6 leading-relaxed">
+              <p className="text-neutral-600 mb-6 leading-relaxed">
                 {testimonial.text}
               </p>
               <div>
-                <div className="font-bold text-white">{testimonial.name}</div>
-                <div className="text-sm text-neutral-400">{testimonial.location}</div>
+                <div className="font-bold text-neutral-800">{testimonial.name}</div>
+                <div className="text-sm text-neutral-500">{testimonial.location}</div>
               </div>
             </motion.div>
           ))}

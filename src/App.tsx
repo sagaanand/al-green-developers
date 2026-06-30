@@ -7,11 +7,17 @@ import SectionSocialProof from "./components/SectionSocialProof";
 import SectionLandProduct from "./components/SectionLandProduct";
 import SectionDevelopments from "./components/SectionDevelopments";
 import SectionPhilosophy from "./components/SectionPhilosophy";
-import SectionSiteVisit from "./components/SectionSiteVisit";
 import SectionCallbackCTA from "./components/SectionCallbackCTA";
+import SectionSiteVisit from "./components/SectionSiteVisit";
+import SectionGallery from "./components/SectionGallery";
 import Footer from "./components/Footer";
 import FloatingCTA from "./components/FloatingCTA";
 import StickyMobileFooter from "./components/StickyMobileFooter";
+import SectionTrustStats from "./components/SectionTrustStats";
+import BrochureModal from "./components/BrochureModal";
+import { trackAnalyticsEvent } from "./utils/analytics";
+import SectionLifestyle from "./components/SectionLifestyle";
+import ImageBreak from "./components/ImageBreak";
 import VeloraGreensLanding from "./pages/VeloraGreensLanding";
 import AboutUs from "./pages/AboutUs";
 import Projects from "./pages/Projects";
@@ -37,6 +43,7 @@ export default function App() {
   const [showFloatingCta, setShowFloatingCta] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isBrochureOpen, setIsBrochureOpen] = useState(false);
 
   const heroImage = "/images/al_green_hero.png";
 
@@ -200,10 +207,19 @@ export default function App() {
         
         {/* Homepage V2 — Video Hero */}
         <Route path="/home2" element={<HomePage2 />} />
+        <Route path="/beta" element={<HomePage2 />} />
 
         {/* Main Website Route */}
         <Route path="*" element={
-          <div id="root-viewport-shell" className="relative min-h-screen gradient-bg-mesh text-[#FAFBF9]">
+          <div id="root-viewport-shell" className="relative min-h-screen gradient-bg-light-mesh text-neutral-800 bg-overlay-topographic">
+            {/* Skip to Content Link for Keyboard A11y */}
+            <a 
+              href="#main-content-canvas" 
+              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-gold focus:text-black focus:rounded-md focus:font-bold focus:shadow-lg"
+            >
+              Skip to main content
+            </a>
+
             {/* Scroll Progress Indicator */}
             <motion.div
               className="fixed top-0 left-0 h-1 bg-gradient-to-r from-gold to-[#A0814C] z-[60]"
@@ -219,32 +235,65 @@ export default function App() {
               onOpenTracker={() => setIsTrackerOpen(true)}
               activeSection={activeSection}
               onOpenProjectDetail={handleOpenProjectDetail}
+              onDownloadBrochure={() => {
+                setIsBrochureOpen(true);
+                trackAnalyticsEvent("Header Download Brochure Clicked", "Engagement", "header_cta");
+              }}
             />
 
         <main id="main-content-canvas" className="pb-24 lg:pb-0">
           <SectionHeroVideo
             onScrollToSection={handleScrollToSection}
-            videoSrc="/videos/hero-bg.mp4"
+            onDownloadBrochure={() => {
+              setIsBrochureOpen(true);
+              trackAnalyticsEvent("Hero Download Brochure Clicked", "Engagement", "hero_cta");
+            }}
+            videoSrc="/videos/luxury-community.mp4"
             posterSrc={heroImage}
           />
 
-          {/* Section 03: Manifesto */}
+          {/* 01: The Vision */}
+          <SectionPhilosophy />
+
+          {/* Image Break 1 */}
+          <ImageBreak 
+            imageSrc="/images/luxury_villa_interior.png" 
+            captionTitle="Luxury Villa Living" 
+            captionDesc="Custom wooden structures and panoramic skyward views in Bangalore East." 
+            numberStamp="VISUAL BREAK // L-01" 
+          />
+
+          {/* 02: The Land */}
           <SectionLandProduct />
 
-          {/* Section 06: Active Premium Developments */}
+          {/* Image Break 2 */}
+          <ImageBreak 
+            imageSrc="/images/gated_community_pathway.png" 
+            captionTitle="Botanical Avenues" 
+            captionDesc="Native canopy avenues providing refreshing daytime cooling." 
+            numberStamp="VISUAL BREAK // L-02" 
+          />
+
+          {/* 03: The Lifestyle */}
+          <SectionLifestyle />
+
+          {/* 04: The Projects */}
           <SectionDevelopments
             onOpenProjectDetail={handleOpenProjectDetail}
             onOpenSiteVisit={handleTriggerDevelopmentBooking}
           />
 
-          {/* Section 07: Callback CTA */}
-          <SectionCallbackCTA />
-
-          {/* Section 08: Development Philosophy */}
-          <SectionPhilosophy />
+          {/* Section Gallery */}
+          <SectionGallery />
 
           {/* Section 06: Social Proof */}
           <SectionSocialProof />
+
+          {/* Section Trust & Credibility Leadership */}
+          <SectionTrustStats />
+
+          {/* Section 07: Callback CTA */}
+          <SectionCallbackCTA />
 
           {/* Section 06: Guided Concierge Site Visit */}
           <SectionSiteVisit
@@ -261,6 +310,14 @@ export default function App() {
 
         {/* Sticky Mobile Footer */}
         <StickyMobileFooter />
+
+        {/* Brochure Funnel Download Modal */}
+        <BrochureModal
+          isOpen={isBrochureOpen}
+          onClose={() => setIsBrochureOpen(false)}
+          onAddLead={handleAddLead}
+          onTriggerVisit={() => handleTriggerDevelopmentBooking("All Projects")}
+        />
 
         {/* Interactive Right-Sided Client Ledger Drawer */}
         <RequestTracker

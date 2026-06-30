@@ -1,136 +1,116 @@
 import { motion } from "motion/react";
-import { Sparkles, Gem, Shield, Star, CheckSquare } from "lucide-react";
+import { ShieldCheck, CalendarRange, Map, ArrowRight } from "lucide-react";
 import topographicOverlay from "../assets/images/topographic_overlay.png";
 import luxuryVillaAmbient from "../assets/images/luxury_villa_ambient.png";
+import { trackAnalyticsEvent } from "../utils/analytics";
 
 export default function SectionLandProduct() {
-  const coreValues = [
-    {
-      title: "Excellence in Design & Engineering",
-      icon: Gem
-    },
-    {
-      title: "Transparent Business Practices",
-      icon: Shield
-    },
-    {
-      title: "Customer-Centric Approach",
-      icon: Sparkles
-    },
-    {
-      title: "Sustainable Development",
-      icon: Star
-    },
-    {
-      title: "Timely Delivery & Quality Assurance",
-      icon: CheckSquare
-    }
-  ];
-
   return (
     <section
-      id="philosophy"
-      className="relative w-full section-dark py-24 sm:py-36 overflow-hidden font-sans border-t border-white/10"
+      id="manifesto-section"
+      className="relative w-full bg-[#FFFFFF] py-20 lg:py-[70px] overflow-hidden font-sans border-t border-neutral-100"
     >
-      {/* Background Image with 10% Transparency */}
+      {/* Background Texture System at 2% opacity */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center opacity-10 pointer-events-none"
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-[0.02] pointer-events-none"
         style={{ backgroundImage: `url(${topographicOverlay})` }}
       />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 items-center">
-          {/* Left Column (7 Columns): Editorial Copy */}
-          <div className="lg:col-span-7 space-y-6 text-left">
-            {/* Editorial Sub-header */}
-            <motion.div 
-              id="land-philosophy-header" 
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <h2 className="font-luxury-heading text-lg sm:text-xl tracking-widest text-[#BAA360] uppercase leading-[1.1]">
-                CORE VALUES
-              </h2>
-            </motion.div>
+        
+        {/* Editorial Section Number */}
+        <div className="text-left mb-6">
+          <span className="text-[10px] font-mono tracking-[0.25em] text-[#C6A96B] block font-bold">
+            01 // THE VISION OF GROUND
+          </span>
+        </div>
 
-            {/* Editorial Headline */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.9, ease: "easeOut" }}
-            >
-              <h3
-                id="manifesto-huge-headline"
-                className="font-luxury-heading tracking-wider leading-tight uppercase text-white mb-6"
-                style={{ fontSize: "clamp(1.8rem, 4vw, 3.5rem)" }}
-              >
-                REAL ESTATE IS MORE THAN <br />
-                <span className="text-gold font-luxury-heading-italic">CONSTRUCTION</span>
-              </h3>
-              <p className="max-w-2xl text-neutral-300 font-sans font-light text-sm sm:text-base tracking-wide leading-relaxed">
-                Enduring lifestyles and thriving communities. Redefining quality standards in modern real estate and construction.
-              </p>
-            </motion.div>
-          </div>
-
-          {/* Right Column (5 Columns): Pictorial Representation */}
-          <div className="lg:col-span-5 relative">
-            <div className="absolute inset-0 bg-gold/5 rounded-3xl blur-3xl pointer-events-none" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          
+          {/* Left Column (7 Columns): Framed Editorial Image */}
+          <div className="lg:col-span-7 relative">
+            <div className="absolute inset-0 bg-[#163A2D]/5 rounded-[30px] blur-3xl pointer-events-none" />
             
-            <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-neutral-900 group">
+            <div className="relative aspect-[4/3] w-full rounded-[20px] overflow-hidden border border-[#163A2D]/5 shadow-xl bg-neutral-900 group">
               <img 
                 src={luxuryVillaAmbient} 
                 alt="Accenture Premium Gated Enclave" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
               
-              <div className="absolute bottom-4 left-4 right-4 p-3 bg-black/80 backdrop-blur-xs border border-white/10 rounded-lg">
-                <span className="block text-[9px] font-mono text-gold uppercase tracking-wider font-bold">PICTORIAL MODEL // PR-2364</span>
-                <span className="block text-[10px] text-neutral-300 font-mono mt-0.5 leading-normal">
-                  Eco-engineered residences set in dense botanical pockets.
+              <div className="absolute bottom-6 left-6 right-6 p-4 bg-[#163A2D]/90 backdrop-blur-md border border-white/10 rounded-xl">
+                <span className="block text-[9px] font-mono text-[#C6A96B] uppercase tracking-wider font-bold">ESTATE VISUALIZATION // CORRIDOR EAST</span>
+                <span className="block text-[11px] text-neutral-300 font-sans mt-1 leading-normal">
+                  Eco-engineered residences nestled within natural vegetation pockets, Hoskote Belt.
                 </span>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Infinite Scroll Text Banner (Full width below the split) */}
-        <div className="relative w-full overflow-hidden py-8 bg-white/5 border-y border-white/10 mt-16 sm:mt-24">
-          {/* Subtle gradient overlays to fade the edges */}
-          <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#0d1f0c] to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#0d1f0c] to-transparent z-10 pointer-events-none" />
+          {/* Right Column (5 Columns): Editorial Copy */}
+          <div className="lg:col-span-5 space-y-8 text-left">
+            <div className="space-y-4">
+              <h3 className="font-display font-medium text-4xl lg:text-5xl text-[#163A2D] leading-[1.15] tracking-wide uppercase">
+                Real estate is <br />
+                <span className="text-[#C6A96B] italic font-display font-light">more than construction</span>
+              </h3>
+              <div className="h-[2px] w-16 bg-[#C6A96B]" />
+            </div>
 
-          <motion.div
-            className="flex whitespace-nowrap gap-12 text-white items-center"
-            animate={{ x: [0, "-50%"] }}
-            transition={{
-              ease: "linear",
-              duration: 30,
-              repeat: Infinity,
-            }}
-            style={{ width: "fit-content" }}
-          >
-            {/* Render items twice to ensure a seamless infinite scroll loop */}
-            {[...coreValues, ...coreValues].map((value, index) => {
-              const Icon = value.icon;
-              return (
-                <div
-                  key={index}
-                  className="flex items-center gap-4 text-xs sm:text-base uppercase tracking-widest font-mono text-neutral-200 select-none shrink-0"
-                >
-                  <Icon className="w-5 h-5 text-gold" />
-                  <span>{value.title}</span>
-                  <span className="text-gold/40 mx-4">•</span>
+            <p className="text-sm text-neutral-600 font-sans font-light tracking-wide leading-relaxed">
+              We approach land not as empty space to be crowded, but as an ecosystem to be preserved. By analyzing local elevations, natural water streams, and native plant life, Al Green Developers establishes estate enclaves that grow in value while remaining carbon-neutral.
+            </p>
+
+            {/* Editorial Pull Quote */}
+            <div className="pl-4 border-l-2 border-[#C6A96B] py-1 bg-[#F8FAF8] rounded-r-lg">
+              <p className="text-xs italic text-[#163A2D] font-display leading-relaxed">
+                "Our layouts are structured to secure both financial growth and ecological balance for multi-generational ownership."
+              </p>
+            </div>
+
+            {/* Micro-Features Row */}
+            <div className="grid grid-cols-2 gap-6 pt-4">
+              <div className="space-y-1">
+                <div className="flex items-center gap-1.5 text-[#163A2D] font-semibold text-xs tracking-wide">
+                  <ShieldCheck className="w-4 h-4 text-[#C6A96B]" />
+                  <span>PRE-MUTATED DEEDS</span>
                 </div>
-              );
-            })}
-          </motion.div>
+                <p className="text-[10px] text-neutral-500 leading-normal font-sans font-light">
+                  100% pre-verified clear title deeds, ready for registration.
+                </p>
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center gap-1.5 text-[#163A2D] font-semibold text-xs tracking-wide">
+                  <CalendarRange className="w-4 h-4 text-[#C6A96B]" />
+                  <span>DTCP APPROVED</span>
+                </div>
+                <p className="text-[10px] text-neutral-500 leading-normal font-sans font-light">
+                  Fully compliant layouts with government approvals.
+                </p>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="pt-2">
+              <button
+                onClick={() => {
+                  const el = document.getElementById("developments");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                  trackAnalyticsEvent("Manifesto CTA Clicked", "Engagement", "manifesto_explore");
+                }}
+                className="btn-luxury-primary text-[10px] font-mono tracking-widest uppercase flex items-center gap-2 cursor-pointer shadow-md shadow-[#163A2D]/10 hover:shadow-lg transition-all focus-premium"
+              >
+                <span>View Gated Layouts</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+          </div>
+
         </div>
+
       </div>
     </section>
   );

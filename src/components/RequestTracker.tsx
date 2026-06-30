@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "motion/react";
 import { X, CheckCircle, Clock, FileDown, ShieldCheck, Download, ExternalLink, RefreshCw } from "lucide-react";
 import { LeadSubmission, SiteVisitSchedule } from "../types";
@@ -11,6 +12,16 @@ interface RequestTrackerProps {
 }
 
 export default function RequestTracker({ isOpen, onClose, leads, visits, onCancelVisit }: RequestTrackerProps) {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const sampleReportsAvailable = [

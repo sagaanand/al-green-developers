@@ -146,7 +146,7 @@ export default function Footer({ onScrollToSection, onOpenProjectDetail, faqType
   };
 
   return (
-    <footer id="footer-section" className="relative w-full bg-[#24421E] text-[#FAFBF9] pt-20 pb-28 sm:pb-24 border-t border-white/10 overflow-hidden font-sans">
+    <footer id="footer-section" className="relative w-full bg-[#111827] text-[#FAFBF9] pt-20 pb-28 sm:pb-24 border-t border-white/10 overflow-hidden font-sans">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* FAQs Accordion Section */}
@@ -374,7 +374,7 @@ export default function Footer({ onScrollToSection, onOpenProjectDetail, faqType
               initial={{ scale: 0.95, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 20 }}
-              className="bg-[#0b1a12] border border-white/20 p-6 sm:p-8 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl relative text-left space-y-6"
+              className="bg-[#1f2937] border border-white/20 p-6 sm:p-8 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl relative text-left space-y-6"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
