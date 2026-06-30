@@ -30,7 +30,7 @@
 
   /* Typography (Accenture Infra Brand Guidelines) */
   --font-sans: 'Inter', system-ui, sans-serif;
-  --font-display: 'Bodoni Moda', 'Bodoni MT', 'Arapey', 'Alta', Georgia, serif;
+  --font-display: 'Arapey', 'Bodoni Moda', 'Bodoni MT', 'Alta', Georgia, serif;
   --font-numbers: 'Manrope', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   
