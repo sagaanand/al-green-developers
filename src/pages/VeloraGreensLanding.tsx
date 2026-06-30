@@ -21,7 +21,7 @@ export default function VeloraGreensLanding() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0d1f0c] text-white font-sans">
+    <div className="min-h-screen bg-white text-neutral-800 font-sans">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
@@ -31,7 +31,7 @@ export default function VeloraGreensLanding() {
             alt="Velora Greens"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0d1f0c]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-white" />
         </div>
 
         {/* Content */}
@@ -41,7 +41,7 @@ export default function VeloraGreensLanding() {
             <div className="space-y-8">
               {/* Logo */}
               <div className="flex items-center">
-                <img src={logoLight} alt="Accenture Infra Logo" className="h-10 w-auto object-contain" />
+                <img src={logoLight} alt="Accenture Infra Logo" className="h-10 w-auto object-contain invert" />
               </div>
 
               {/* Headline */}
@@ -51,13 +51,13 @@ export default function VeloraGreensLanding() {
                 transition={{ duration: 0.8 }}
               >
                 <TypingHeader
-                  className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-4 text-white"
+                  className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-4 text-[#163A2D]"
                   segments={[{ text: "VELORA GREENS" }]}
                 />
                 <p className="text-xl md:text-2xl text-[#BAA360] font-semibold mb-6">
                   Modern Living & Courtyard Homes in Bangalore East
                 </p>
-                <div className="flex items-center gap-2 text-white/80 mb-4">
+                <div className="flex items-center gap-2 text-neutral-600 mb-4">
                   <MapPin className="w-5 h-5 text-[#BAA360]" />
                   <span className="text-lg">Sarjapur-Varthur Tech Belt</span>
                 </div>
@@ -94,9 +94,9 @@ export default function VeloraGreensLanding() {
                   { icon: Shield, text: "RERA Approved" },
                   { icon: Award, text: "9.5 Investment Score" }
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-xl">
+                  <div key={idx} className="flex items-center gap-3 bg-[#F8FAF8] border border-neutral-200 p-4 rounded-xl">
                     <item.icon className="w-6 h-6 text-[#BAA360]" />
-                    <span className="text-sm font-medium">{item.text}</span>
+                    <span className="text-sm font-medium text-[#163A2D]">{item.text}</span>
                   </div>
                 ))}
               </motion.div>
@@ -108,11 +108,11 @@ export default function VeloraGreensLanding() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="bg-[#24421E]/95 backdrop-blur-xl p-8 rounded-2xl border border-white/10 shadow-2xl max-w-md mx-auto lg:mx-0"
+              className="bg-white/95 backdrop-blur-xl p-8 rounded-2xl border border-neutral-200 shadow-2xl max-w-md mx-auto lg:mx-0 text-left"
             >
               <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold mb-2">Book Free Site Visit</h2>
-                <p className="text-white/70 text-sm">
+                <h2 className="text-2xl font-bold mb-2 text-[#163A2D]">Book Free Site Visit</h2>
+                <p className="text-neutral-600 text-sm">
                   Get exclusive access to Velora Greens with complimentary pickup
                 </p>
               </div>
@@ -126,7 +126,7 @@ export default function VeloraGreensLanding() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-[#BAA360] transition-colors"
+                      className="w-full px-4 py-3 bg-white border border-neutral-300 rounded-lg text-neutral-800 placeholder-neutral-400 focus:outline-none focus:border-[#BAA360] transition-colors"
                     />
                   </div>
                   <div>
@@ -137,7 +137,7 @@ export default function VeloraGreensLanding() {
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       required
                       pattern="[0-9]{10}"
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-[#BAA360] transition-colors"
+                      className="w-full px-4 py-3 bg-white border border-neutral-300 rounded-lg text-neutral-800 placeholder-neutral-400 focus:outline-none focus:border-[#BAA360] transition-colors"
                     />
                   </div>
                   <button
@@ -154,7 +154,7 @@ export default function VeloraGreensLanding() {
                       </>
                     )}
                   </button>
-                  <p className="text-center text-xs text-white/50">
+                  <p className="text-center text-xs text-neutral-500">
                     By submitting, you agree to receive calls from our team
                   </p>
                 </form>
@@ -167,8 +167,8 @@ export default function VeloraGreensLanding() {
                   <div className="w-16 h-16 bg-[#BAA360] rounded-full flex items-center justify-center mx-auto mb-4">
                     <Check className="w-8 h-8 text-black" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">Thank You!</h3>
-                  <p className="text-white/70 text-sm">
+                  <h3 className="text-xl font-bold mb-2 text-[#163A2D]">Thank You!</h3>
+                  <p className="text-neutral-600 text-sm">
                     Our team will call you shortly to schedule your free site visit
                   </p>
                 </motion.div>
@@ -179,7 +179,7 @@ export default function VeloraGreensLanding() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-[#0d1f0c] bg-overlay-canopy">
+      <section className="py-20 bg-[#F8FAF8] bg-overlay-canopy">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -187,8 +187,8 @@ export default function VeloraGreensLanding() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-display text-3xl md:text-4xl font-semibold mb-4">Why Velora Greens?</h2>
-            <p className="text-white/70 max-w-2xl mx-auto">
+            <h2 className="font-display text-3xl md:text-4xl font-semibold mb-4 text-[#163A2D]">Why Velora Greens?</h2>
+            <p className="text-neutral-600 max-w-2xl mx-auto">
               A thoughtfully envisioned community in East Bangalore designed for elevated peace, lower spatial density, and high air exchange
             </p>
           </motion.div>
@@ -232,11 +232,11 @@ export default function VeloraGreensLanding() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 hover:border-[#BAA360]/50 transition-colors"
+                className="bg-white p-6 rounded-xl border border-neutral-200 hover:border-[#BAA360]/50 shadow-sm transition-colors text-left"
               >
                 <feature.icon className="w-10 h-10 text-[#BAA360] mb-4" />
-                <h3 className="text-xl font-sans font-semibold mb-2">{feature.title}</h3>
-                <p className="text-white/70 text-sm">{feature.description}</p>
+                <h3 className="text-xl font-sans font-semibold mb-2 text-[#163A2D]">{feature.title}</h3>
+                <p className="text-neutral-600 text-sm">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -244,7 +244,7 @@ export default function VeloraGreensLanding() {
       </section>
 
       {/* Location Section */}
-      <section className="py-20 bg-[#24421E] bg-overlay-topographic">
+      <section className="py-20 bg-white bg-overlay-topographic">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -252,8 +252,8 @@ export default function VeloraGreensLanding() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-display text-3xl md:text-4xl font-semibold mb-6">Prime Location</h2>
-              <p className="text-white/70 mb-8">
+              <h2 className="font-display text-3xl md:text-4xl font-semibold mb-6 text-[#163A2D]">Prime Location</h2>
+              <p className="text-neutral-600 mb-8">
                 Located in the Sarjapur-Varthur Tech Belt, one of Bangalore East's fastest-growing corridors with exceptional connectivity and infrastructure development.
               </p>
               <div className="space-y-4">
@@ -265,7 +265,7 @@ export default function VeloraGreensLanding() {
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <Check className="w-5 h-5 text-[#BAA360]" />
-                    <span className="text-white/90">{item}</span>
+                    <span className="text-neutral-700">{item}</span>
                   </div>
                 ))}
               </div>
@@ -274,12 +274,12 @@ export default function VeloraGreensLanding() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-white/5 p-8 rounded-xl border border-white/10"
+              className="bg-[#F8FAF8] p-8 rounded-xl border border-neutral-200"
             >
               <div className="text-center">
                 <MapPin className="w-16 h-16 text-[#BAA360] mx-auto mb-4" />
-                <h3 className="font-sans text-2xl font-semibold mb-2">Sarjapur-Varthur Tech Belt</h3>
-                <p className="text-white/70">Bangalore East</p>
+                <h3 className="font-sans text-2xl font-semibold mb-2 text-[#163A2D]">Sarjapur-Varthur Tech Belt</h3>
+                <p className="text-neutral-600">Bangalore East</p>
               </div>
             </motion.div>
           </div>
@@ -287,15 +287,15 @@ export default function VeloraGreensLanding() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-[#0d1f0c] bg-overlay-canopy">
+      <section className="py-20 bg-[#F8FAF8] bg-overlay-canopy">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-3xl md:text-4xl font-semibold mb-4">Don't Miss This Opportunity</h2>
-            <p className="text-white/70 mb-8">
+            <h2 className="font-display text-3xl md:text-4xl font-semibold mb-4 text-[#163A2D]">Don't Miss This Opportunity</h2>
+            <p className="text-neutral-600 mb-8">
               Limited inventory at launch pricing. Book your free site visit today.
             </p>
             <a
@@ -310,9 +310,9 @@ export default function VeloraGreensLanding() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-[#132210] border-t border-white/10">
+      <footer className="py-8 bg-white border-t border-neutral-200">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-white/50 text-sm">
+          <p className="text-neutral-500 text-sm">
             © {new Date().getFullYear()} Accenture Infra Ecosystem Private Limited. RERA Approved.
           </p>
         </div>

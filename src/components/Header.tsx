@@ -91,11 +91,19 @@ export default function Header({ onScrollToSection, onOpenTracker, activeSection
       <header
         id="main-nav-header"
         className="fixed top-0 left-0 w-full z-[99999] transform translate-z-0 will-change-transform py-3 transition-all duration-300"
-        style={{
-          background: 'transparent',
-          backdropFilter: 'none',
-          borderBottom: 'none'
-        }}
+        style={
+          isScrolled
+            ? {
+                background: "rgba(255, 255, 255, 0.9)",
+                backdropFilter: "blur(16px)",
+                borderBottom: "1px solid rgba(0, 0, 0, 0.06)",
+              }
+            : {
+                background: "transparent",
+                backdropFilter: "none",
+                borderBottom: "none",
+              }
+        }
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between relative">
           {/* Logo Brand */}
