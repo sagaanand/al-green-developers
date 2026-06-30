@@ -1,34 +1,42 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand Colors */
-  --color-primary: #163A2D;
-  --color-primary-dark: #0F2A20;
-  --color-secondary-green: #2B5D4C;
-  --color-accent-green: #4A7C59;
+  /* Brand Colors (Accenture Infra Brand Guidelines) */
+  --color-primary: #353233;
+  --color-primary-dark: #1A1711;
+  --color-secondary-green: #353233;
+  --color-accent-green: #B8A25D;
 
-  --color-gold: #C6A96B;
-  --color-gold-light: #D5B97A;
-  --color-gold-dark: #A38548;
+  --color-gold: #B8A25D;
+  --color-gold-light: #FFECB6;
+  --color-gold-dark: #A57C2C;
+  --color-gold-accent: #B8973A;
 
   --color-surface: #FFFFFF;
   --color-surface-alt: #F8FAF8;
 
-  --color-text: #163A2D;
+  --color-text: #1A1711;
   --color-text-secondary: #4B5563;
   --color-border: #E5E7EB;
 
-  --color-forest: #163A2D;
-  --color-forest-dark: #0F2A20;
-  --color-dark-bg: #0F2A20;
+  --color-forest: #353233;
+  --color-forest-dark: #1A1711;
+  --color-dark-bg: #1A1711;
   --color-light: #FFFFFF;
   --color-muted-text: #6B7280;
 
-  /* Typography */
+  --color-charcoal-dark: #1A1711;
+  --color-charcoal-light: #353233;
+
+  /* Typography (Accenture Infra Brand Guidelines) */
   --font-sans: 'Inter', system-ui, sans-serif;
-  --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-display: 'Bodoni Moda', 'Bodoni MT', 'Arapey', 'Alta', Georgia, serif;
   --font-numbers: 'Manrope', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  
+  --font-bodoni: 'Bodoni Moda', 'Bodoni MT', serif;
+  --font-arapey: 'Arapey', serif;
+  --font-alta: 'Alta', 'Bodoni Moda', 'Bodoni MT', serif;
 }
 
 @layer base {
@@ -342,6 +350,18 @@ button, a {
   font-style: italic;
   letter-spacing: 0.01em;
   line-height: 1.2;
+}
+
+.font-bodoni {
+  font-family: var(--font-bodoni);
+}
+
+.font-arapey {
+  font-family: var(--font-arapey);
+}
+
+.font-alta {
+  font-family: var(--font-alta);
 }
 
 .font-luxury-body {
