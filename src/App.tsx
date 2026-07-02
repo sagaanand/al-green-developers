@@ -27,6 +27,7 @@ import HayatGreenzResort from "./pages/HayatGreenzResort";
 import AccentureGreenzWarehousing from "./pages/AccentureGreenzWarehousing";
 import HomePage2 from "./pages/HomePage2";
 import Contact from "./pages/Contact";
+import Linktree from "./pages/Linktree";
 import ScrollToTop from "./components/ScrollToTop";
 import { LeadSubmission, SiteVisitSchedule } from "./types";
 import { Compass } from "lucide-react";
@@ -208,6 +209,10 @@ export default function App() {
         {/* Homepage V2 — Video Hero */}
         <Route path="/home2" element={<HomePage2 />} />
         <Route path="/beta" element={<HomePage2 />} />
+
+        {/* Linktree Bio Pages */}
+        <Route path="/links" element={<Linktree />} />
+        <Route path="/linktree" element={<Linktree />} />
 
         {/* Main Website Route */}
         <Route path="*" element={
